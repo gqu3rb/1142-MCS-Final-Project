@@ -1,0 +1,203 @@
+.title SRAM and Sense Amplifier Simulation
+*****************************
+**     Library setting     **
+*****************************
+.protect
+.include '7nm_TT.pm'
+.unprotect 
+.include '6to64_row_decoder.sp'
+.include 'SRAM_array_64x32.sp'
+
+*****************************
+**   Circuit Description   **
+*****************************
+* 呼叫 Row Decoder (注意：引腳順序必須跟上面定義的完全一模一樣)
+xdecoder A6 A5 A4 A3 A2 A1
++ WL0 WL1 WL2 WL3 WL4 WL5 WL6 WL7 WL8 WL9 WL10 WL11 WL12 WL13 WL14 WL15
++ WL16 WL17 WL18 WL19 WL20 WL21 WL22 WL23 WL24 WL25 WL26 WL27 WL28 WL29 WL30 WL31
++ WL32 WL33 WL34 WL35 WL36 WL37 WL38 WL39 WL40 WL41 WL42 WL43 WL44 WL45 WL46 WL47
++ WL48 WL49 WL50 WL51 WL52 WL53 WL54 WL55 WL56 WL57 WL58 WL59 WL60 WL61 WL62 WL63
++ ROW_DEC_6to64
+
+XARRAY_TOP PRE SAEN VDD GND 
++ WL0 WL1 WL2 WL3 WL4 WL5 WL6 WL7 WL8 WL9 WL10 WL11 WL12 WL13 WL14 WL15
++ WL16 WL17 WL18 WL19 WL20 WL21 WL22 WL23 WL24 WL25 WL26 WL27 WL28 WL29 WL30 WL31
++ WL32 WL33 WL34 WL35 WL36 WL37 WL38 WL39 WL40 WL41 WL42 WL43 WL44 WL45 WL46 WL47
++ WL48 WL49 WL50 WL51 WL52 WL53 WL54 WL55 WL56 WL57 WL58 WL59 WL60 WL61 WL62 WL63
++ SENSE_OUT0  SENSE_OUTB0  WEN_BL0  WEN_BLB0
++ SENSE_OUT1  SENSE_OUTB1  WEN_BL1  WEN_BLB1
++ SENSE_OUT2  SENSE_OUTB2  WEN_BL2  WEN_BLB2
++ SENSE_OUT3  SENSE_OUTB3  WEN_BL3  WEN_BLB3
++ SENSE_OUT4  SENSE_OUTB4  WEN_BL4  WEN_BLB4
++ SENSE_OUT5  SENSE_OUTB5  WEN_BL5  WEN_BLB5
++ SENSE_OUT6  SENSE_OUTB6  WEN_BL6  WEN_BLB6
++ SENSE_OUT7  SENSE_OUTB7  WEN_BL7  WEN_BLB7
++ SENSE_OUT8  SENSE_OUTB8  WEN_BL8  WEN_BLB8
++ SENSE_OUT9  SENSE_OUTB9  WEN_BL9  WEN_BLB9
++ SENSE_OUT10 SENSE_OUTB10 WEN_BL10 WEN_BLB10
++ SENSE_OUT11 SENSE_OUTB11 WEN_BL11 WEN_BLB11
++ SENSE_OUT12 SENSE_OUTB12 WEN_BL12 WEN_BLB12
++ SENSE_OUT13 SENSE_OUTB13 WEN_BL13 WEN_BLB13
++ SENSE_OUT14 SENSE_OUTB14 WEN_BL14 WEN_BLB14
++ SENSE_OUT15 SENSE_OUTB15 WEN_BL15 WEN_BLB15
++ SENSE_OUT16 SENSE_OUTB16 WEN_BL16 WEN_BLB16
++ SENSE_OUT17 SENSE_OUTB17 WEN_BL17 WEN_BLB17
++ SENSE_OUT18 SENSE_OUTB18 WEN_BL18 WEN_BLB18
++ SENSE_OUT19 SENSE_OUTB19 WEN_BL19 WEN_BLB19
++ SENSE_OUT20 SENSE_OUTB20 WEN_BL20 WEN_BLB20
++ SENSE_OUT21 SENSE_OUTB21 WEN_BL21 WEN_BLB21
++ SENSE_OUT22 SENSE_OUTB22 WEN_BL22 WEN_BLB22
++ SENSE_OUT23 SENSE_OUTB23 WEN_BL23 WEN_BLB23
++ SENSE_OUT24 SENSE_OUTB24 WEN_BL24 WEN_BLB24
++ SENSE_OUT25 SENSE_OUTB25 WEN_BL25 WEN_BLB25
++ SENSE_OUT26 SENSE_OUTB26 WEN_BL26 WEN_BLB26
++ SENSE_OUT27 SENSE_OUTB27 WEN_BL27 WEN_BLB27
++ SENSE_OUT28 SENSE_OUTB28 WEN_BL28 WEN_BLB28
++ SENSE_OUT29 SENSE_OUTB29 WEN_BL29 WEN_BLB29
++ SENSE_OUT30 SENSE_OUTB30 WEN_BL30 WEN_BLB30
++ SENSE_OUT31 SENSE_OUTB31 WEN_BL31 WEN_BLB31
++ SRAM_Array_64x32
+
+
+*****************************
+**     Voltage Source      **
+*****************************
+* Do not modify below *
+.global VDD GND
+.param  BITCAP = 10f
+
+VVDD VDD GND 0.7v
+
+*CBLB BLB GND BITCAP
+*CBL  BL  GND BITCAP
+
+
+*Read model voltage supply
+*Vw WL   GND PULSE  ( 0V  0.7V     4ns  0.05ns  0.05ns  0.2ns   1ns )
+*Vp PRE  GND PULSE  ( 0V  0.7V     4ns  0.05ns  0.05ns  0.35ns  1ns )
+*Vs SAEN GND PULSE  ( 0V  0.7V  4.25ns  0.05ns  0.05ns  0.1ns   1ns )
+
+*write model voltage supply
+VA1 A1 GND 0V
+VA2 A2 GND 0V
+VA3 A3 GND 0V
+VA4 A4 GND 0V
+VA5 A5 GND 0V
+VA6 A6 GND 0V
+
+Vp PRE  GND PULSE  ( 0V  0.7V     4ns  0.05ns  0.05ns  0.35ns  1ns )
+Vs SAEN GND 0V
+
+Vwen_blb0 WEN_BLB0 GND PULSE  ( 0V  0.7V  4ns  0.05ns  0.05ns  0.3ns   1ns )
+Vwen_bl0  WEN_BL0  GND 0V
+
+Vwen_blb1 WEN_BLB1 GND 0V
+Vwen_bl1  WEN_BL1  GND 0V
+Vwen_blb2 WEN_BLB2 GND 0V
+Vwen_bl2  WEN_BL2  GND 0V
+Vwen_blb3 WEN_BLB3 GND 0V
+Vwen_bl3  WEN_BL3  GND 0V
+Vwen_blb4 WEN_BLB4 GND 0V
+Vwen_bl4  WEN_BL4  GND 0V
+Vwen_blb5 WEN_BLB5 GND 0V
+Vwen_bl5  WEN_BL5  GND 0V
+Vwen_blb6 WEN_BLB6 GND 0V
+Vwen_bl6  WEN_BL6  GND 0V
+Vwen_blb7 WEN_BLB7 GND 0V
+Vwen_bl7  WEN_BL7  GND 0V
+Vwen_blb8 WEN_BLB8 GND 0V
+Vwen_bl8  WEN_BL8  GND 0V
+Vwen_blb9 WEN_BLB9 GND 0V
+Vwen_bl9  WEN_BL9  GND 0V
+Vwen_blb10 WEN_BLB10 GND 0V
+Vwen_bl10  WEN_BL10  GND 0V
+Vwen_blb11 WEN_BLB11 GND 0V
+Vwen_bl11  WEN_BL11  GND 0V
+Vwen_blb12 WEN_BLB12 GND 0V
+Vwen_bl12  WEN_BL12  GND 0V
+Vwen_blb13 WEN_BLB13 GND 0V
+Vwen_bl13  WEN_BL13  GND 0V
+Vwen_blb14 WEN_BLB14 GND 0V
+Vwen_bl14  WEN_BL14  GND 0V
+Vwen_blb15 WEN_BLB15 GND 0V
+Vwen_bl15  WEN_BL15  GND 0V
+Vwen_blb16 WEN_BLB16 GND 0V
+Vwen_bl16  WEN_BL16  GND 0V
+Vwen_blb17 WEN_BLB17 GND 0V
+Vwen_bl17  WEN_BL17  GND 0V
+Vwen_blb18 WEN_BLB18 GND 0V
+Vwen_bl18  WEN_BL18  GND 0V
+Vwen_blb19 WEN_BLB19 GND 0V
+Vwen_bl19  WEN_BL19  GND 0V
+Vwen_blb20 WEN_BLB20 GND 0V
+Vwen_bl20  WEN_BL20  GND 0V
+Vwen_blb21 WEN_BLB21 GND 0V
+Vwen_bl21  WEN_BL21  GND 0V
+Vwen_blb22 WEN_BLB22 GND 0V
+Vwen_bl22  WEN_BL22  GND 0V
+Vwen_blb23 WEN_BLB23 GND 0V
+Vwen_bl23  WEN_BL23  GND 0V
+Vwen_blb24 WEN_BLB24 GND 0V
+Vwen_bl24  WEN_BL24  GND 0V
+Vwen_blb25 WEN_BLB25 GND 0V
+Vwen_bl25  WEN_BL25  GND 0V
+Vwen_blb26 WEN_BLB26 GND 0V
+Vwen_bl26  WEN_BL26  GND 0V
+Vwen_blb27 WEN_BLB27 GND 0V
+Vwen_bl27  WEN_BL27  GND 0V
+Vwen_blb28 WEN_BLB28 GND 0V
+Vwen_bl28  WEN_BL28  GND 0V
+Vwen_blb29 WEN_BLB29 GND 0V
+Vwen_bl29  WEN_BL29  GND 0V
+Vwen_blb30 WEN_BLB30 GND 0V
+Vwen_bl30  WEN_BL30  GND 0V
+Vwen_blb31 WEN_BLB31 GND 0V
+Vwen_bl31  WEN_BL31  GND 0V
+
+* Do not modify above *
+
+*****************************
+**    Initial Conditions   **
+*****************************
+* Do not modify the initial conditions for BL and BLB, which are both 0V.
+* We assume there is no initial voltage on the bitlines before precharge.
+.ic v(XARRAY_TOP.xCOL0.BL0)  = 0v
+.ic v(XARRAY_TOP.xCOL0.BLB0) = 0v
+.ic v(XARRAY_TOP.xCOL1.BL0)  = 0v
+.ic v(XARRAY_TOP.xCOL1.BLB0) = 0v
+
+
+* You should set the initial conditions for q and qb in the SRAM.
+* q should be 0V and qb should be 0.7V, which means the SRAM cell is storing "0".
+.ic v(XARRAY_TOP.xCOL0.q0) = 0v
+.ic v(XARRAY_TOP.xCOL0.qb0) = 0.7v
+.ic v(XARRAY_TOP.xCOL1.q0) = 0v
+.ic v(XARRAY_TOP.xCOL1.qb0) = 0.7v
+
+*****************************
+**    Simulator setting    **
+*****************************
+.op
+.option post 
+.options probe
+.probe v(*) i(*)
+
+* Do Not Modify !!!
+.tran 0.05ns 5ns 
+
+*read model
+*.measure tp
+*+ TRIG v(SAEN) VAL='0.35' rise=1
+*+ TARG v(sense) VAL='0.35' fall=1
+
+*write model
+.measure tp_write
++ TRIG v(WL0) VAL='0.35' rise=1
++ TARG v(XARRAY_TOP.xCOL0.q0) VAL='0.35' rise=1
+
+.probe tran v(XARRAY_TOP.xCOL0.q0) v(XARRAY_TOP.xCOL0.qb0) v(XARRAY_TOP.xCOL0.BL) v(XARRAY_TOP.xCOL0.BLB)
+.probe tran v(XARRAY_TOP.xCOL1.q0) v(XARRAY_TOP.xCOL1.qb0)
+.measure TRAN Avg_read_pwr avg POWER from=4n to=5n
+
+.end
+
