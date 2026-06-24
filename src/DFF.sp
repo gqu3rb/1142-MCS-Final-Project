@@ -1,0 +1,37 @@
+.TITLE DFF
+
+.SUBCKT INV IN OUT
+*Mxxx   Drain	Gate	Source	Bulk	Model
+*MP1     OUT     IN      VDD     VDD     pmos_lvt   W=2.7e-8    L=2e-8  nfin=1
+M1 OUT IN VDD VDD pmos_lvt W=2.7e-8 L=2e-8 nfin=1
+M2 OUT IN GND GND nmos_lvt W=2.7e-8 L=2e-8 nfin=1
+.ends 
+
+.SUBCKT SWITCH EN IN OUT
+x_INV EN EN_B INV
+M1 IN EN OUT GND nmos_lvt W=2.7e-8 L=2e-8 nfin=1
+M2 OUT EN_B IN VDD pmos_lvt W=2.7e-8 L=2e-8 nfin=1
+.ends
+
+.SUBCKT BUF IN OUT
+.param NFIN_SIZE=1
+
+M1 OUT1 IN VDD VDD pmos_lvt W=2.7e-8 L=2e-8 nfin=NFIN_SIZE
+M2 OUT1 IN GND GND nmos_lvt W=2.7e-8 L=2e-8 nfin=NFIN_SIZE
+M3 OUT OUT1 VDD VDD pmos_lvt W=2.7e-8 L=2e-8 nfin=NFIN_SIZE
+M4 OUT OUT1 GND GND nmos_lvt W=2.7e-8 L=2e-8 nfin=NFIN_SIZE
+.ends 
+
+.SUBCKT DFF CLK D Q
+x_INV1 CLK CLK_B INV 
+
+x_SWITCH1 CLK_B D SWITCH1_OUT SWITCH
+x_INV2 SWITCH1_OUT QM_B INV
+x_INV3 QM_B INV3_OUT INV
+x_SWITCH2 CLK INV3_OUT SWITCH1_OUT SWITCH
+
+x_SWITCH3 CLK QM_B QM_B_IN SWITCH
+x_INV4 QM_B_IN Q INV
+x_INV5 Q INV5_OUT INV
+x_SWITCH4 CLK_B INV5_OUT QM_B_IN SWITCH
+.ends
