@@ -94,8 +94,8 @@ Mn2 IN2 sel OUT2 GND nmos_lvt m=1
 + sel1_0  sel1_1
 + sel2_0  sel2_1
 + sel3_0  sel3_1
-Xinv_en WEN    WEN_b  INV_c
-Xand    WEN_b  IN     select AND2_c
+*Xinv_en WEN    WEN_b  INV_c
+Xand    WEN  IN     select AND2_c
 Xdec    select sel0_0 sel0_1 DEC_1to2
 
 Xinv0 sel0_0 sel1_1 INV_c
