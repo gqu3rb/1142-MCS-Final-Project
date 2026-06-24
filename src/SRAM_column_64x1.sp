@@ -134,9 +134,8 @@ xcell63 WL63 BL BLB q63 qb63 SRAM
 xSA BL BLB sense senseB SAEN voltage_SA 
 
 * write driver 
-Mnwd_bl  BL  WEN_BL  GND GND nmos_sram m = 4
-Mnwd_blb BLB WEN_BLB GND GND nmos_sram m = 4
-
+Mnwd_blb BLB WEN_BL  GND GND nmos_lvt m=4
+Mnwd_bl  BL  WEN_BLB GND GND nmos_lvt m=4
 
 .ends
 
