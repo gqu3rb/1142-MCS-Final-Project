@@ -6,8 +6,8 @@
 
 * ------ 1. 基礎邏輯閘子電路(column decoder) ------
 .subckt INV_c IN OUT
-Mp OUT IN VDD VDD pmos_lvt m=1
-Mn OUT IN GND GND nmos_lvt m=1
+Mp OUT IN VDD VDD pmos_lvt W=2.7e-08 L=2e-08 nfin=3
+Mn OUT IN GND GND nmos_lvt W=2.7e-08 L=2e-08 nfin=3
 .ends
 
 .subckt DEC_1to2 IN OUT_b OUT
@@ -16,10 +16,10 @@ Xsel1 OUT_b OUT INV_c
 .ends
 
 .subckt AND2_c IN1 IN2 OUT
-Mp1 OUT_b IN1 VDD VDD pmos_lvt m=1
-Mp2 OUT_b IN2 VDD VDD pmos_lvt m=1
-Mn1 OUT_b IN1 n1  GND nmos_lvt m=1
-Mn2 n1    IN2 GND GND nmos_lvt m=1
+Mp1 OUT_b IN1 VDD VDD pmos_lvt W=2.7e-08 L=2e-08 nfin=1
+Mp2 OUT_b IN2 VDD VDD pmos_lvt W=2.7e-08 L=2e-08 nfin=1
+Mn1 OUT_b IN1 n1  GND nmos_lvt W=2.7e-08 L=2e-08 nfin=3
+Mn2 n1    IN2 GND GND nmos_lvt W=2.7e-08 L=2e-08 nfin=3
 Xinv OUT_b OUT INV_c
 .ends
 
