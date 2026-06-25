@@ -130,6 +130,10 @@ xcell61 WL61 BL BLB q61 qb61 VDD VSS VDD_W VSS_SUB SRAM
 xcell62 WL62 BL BLB q62 qb62 VDD VSS VDD_W VSS_SUB SRAM
 xcell63 WL63 BL BLB q63 qb63 VDD VSS VDD_W VSS_SUB SRAM
 
+* Recall: Ex-3_講解_中文_720p_32k.mp4, 02:40
+CBL BL GND '80f/512*64' 
+CBLB BLB GND '80f/512*64' 
+
 * Sense Amplifier (voltage)
 xSA BL BLB sense senseB SAEN voltage_SA 
 

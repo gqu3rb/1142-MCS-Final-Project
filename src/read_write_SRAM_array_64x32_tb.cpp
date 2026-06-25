@@ -6,8 +6,8 @@
 #include <iomanip> // for setprecision(3)
 
 // Simulation Options
-#define SHORT_SIMULATION_VER 1 // short simulation ver only test the first 16 rows
-#define PROB_ALL_SIGNAL 1
+#define SHORT_SIMULATION_VER 0 // short simulation ver only test the first 8 rows
+#define PROB_ALL_SIGNAL 0
 #define PROB_EACH_CELL_Q_QB 0 // prob q and qb of all the cells in 64x32 array
 #define PROB_ALL_FIRST_COLUMN_CELL 0 // prob all signals of the first column
 
@@ -29,8 +29,8 @@
 #define WL_PHASE_WRITE 7*CLK_PERIOD/8 
 
 // for read operation
-#define PRE_PHASE 2*CLK_PERIOD/8
-#define WL_PHASE_READ 3*CLK_PERIOD/8
+#define PRE_PHASE 3*CLK_PERIOD/8
+#define WL_PHASE_READ 2*CLK_PERIOD/8
 #define SENSE_PHASE 3*CLK_PERIOD/8
 // }} end of Read/Write Operation Timing Settings
 
@@ -199,9 +199,14 @@ int main(int argc, char *argv[])
   
     // vvvvv please complete the parts there vvvvv
     // ── Timing constants ───────────────────────────────────────────────────
-    const int    N_OPS  = 64;          // 64 addresses (addr0 .. addr63)
-    const int    N_CYC  = 2 * N_OPS;   // 128 cycles: each address = write cycle + read cycle
-    const double T_SKEW = 0.1;         // inputs switch 0.1ns AFTER each clk edge (~0.9ns setup)
+#if SHORT_SIMULATION_VER
+    const int N_OPS = 16;    // short ver: test addr 0~15 only
+#else
+    const int N_OPS = 128;   // full ver:  test all addr 0~127
+#endif
+    const int    N_CYC  = 2 * N_OPS;
+    // total sim time: boot + all cycles + 2ns margin
+    const double T_SIM  = T_BOOT + N_CYC * CLK_PERIOD + 2.0;
 
     out << fixed << setprecision(3);
 
@@ -209,7 +214,7 @@ int main(int argc, char *argv[])
     //   - even c -> WRITE of address (c/2)
     //   - odd  c -> READ  of address (c/2)
     // A value that must be sampled at edge c switches in at
-    //   t = T_BOOT + (c-1)*CLK_PERIOD + T_SKEW   (just after the previous edge).
+    //   t = T_BOOT + (c-1)*CLK_PERIOD + RISE_FALL_TIME   (just after the previous edge).
 
     // ── CLK ────────────────────────────────────────────────────────────────
     // 1GHz, 50% duty, first rising edge at T_BOOT.
@@ -220,9 +225,24 @@ int main(int argc, char *argv[])
 
     // ── PRE ────────────────────────────────────────────────────────────────
     // ACTIVATE LOW precharge, only activated in read cycles
-    out << "Vp PRE GND PULSE(" << VDD_VAL << "V " << 0 << "V "
-        << T_BOOT+CLK_PERIOD+RISE_FALL_TIME << "ns " << RISE_FALL_TIME << "ns " << RISE_FALL_TIME << "ns "
-        << PRE_PHASE << "ns " << CLK_PERIOD*2 << "ns)" << endl;
+    out << "Vp PRE GND PWL(0ns " << VDD_VAL << "V";
+    for (int k = 0; k < N_OPS; k++) {
+        double Tr = T_BOOT + (2.0 * k + 1.0) * CLK_PERIOD; // only activate in read cycles
+        double Ts1 = Tr; // first start time in a single cycle
+        double Ts2 = Tr + PRE_PHASE + RISE_FALL_TIME + WL_PHASE_READ; // second start time in a single cycle
+        out << " " << Ts1 << "ns " << VDD_VAL << "V"
+            << " " << (Ts1 + RISE_FALL_TIME) << "ns " << "0V"
+            << " " << (Ts1 + RISE_FALL_TIME + PRE_PHASE) << "ns " << "0V"
+            << " " << (Ts1 + RISE_FALL_TIME + PRE_PHASE + RISE_FALL_TIME) << "ns " << VDD_VAL << "V"
+            << " " << Ts2 << "ns " << VDD_VAL << "V"
+            // Refer to:
+            // Semiconductor Memory Devices and Circuits, Shimeng Yu, 2022.pdf, P.24(41)
+            // The second times PRE signal is asserted for the same duration as the SAEN
+            << " " << (Ts2 + RISE_FALL_TIME) << "ns " << "0V"
+            << " " << (Ts2 + RISE_FALL_TIME + SENSE_PHASE) << "ns " << "0V"
+            << " " << (Ts2 + RISE_FALL_TIME + SENSE_PHASE + RISE_FALL_TIME) << "ns " << VDD_VAL << "V";
+    }
+    out << ")" << endl;
     out << endl;
 
     // ── SAEN ───────────────────────────────────────────────────────────────
@@ -245,7 +265,7 @@ int main(int argc, char *argv[])
 
     // Active LOW ROW_DEC_EN
     out << "Vrow_dec_en ROW_DEC_EN GND PWL(0ns " << VDD_VAL << "V";
-    for (int k = 0; k < N_OPS; k++) {
+    for (int k = 0; k < N_OPS*2; k++) {
         double Tr = T_BOOT + k * CLK_PERIOD;
         double Ts; // start time in a single cycle
         double activate_len;
@@ -275,7 +295,7 @@ int main(int argc, char *argv[])
         for (int c = 1; c < N_CYC; c++) {
             int cur = (c % 2);                 // 0 = write(LOW), 1 = read(HIGH)
             if (cur != prev) {
-                double Tt = T_BOOT + (c - 1) * CLK_PERIOD + T_SKEW;
+                double Tt = T_BOOT + (c - 1) * CLK_PERIOD + RISE_FALL_TIME;
                 out << " " << Tt << "ns " << prev * VDD_VAL << "V"
                     << " " << (Tt + RISE_FALL_TIME) << "ns " << cur * VDD_VAL << "V";
             }
@@ -295,7 +315,7 @@ int main(int argc, char *argv[])
         for (int c = 1; c < N_CYC; c++) {
             int cur = ((c / 2) >> n) & 1;
             if (cur != prev) {
-                double Tt = T_BOOT + (c - 1) * CLK_PERIOD + T_SKEW;
+                double Tt = T_BOOT + (c - 1) * CLK_PERIOD + RISE_FALL_TIME;
                 out << " " << Tt << "ns " << prev * VDD_VAL << "V"
                     << " " << (Tt + RISE_FALL_TIME) << "ns " << cur * VDD_VAL << "V";
             }
@@ -322,7 +342,7 @@ int main(int argc, char *argv[])
                 cur = 0;
             }
             if (cur != prev) {
-                double Tt = T_BOOT + (c - 1) * CLK_PERIOD + T_SKEW;
+                double Tt = T_BOOT + (c - 1) * CLK_PERIOD + RISE_FALL_TIME;
                 out << " " << Tt << "ns " << prev * VDD_VAL << "V"
                     << " " << (Tt + RISE_FALL_TIME) << "ns " << cur * VDD_VAL << "V";
             }
@@ -406,13 +426,20 @@ int main(int argc, char *argv[])
     }
 #endif
 
-#if SHORT_SIMULATION_VER
-    out << ".tran 0.05ns 20ns" << endl; // 4 + 16 cycles
-#else
-    out << ".tran 0.05ns 134ns" << endl; // 4 + 128 cycles
-#endif
+    out << ".tran 0.05ns " << T_SIM << "ns" << endl;
+    out << "* N_OPS=" << N_OPS << ", N_CYC=" << N_CYC
+        << ", T_SIM=" << T_SIM << "ns" << endl;
 
     //.measure TRAN Avg_read_pwr avg POWER from=4n to=5n
 
+    //.measure tran row_0_write_verify FIND v(Q0) WHEN v(CLK)=0.35 RISE=3
+    //.measure tran row_1_write_verify FIND v(Q1) WHEN v(CLK)=0.35 RISE=5
+    //...
+    //.measure tran row_127_write_verify FIND v(Q15) WHEN v(CLK)=0.35 RISE=3+63*2
+    for(int i=0; i<N_OPS; i++) {
+        out << ".measure tran row_" << i << "_write_verify "
+            << "FIND v(Q" << i%16 << ") "
+            << "WHEN v(CLK)=0.35 RISE=" << 3+i*2 << endl;
+    }
     return 0;
 }
