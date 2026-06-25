@@ -5,33 +5,33 @@
 
 * ------ 1. 基礎邏輯閘子電路 ------
 .subckt INV_m1 IN OUT
-Mp OUT IN VDD VDD pmos_lvt m=1
-Mn OUT IN GND GND nmos_lvt m=1
+Mp OUT IN VDD VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=1
+Mn OUT IN GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=1
 .ends
 
 .subckt AND2 A B OUT
 * adjust the fin number to balance rise and fall latency
-Mn1 net1 A    GND  GND nmos_lvt m=2
-Mn2 OUT_b B    net1 GND nmos_lvt m=2
-Mp1 OUT_b A    VDD  VDD pmos_lvt m=1
-Mp2 OUT_b B    VDD  VDD pmos_lvt m=1
+Mn1 net1 A    GND  GND nmos_lvt L=2e-08 W=2.7e-08 nfin=2
+Mn2 OUT_b B    net1 GND nmos_lvt L=2e-08 W=2.7e-08 nfin=2
+Mp1 OUT_b A    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=1
+Mp2 OUT_b B    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=1
 Xinv OUT_b OUT INV_m1
 .ends
 
 .subckt NOR2 A B OUT
-Mp1 net1 A VDD VDD pmos_lvt m=2
-Mp2 OUT  B net1 VDD pmos_lvt m=2
-Mn1 OUT  A GND GND nmos_lvt m=1
-Mn2 OUT  B GND GND nmos_lvt m=1
+Mp1 net1 A VDD VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=2
+Mp2 OUT  B net1 VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=2
+Mn1 OUT  A GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=1
+Mn2 OUT  B GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=1
 .ends
 
 .subckt AND3 A B C OUT
-Mn1 net1 A    GND  GND nmos_lvt m=3
-Mn2 net2 B    net1 GND nmos_lvt m=3
-Mn3 OUT_b C    net2 GND nmos_lvt m=3
-Mp1 OUT_b A    VDD  VDD pmos_lvt m=1
-Mp2 OUT_b B    VDD  VDD pmos_lvt m=1
-Mp3 OUT_b C    VDD  VDD pmos_lvt m=1
+Mn1 net1 A    GND  GND nmos_lvt L=2e-08 W=2.7e-08 nfin=3
+Mn2 net2 B    net1 GND nmos_lvt L=2e-08 W=2.7e-08 nfin=3
+Mn3 OUT_b C    net2 GND nmos_lvt L=2e-08 W=2.7e-08 nfin=3
+Mp1 OUT_b A    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=1
+Mp2 OUT_b B    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=1
+Mp3 OUT_b C    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=1
 * this inverter can act as an inverted buffer to enhance driving ability
 Xinv OUT_b OUT INV_m1
 .ends

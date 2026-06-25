@@ -4,49 +4,49 @@
 *****************************
 * Do not modify the SRAM cell circuit.
 .subckt SRAM WL BL BLB q qb
-Mpr  q   qb  VDD  VDD  pmos_sram  m=1
-Mnr  q   qb  GND  GND  nmos_sram  m=1
+Mpr  q   qb  VDD  VDD  pmos_sram  L=2e-08 W=2.7e-08 nfin=1
+Mnr  q   qb  GND  GND  nmos_sram  L=2e-08 W=2.7e-08 nfin=1
 
-Mpl  qb  q  VDD  VDD  pmos_sram  m=1
-Mnl  qb  q  GND  GND  nmos_sram  m=1
+Mpl  qb  q  VDD  VDD  pmos_sram  L=2e-08 W=2.7e-08 nfin=1
+Mnl  qb  q  GND  GND  nmos_sram  L=2e-08 W=2.7e-08 nfin=1
 
-Mnpr BL  WL  q    GND  nmos_sram  m=1
-Mnpl BLB WL  qb   GND  nmos_sram  m=1
+Mnpr BL  WL  q    GND  nmos_sram  L=2e-08 W=2.7e-08 nfin=1
+Mnpl BLB WL  qb   GND  nmos_sram  L=2e-08 W=2.7e-08 nfin=1
 .ends
 
 .subckt precharge BL BLB pre
-Mpre_p1 BLB  pre  VDD VDD pmos_lvt  m=1
-Mpre_p2 BL   pre  VDD VDD pmos_lvt  m=1
-Mpre_p3 BLB  pre  BL  VDD pmos_lvt  m=1
+Mpre_p1 BLB  pre  VDD VDD pmos_lvt  L=2e-08 W=2.7e-08 nfin=1
+Mpre_p2 BL   pre  VDD VDD pmos_lvt  L=2e-08 W=2.7e-08 nfin=1
+Mpre_p3 BLB  pre  BL  VDD pmos_lvt  L=2e-08 W=2.7e-08 nfin=1
 
 .ends
 
 .subckt current_SA BL BLB sense senseb SAEN
-Mn0  net0   SAEN   GND   GND  nmos_lvt  m=4
+Mn0  net0   SAEN   GND   GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=4
 
-Mn1  net1   BL     net0  GND  nmos_lvt  m=2
-Mn2  net2   BLB    net0  GND  nmos_lvt  m=2
+Mn1  net1   BL     net0  GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=2
+Mn2  net2   BLB    net0  GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=2
 
-Mn3  senseb   sense    net1  GND  nmos_lvt  m=3 
-Mn4  sense    senseb   net2  GND  nmos_lvt  m=3 
+Mn3  senseb   sense    net1  GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=3 
+Mn4  sense    senseb   net2  GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=3 
 
-Mp5  senseb   SAEN   VDD   VDD  pmos_lvt  m=2
-Mp6  senseb   sense  VDD   VDD  pmos_lvt  m=2 
-Mp7  sense    senseb VDD   VDD  pmos_lvt  m=2 
-Mp8  sense    SAEN   VDD   VDD  pmos_lvt  m=2	
+Mp5  senseb   SAEN   VDD   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2
+Mp6  senseb   sense  VDD   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
+Mp7  sense    senseb VDD   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
+Mp8  sense    SAEN   VDD   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2	
 
 .ends
 
 .subckt voltage_SA BL BLB sense senseB SAEN
-Mn0  net0    SAEN    GND   GND  nmos_lvt  m=4 
+Mn0  net0    SAEN    GND   GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=4 
 
-Mn1  senseB  sense   net0  GND  nmos_lvt  m=2 
-Mn2  sense   senseB  net0  GND  nmos_lvt  m=2 
+Mn1  senseB  sense   net0  GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
+Mn2  sense   senseB  net0  GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
 
-Mp3  senseB  sense   VDD   VDD  pmos_lvt  m=2 
-Mp4  sense   senseB  VDD   VDD  pmos_lvt  m=2 
-Mp5  sense   SAEN    BL    VDD  pmos_lvt  m=2 
-Mp6  senseB  SAEN    BLB   VDD  pmos_lvt  m=2 
+Mp3  senseB  sense   VDD   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
+Mp4  sense   senseB  VDD   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
+Mp5  sense   SAEN    BL    VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
+Mp6  senseB  SAEN    BLB   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
 
 .ends
 
@@ -134,8 +134,8 @@ xcell63 WL63 BL BLB q63 qb63 SRAM
 xSA BL BLB sense senseB SAEN voltage_SA 
 
 * write driver 
-Mnwd_blb BLB WEN_BL  GND GND nmos_lvt m=4
-Mnwd_bl  BL  WEN_BLB GND GND nmos_lvt m=4
+Mnwd_blb BLB WEN_BL  GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=4
+Mnwd_bl  BL  WEN_BLB GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=4
 
 .ends
 
