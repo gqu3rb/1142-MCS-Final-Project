@@ -12,6 +12,7 @@
 #define RISE_FALL_TIME 0.05 // rise time and fall time are all 50ps
 #define CLK_PERIOD 1.0 // clock period 1ns (operating frequency 1GHz)
 #define PROB_ALL_SIGNAL 0
+#define PROB_EACH_CELL_Q_QB 1
 
 using namespace std;
 
@@ -315,6 +316,15 @@ int main(int argc, char *argv[])
     print_probe_tran_q(out, "A", 7);
     print_probe_tran_q(out, "D", 16);
     out << ".probe tran v(CLK) v(PRE) v(SAEN) v(WEN) v(WENq)" << endl;
+#if PROB_EACH_CELL_Q_QB
+    for(int i=0; i<64; i++) {
+        for(int j=0; j<32; j++) {
+            // the value stored in SRAM cell
+            out << ".probe tran v(XARRAY_TOP.xCOL" << j << ".q" << i << ")" << endl;
+            out << ".probe tran v(XARRAY_TOP.xCOL" << j << ".qb" << i << ")" << endl;
+        }
+    }
+#endif
 
 #if SHORT_SIMULATION_VER
     out << ".tran 0.05ns 20ns" << endl; // 4 + 16 cycles
