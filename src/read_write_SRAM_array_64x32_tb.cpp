@@ -9,7 +9,9 @@
 #define INCLUDE_BIT_CAP 0
 #define VDD_VAL 0.7
 #define T_BOOT 4.0 // ns boot delay
+// Recall: Final Project.pdf, P.3: The rise time and fall time of all inputs are 50ps respectively. 
 #define RISE_FALL_TIME 0.05 // rise time and fall time are all 50ps
+// Recall: Final Project.pdf, P.3: The minimum frequency of this SRAM is 1GHz.
 #define CLK_PERIOD 1.0 // clock period 1ns (operating frequency 1GHz)
 #define PROB_ALL_SIGNAL 0
 #define PROB_EACH_CELL_Q_QB 1
@@ -38,9 +40,9 @@ inline void print_probe_tran(ofstream& out, string port_name, int port_num) {
     out << endl;
 }
 
-inline void print_probe_tran_q(ofstream& out, string port_name, int port_num) {
+inline void print_probe_tran_suffix(ofstream& out, string port_name, string suffix, int port_num) {
     out << ".probe tran ";
-    for(int i=0; i<port_num; i++) out << "v(" << port_name << i << "q) ";
+    for(int i=0; i<port_num; i++) out << "v(" << port_name << i << suffix << ") ";
     out << endl;
 }
 
@@ -83,15 +85,37 @@ int main(int argc, char *argv[])
     out << "**   Circuit Description   **" << endl;
     out << "*****************************" << endl;
 
+    // Recall Final Project.pdf, P.3:
+    // All the input data have to pass one smallest buffer to prevent infinite driving ability
+    // BUF sub-circuit is in DFF.sp
+    // .SUBCKT BUF IN OUT
+    out << "xbuf_clk CLK CLK_in BUF" << endl;
+    out << "xbuf_clk4 CLK_in CLK_in4 BUF" << endl;
+    out << "xbuf_wen WEN WEN_in BUF" << endl;
     for(int i=0; i<7; i++) {
-        out << "xdff_a" << i << " CLK" << " A" << i << " A" << i << "q DFF" << endl;
+        out << "xbuf_a" << i << " A" << i << " A" << i << "in BUF" << endl;
     }
     for(int i=0; i<16; i++) {
-        out << "xdff_d" << i << " CLK" << " D" << i << " D" << i << "q DFF" << endl;
+        out << "xbuf_d" << i << " D" << i << " D" << i << "in BUF" << endl;
     }
-    out << "xdff_wen CLK WEN WENq DFF" << endl;
+    out << endl;
+
+    // buffers for addr in DFF
+    out << "xbuf_clk_addr CLK_in4 CLK_in4_a BUF NFIN_SIZE=4" << endl; 
+    for(int i=0; i<7; i++) {
+        out << "xdff_a" << i << " CLK_in4_a" << " A" << i << "in" << " A" << i << "q DFF" << endl;
+    }
+    // buffers for data in DFF
+    out << "xbuf_clk_data1 CLK_in4 CLK_in4_d1 BUF NFIN_SIZE=4" << endl; 
+    for (int i=0; i<4; i++) {
+        out << "xbuf_clk_data2" << i << " CLK_in4_d1 CLK_in4_d2" << i << " BUF NFIN_SIZE=4" << endl; 
+    }
+    for(int i=0; i<16; i++) {
+        out << "xdff_d" << i << " CLK_in4_d2" << i/4 << " D" << i << "in" << " D" << i << "q DFF" << endl;
+    }
+    out << "xdff_wen CLK_in4 WEN_in WENq DFF" << endl;
     // 內部訊號不用擋 DFF
-    //out << "xdff_saen SAEN CLK SAENq DFF" << endl;
+    //out << "xdff_saen SAEN CLK_in4 SAENq DFF" << endl;
     out << endl;
 
     out << "* 呼叫 Row Decoder (注意：引腳順序必須跟上面定義的完全一模一樣)" << endl;
@@ -309,13 +333,13 @@ int main(int argc, char *argv[])
     //out << "*+ TRIG v(SAEN) VAL='0.35' rise=1" << endl;
     //out << "*+ TARG v(sense) VAL='0.35' fall=1" << endl;
 
-    print_probe_tran(out, "A", 7);
-    print_probe_tran(out, "D", 16);
+    print_probe_tran_suffix(out, "A", "in", 7);
+    print_probe_tran_suffix(out, "D", "in", 16);
     print_probe_tran(out, "Q", 16);
     print_probe_tran(out, "QB", 16);
-    print_probe_tran_q(out, "A", 7);
-    print_probe_tran_q(out, "D", 16);
-    out << ".probe tran v(CLK) v(PRE) v(SAEN) v(WEN) v(WENq)" << endl;
+    print_probe_tran_suffix(out, "A", "q", 7);
+    print_probe_tran_suffix(out, "D", "q", 16);
+    out << ".probe tran v(CLK_in4) v(PRE) v(SAEN) v(WEN_in) v(WENq)" << endl;
 #if PROB_EACH_CELL_Q_QB
     for(int i=0; i<64; i++) {
         for(int j=0; j<32; j++) {
