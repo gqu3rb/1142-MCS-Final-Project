@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
     out << "+ ROW_DEC_6to64" << endl;
     out << endl;
 
-    out << "XARRAY_TOP PRE SAEN VDD GND " << endl;
+    out << "XARRAY_TOP PRE SAEN VDD VSS VDD_W VSS_SUB " << endl;
     print_ports(out, "WL", 64, 16);
     //out << "+ SENSE_OUT0  SENSE_OUTB0  WEN_BL0  WEN_BLB0" << endl;
     //out << "+ SENSE_OUT1  SENSE_OUTB1  WEN_BL1  WEN_BLB1" << endl;
@@ -160,12 +160,14 @@ int main(int argc, char *argv[])
     out << "*****************************" << endl;
     out << "**     Voltage Source      **" << endl;
     out << "*****************************" << endl;
-    out << "* Do not modify below *" << endl;
-    out << ".global VDD GND" << endl;
+    out << ".global VDD GND VSS VDD_W VSS_SUB" << endl;
     out << ".param  BITCAP = " << BITCAP_CAP << "f" << endl;
     out << endl;
 
     out << "VVDD VDD GND " << VDD_VAL << "v" << endl;
+    out << "VVSS VSS GND " << 0 << "v" << endl;
+    out << "VVDD_W VDD_W VSS " << VDD_VAL << "v" << endl;
+    out << "VVSS_SUB VSS_SUB VSS " << 0 << "v" << endl;
     out << endl;
 
 #if INCLUDE_BIT_CAP
