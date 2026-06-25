@@ -4,7 +4,14 @@
 #include <math.h>
 #include <vector>
 #include <iomanip> // for setprecision(3)
+
+// Simulation Options
 #define SHORT_SIMULATION_VER 1 // short simulation ver only test the first 16 rows
+#define PROB_ALL_SIGNAL 1
+#define PROB_EACH_CELL_Q_QB 0 // prob q and qb of all the cells in 64x32 array
+#define PROB_ALL_FIRST_COLUMN_CELL 0 // prob all signals of the first column
+
+// Specification
 #define BITCAP_CAP 10 // 10fF
 #define INCLUDE_BIT_CAP 0
 #define VDD_VAL 0.7
@@ -13,8 +20,19 @@
 #define RISE_FALL_TIME 0.05 // rise time and fall time are all 50ps
 // Recall: Final Project.pdf, P.3: The minimum frequency of this SRAM is 1GHz.
 #define CLK_PERIOD 1.0 // clock period 1ns (operating frequency 1GHz)
-#define PROB_ALL_SIGNAL 0
-#define PROB_EACH_CELL_Q_QB 1
+
+// Read/Write Operation Timing Settings {{
+// for write operation
+//#define WL_PHASE_WRITE CLK_PERIOD
+// disable WL in advance to prevent from writing the wrong value due to 
+// the precharge stage in the next read/write operation
+#define WL_PHASE_WRITE 7*CLK_PERIOD/8 
+
+// for read operation
+#define PRE_PHASE 2*CLK_PERIOD/8
+#define WL_PHASE_READ 3*CLK_PERIOD/8
+#define SENSE_PHASE 3*CLK_PERIOD/8
+// }} end of Read/Write Operation Timing Settings
 
 using namespace std;
 
@@ -119,7 +137,7 @@ int main(int argc, char *argv[])
     out << endl;
 
     out << "* 呼叫 Row Decoder (注意：引腳順序必須跟上面定義的完全一模一樣)" << endl;
-    out << "xdecoder A6q A5q A4q A3q A2q A1q" << endl;
+    out << "xdecoder A6q A5q A4q A3q A2q A1q ROW_DEC_EN" << endl;
     print_ports(out, "WL", 64, 16);
     out << "+ ROW_DEC_6to64" << endl;
     out << endl;
@@ -201,13 +219,10 @@ int main(int argc, char *argv[])
     out << endl;
 
     // ── PRE ────────────────────────────────────────────────────────────────
-    // Active-LOW precharge: idles LOW (bitlines held at VDD) and pulses HIGH for
-    // 0.35ns at the start of EVERY cycle to open the access window (required
-    // before every read, harmless before every write). Phase unchanged because
-    // the write/read cycle structure is unchanged.
-    out << "Vp PRE GND PULSE(0V " << VDD_VAL << "V "
-        << T_BOOT << "ns " << RISE_FALL_TIME << "ns " << RISE_FALL_TIME << "ns "
-        << "0.350ns " << CLK_PERIOD << "ns)" << endl;
+    // ACTIVATE LOW precharge, only activated in read cycles
+    out << "Vp PRE GND PULSE(" << VDD_VAL << "V " << 0 << "V "
+        << T_BOOT+CLK_PERIOD+RISE_FALL_TIME << "ns " << RISE_FALL_TIME << "ns " << RISE_FALL_TIME << "ns "
+        << PRE_PHASE << "ns " << CLK_PERIOD*2 << "ns)" << endl;
     out << endl;
 
     // ── SAEN ───────────────────────────────────────────────────────────────
@@ -218,12 +233,34 @@ int main(int argc, char *argv[])
     // the result afterwards even when PRE re-precharges the bitlines.
     out << "Vs SAEN GND PWL(0ns 0V";
     for (int k = 0; k < N_OPS; k++) {
-        double Tr = T_BOOT + (2.0 * k + 1.0) * CLK_PERIOD;   // read-cycle clk edge
-        double Ts = Tr + 0.25;
+        double Tr = T_BOOT + (2.0 * k + 1.0) * CLK_PERIOD; // only activate in read cycles
+        double Ts = Tr + PRE_PHASE + RISE_FALL_TIME + WL_PHASE_READ; // start time in a single cycle
         out << " " << Ts << "ns 0V"
             << " " << (Ts + RISE_FALL_TIME) << "ns " << VDD_VAL << "V"
-            << " " << (Ts + RISE_FALL_TIME + 0.100) << "ns " << VDD_VAL << "V"
-            << " " << (Ts + RISE_FALL_TIME + 0.100 + RISE_FALL_TIME) << "ns 0V";
+            << " " << (Ts + RISE_FALL_TIME + SENSE_PHASE) << "ns " << VDD_VAL << "V"
+            << " " << (Ts + RISE_FALL_TIME + SENSE_PHASE + RISE_FALL_TIME) << "ns 0V";
+    }
+    out << ")" << endl;
+    out << endl;
+
+    // Active LOW ROW_DEC_EN
+    out << "Vrow_dec_en ROW_DEC_EN GND PWL(0ns " << VDD_VAL << "V";
+    for (int k = 0; k < N_OPS; k++) {
+        double Tr = T_BOOT + k * CLK_PERIOD;
+        double Ts; // start time in a single cycle
+        double activate_len;
+        if(k%2) { // read cycles
+            Ts = Tr + PRE_PHASE; 
+            activate_len = WL_PHASE_READ;
+        } else { // write cycles
+            Ts = Tr; 
+            activate_len = WL_PHASE_WRITE;
+        }
+
+        out << " " << Ts << "ns " << VDD_VAL << "V"
+            << " " << (Ts + RISE_FALL_TIME) << "ns " << "0V"
+            << " " << (Ts + RISE_FALL_TIME + activate_len) << "ns " << "0V"
+            << " " << (Ts + RISE_FALL_TIME + activate_len + RISE_FALL_TIME) << "ns " << VDD_VAL << "V";
     }
     out << ")" << endl;
     out << endl;
@@ -342,6 +379,7 @@ int main(int argc, char *argv[])
     print_probe_tran_suffix(out, "A", "q", 7);
     print_probe_tran_suffix(out, "D", "q", 16);
     out << ".probe tran v(CLK_in4) v(PRE) v(SAEN) v(WEN_in) v(WENq)" << endl;
+    out << ".probe tran v(ROW_DEC_EN)" << endl; // temporal behavioral ROW_DEC_EN to simulate the global controller output
 #if PROB_EACH_CELL_Q_QB
     for(int i=0; i<64; i++) {
         for(int j=0; j<32; j++) {
@@ -349,6 +387,22 @@ int main(int argc, char *argv[])
             out << ".probe tran v(XARRAY_TOP.xCOL" << j << ".q" << i << ")" << endl;
             out << ".probe tran v(XARRAY_TOP.xCOL" << j << ".qb" << i << ")" << endl;
         }
+    }
+#endif
+
+#if PROB_ALL_FIRST_COLUMN_CELL
+    out << ".probe tran v(XARRAY_TOP.xCOL0" << ".VDD" << ")" << endl;
+    out << ".probe tran v(XARRAY_TOP.xCOL0" << ".VSS" << ")" << endl;
+    out << ".probe tran v(XARRAY_TOP.xCOL0" << ".VDD_W" << ")" << endl;
+    out << ".probe tran v(XARRAY_TOP.xCOL0" << ".VSS_SUB" << ")" << endl;
+    out << ".probe tran v(XARRAY_TOP.xCOL0" << ".BL" << ")" << endl;
+    out << ".probe tran v(XARRAY_TOP.xCOL0" << ".BLB" << ")" << endl;
+    out << ".probe tran v(XARRAY_TOP.xCOL0" << ".sense" << ")" << endl;
+    out << ".probe tran v(XARRAY_TOP.xCOL0" << ".senseb" << ")" << endl;
+    for(int i=0; i<64; i++) {
+        out << ".probe tran v(XARRAY_TOP.xCOL0" << ".WL" << i << ")" << endl;
+        out << ".probe tran v(XARRAY_TOP.xCOL0" << ".q" << i << ")" << endl;
+        out << ".probe tran v(XARRAY_TOP.xCOL0" << ".qb" << i << ")" << endl;
     }
 #endif
 
