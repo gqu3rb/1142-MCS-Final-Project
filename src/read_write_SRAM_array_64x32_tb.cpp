@@ -437,8 +437,14 @@ int main(int argc, char *argv[])
     //...
     //.measure tran row_127_write_verify FIND v(Q15) WHEN v(CLK)=0.35 RISE=3+63*2
     for(int i=0; i<N_OPS; i++) {
-        out << ".measure tran row_" << i << "_write_verify "
+        out << ".measure tran row_" << i << "q_write_verify "
             << "FIND v(Q" << i%16 << ") "
+            << "WHEN v(CLK)=0.35 RISE=" << 3+i*2 << endl;
+    }
+
+    for(int i=0; i<N_OPS; i++) {
+        out << ".measure tran row_" << i << "qb_write_verify "
+            << "FIND v(QB" << i%16 << ") "
             << "WHEN v(CLK)=0.35 RISE=" << 3+i*2 << endl;
     }
     return 0;
