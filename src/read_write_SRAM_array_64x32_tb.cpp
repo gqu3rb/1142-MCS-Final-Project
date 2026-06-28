@@ -93,11 +93,12 @@ int main(int argc, char *argv[])
     vector<string> sub_circuits;
     // add more sub circuit files to the vector as you need
     sub_circuits.push_back("6to64_row_decoder.sp");
-    sub_circuits.push_back("SRAM_array_64x32.sp");
 #if POST_SIMULATION
+    sub_circuits.push_back("SRAM_array_64x32_post.sp");
     sub_circuits.push_back(extracted_netlists_path+"COL_DRIVER_ARRAY.pex.netlist");
     sub_circuits.push_back(extracted_netlists_path+"COL_SEL.pex.netlist");
 #else
+    sub_circuits.push_back("SRAM_array_64x32.sp");
     sub_circuits.push_back("column_based_circuit.sp");
 #endif
     sub_circuits.push_back("DFF.sp");

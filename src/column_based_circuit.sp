@@ -16,17 +16,17 @@ Xsel1 OUT_b OUT   VDD VSS VDD_W VSS_SUB INV_c
 .ends
 
 .subckt AND2_c IN1 IN2 OUT VDD VSS VDD_W VSS_SUB
-Mp1 OUT_b IN1 VDD VDD_W   pmos_lvt W=2.7e-08 L=2e-08 nfin=1
-Mp2 OUT_b IN2 VDD VDD_W   pmos_lvt W=2.7e-08 L=2e-08 nfin=1
-Mn1 OUT_b IN1 n1  VSS_SUB nmos_lvt W=2.7e-08 L=2e-08 nfin=3
-Mn2 n1    IN2 VSS VSS_SUB nmos_lvt W=2.7e-08 L=2e-08 nfin=3
+Mp1 OUT_b IN1 VDD VDD_W pmos_lvt W=2.7e-08 L=2e-08 nfin=1
+Mp2 OUT_b IN2 VDD VDD_W pmos_lvt W=2.7e-08 L=2e-08 nfin=1
+Mn1 OUT_b IN1 n1  VSS_SUB nmos_lvt W=8.1e-08 L=2e-08 nfin=3
+Mn2 n1    IN2 VSS VSS_SUB nmos_lvt W=8.1e-08 L=2e-08 nfin=3
 Xinv OUT_b OUT VDD VSS VDD_W VSS_SUB INV_c
 .ends
 
 .subckt WR_DRIVER WEN IN BL BLB VDD VSS VDD_W VSS_SUB
 Xinv  IN  IN_b VDD VSS VDD_W VSS_SUB INV_c
-Xand1 WEN IN   BL  VDD VSS   VDD_W   VSS_SUB AND2_c
-Xand2 WEN IN_b BLB VDD VSS   VDD_W   VSS_SUB AND2_c
+Xand1 WEN IN   BL  VDD VSS VDD_W VSS_SUB AND2_c
+Xand2 WEN IN_b BLB VDD VSS VDD_W VSS_SUB AND2_c
 .ends
 
 .subckt bl_to_wen_slice EN A A_b D WEN_BL0 WEN_BLB0 WEN_BL1 WEN_BLB1 VDD VSS VDD_W0 VDD_W1 VSS_SUB
@@ -38,7 +38,7 @@ Xdriver1 WEN1 D WEN_BL1 WEN_BLB1 VDD VSS VDD_W1 VSS_SUB WR_DRIVER
 .ends
 
 * ------ 2. 主解碼器核心 ------
-.subckt COL_DRIVER_ARRAY In WEN
+.subckt COL_DRIVER_ARRAY IN WEN
 + D0  D1  D2  D3  D4  D5  D6  D7
 + D8  D9  D10 D11 D12 D13 D14 D15
 + WEN_BL0  WEN_BL1  WEN_BL2  WEN_BL3  WEN_BL4  WEN_BL5  WEN_BL6  WEN_BL7

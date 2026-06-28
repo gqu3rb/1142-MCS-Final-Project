@@ -1,0 +1,42 @@
+* File: SA.pex.netlist
+* Created: Sun Jun 28 08:14:23 2026
+* Program "Calibre xACT"
+* Version "v2019.2_26.18"
+* 
+.include "SA.pex.netlist.pex"
+.subckt SA  VSS SAEN SENSEB VDD SENSE BL BLB VSS_SUB VDD_W
+* 
+* VDD_W	VDD_W
+* VSS_SUB	VSS_SUB
+* BLB	BLB
+* BL	BL
+* SENSE	SENSE
+* VDD	VDD
+* SENSEB	SENSEB
+* SAEN	SAEN
+* VSS	VSS
+Mn0 N_NET0_Mn0_d N_SAEN_Mn0_g N_VSS_Mn0_s VSS_SUB NMOS_LVT L=2e-08 W=5.4e-08
++ NFIN=2
+Mn3 N_SENSE_Mn3_d N_SENSEB_Mn3_g N_NET0_Mn3_s VSS_SUB NMOS_LVT L=2e-08 W=5.4e-08
++ NFIN=2
+Mnd N_SENSEB_Mnd_d N_VSS_Mnd_g N_SENSE_Mnd_s VSS_SUB NMOS_LVT L=2e-08 W=5.4e-08
++ NFIN=2
+Mn2 N_SENSEB_Mn2_d N_SENSE_Mn2_g N_NET0_Mn2_s VSS_SUB NMOS_LVT L=2e-08 W=5.4e-08
++ NFIN=2
+Mn1 N_NET0_Mn1_d N_SAEN_Mn1_g N_VSS_Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=5.4e-08
++ NFIN=2
+Mp6 N_SENSE_Mp6_d N_SAEN_Mp6_g N_BL_Mp6_s VDD_W PMOS_LVT L=2e-08 W=5.4e-08
++ NFIN=2
+Mp5 N_SENSE_Mp5_d N_SENSEB_Mp5_g N_VDD_Mp5_s VDD_W PMOS_LVT L=2e-08 W=5.4e-08
++ NFIN=2
+Mpd N_VDD_Mpd_d N_VDD_Mpd_g N_VDD_Mpd_s VDD_W PMOS_LVT L=2e-08 W=5.4e-08 NFIN=2
+Mp4 N_SENSEB_Mp4_d N_SENSE_Mp4_g N_VDD_Mp4_s VDD_W PMOS_LVT L=2e-08 W=5.4e-08
++ NFIN=2
+Mp7 N_SENSEB_Mp7_d N_SAEN_Mp7_g N_BLB_Mp7_s VDD_W PMOS_LVT L=2e-08 W=5.4e-08
++ NFIN=2
+*
+.include "SA.pex.netlist.SA.pxi"
+*
+.ends
+*
+*
