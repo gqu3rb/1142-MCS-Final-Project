@@ -6,7 +6,7 @@
 #include <iomanip> // for setprecision(3)
 
 // Simulation Options
-#define POST_SIMULATION 1 // 0: pre-sim; 1: post-sim
+#define POST_SIMULATION 0 // 0: pre-sim; 1: post-sim
 #define SHORT_SIMULATION_VER 1 // short simulation ver only test the first 8 rows
 #define PROB_ALL_SIGNAL 0
 #define PROB_EACH_CELL_Q_QB 0 // prob q and qb of all the cells in 64x32 array
@@ -159,7 +159,11 @@ int main(int argc, char *argv[])
     for(int i=0; i<32; i++) {
         out << "+ SENSE_OUT" << i << " SENSE_OUTB" << i << " WEN_BL" << i << " WEN_BLB" << i << endl;
     }
+#if POST_SIMULATION
     out << "+ SRAM_Array_64x32_with_SA" << endl;
+#else
+    out << "+ SRAM_Array_64x32" << endl;
+#endif
     out << endl;
 
 #if POST_SIMULATION
@@ -504,13 +508,13 @@ int main(int argc, char *argv[])
     //...
     //.measure tran row_127_write_verify FIND v(Q15) WHEN v(CLK)=0.35 RISE=3+63*2
     for(int i=0; i<N_OPS; i++) {
-        out << ".measure tran row_" << i << "q_write_verify "
+        out << ".measure tran addr_" << i << "q_write_verify "
             << "FIND v(Q" << i%16 << ") "
             << "WHEN v(CLK)=0.35 RISE=" << 3+i*2 << endl;
     }
 
     for(int i=0; i<N_OPS; i++) {
-        out << ".measure tran row_" << i << "qb_write_verify "
+        out << ".measure tran addr_" << i << "qb_write_verify "
             << "FIND v(QB" << i%16 << ") "
             << "WHEN v(CLK)=0.35 RISE=" << 3+i*2 << endl;
     }
