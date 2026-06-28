@@ -159,7 +159,7 @@ int main(int argc, char *argv[])
     for(int i=0; i<32; i++) {
         out << "+ SENSE_OUT" << i << " SENSE_OUTB" << i << " WEN_BL" << i << " WEN_BLB" << i << endl;
     }
-    out << "+ SRAM_Array_64x32" << endl;
+    out << "+ SRAM_Array_64x32_with_SA" << endl;
     out << endl;
 
 #if POST_SIMULATION

@@ -3,4 +3,6 @@ obj/
 src/7nm_TT.pm
 src/read_write_SRAM_array_64x32_tb.sp
 
+layout/
+
 .nfs*
