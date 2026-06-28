@@ -29,7 +29,8 @@ gen_tb_all:
 all_tb:
 	# creat OBJ_DIR if it doesn't exist	
 	mkdir -p $(OBJ_DIR)
-	hspice $(SRC_DIR)/$(TB_ALL_NAME).sp -o $(OBJ_DIR)/$(TB_ALL_NAME) > $(OBJ_DIR)/$(TB_ALL_NAME).lis
+	# run with 8 cores
+	hspice -mt 8 -i $(SRC_DIR)/$(TB_ALL_NAME).sp -o $(OBJ_DIR)/$(TB_ALL_NAME) > $(OBJ_DIR)/$(TB_ALL_NAME).lis
 
 rowdec_tb:
 	mkdir -p $(OBJ_DIR)
