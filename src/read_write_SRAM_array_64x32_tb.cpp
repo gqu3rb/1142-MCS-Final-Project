@@ -6,7 +6,8 @@
 #include <iomanip> // for setprecision(3)
 
 // Simulation Options
-#define SHORT_SIMULATION_VER 0 // short simulation ver only test the first 8 rows
+#define POST_SIMULATION 1 // 0: pre-sim; 1: post-sim
+#define SHORT_SIMULATION_VER 1 // short simulation ver only test the first 8 rows
 #define PROB_ALL_SIGNAL 0
 #define PROB_EACH_CELL_Q_QB 0 // prob q and qb of all the cells in 64x32 array
 #define PROB_ALL_FIRST_COLUMN_CELL 0 // prob all signals of the first column
@@ -88,11 +89,17 @@ int main(int argc, char *argv[])
     out << ".include '7nm_TT.pm'" << endl;
     out << ".unprotect" << endl;
 
+    string extracted_netlists_path = "./extracted_netlists/";
     vector<string> sub_circuits;
     // add more sub circuit files to the vector as you need
     sub_circuits.push_back("6to64_row_decoder.sp");
     sub_circuits.push_back("SRAM_array_64x32.sp");
+#if POST_SIMULATION
+    sub_circuits.push_back(extracted_netlists_path+"COL_DRIVER_ARRAY.pex.netlist");
+    sub_circuits.push_back(extracted_netlists_path+"COL_SEL.pex.netlist");
+#else
     sub_circuits.push_back("column_based_circuit.sp");
+#endif
     sub_circuits.push_back("DFF.sp");
     for (auto it=sub_circuits.begin(); it!=sub_circuits.end(); it++) {
         out << ".include \'" << *it << "\'" << endl;
@@ -154,6 +161,30 @@ int main(int argc, char *argv[])
     out << "+ SRAM_Array_64x32" << endl;
     out << endl;
 
+#if POST_SIMULATION
+    // refer to: COL_DRIVER_ARRAY.pex.netlist
+    // .subckt COL_DRIVER_ARRAY  VSS VDD WEN WEN_BL16 WEN_BL0 WEN_BL4 WEN_BL20
+    // + WEN_BLB16 WEN_BLB0 WEN_BLB4 WEN_BLB20 WEN_BL17 WEN_BL1 WEN_BL5 WEN_BL21
+    // + WEN_BLB17 WEN_BLB1 WEN_BLB5 WEN_BLB21 WEN_BL24 WEN_BL8 WEN_BL12 WEN_BL28
+    // + WEN_BLB24 WEN_BLB8 WEN_BLB12 WEN_BLB28 WEN_BL25 WEN_BL9 WEN_BL13 WEN_BL29
+    // + WEN_BLB25 WEN_BLB9 WEN_BLB13 WEN_BLB29 WEN_BL18 WEN_BL2 WEN_BL6 WEN_BL22
+    // + WEN_BLB18 WEN_BLB2 WEN_BLB6 WEN_BLB22 WEN_BL19 WEN_BL3 WEN_BL7 WEN_BL23
+    // + WEN_BLB19 WEN_BLB3 WEN_BLB7 WEN_BLB23 WEN_BL26 WEN_BL10 WEN_BL14 WEN_BL30
+    // + WEN_BLB26 WEN_BLB10 WEN_BLB14 WEN_BLB30 WEN_BL27 WEN_BL11 WEN_BL15 WEN_BL31
+    // + WEN_BLB27 WEN_BLB11 WEN_BLB15 WEN_BLB31 IN D0 D4 D1 D5 D8 D12 D9 D13 D2 D6 D3
+    // + D7 D10 D14 D11 D15 VSS_SUB VDD_W2 VDD_W3 VDD_W1 VDD_W0 VDD_W4
+    out << "Xcol_driver_array_w" << endl;
+    out << "+ VSS VDD WENq WEN_BL16 WEN_BL0 WEN_BL4 WEN_BL20" << endl;
+    out << "+ WEN_BLB16 WEN_BLB0 WEN_BLB4 WEN_BLB20 WEN_BL17 WEN_BL1 WEN_BL5 WEN_BL21" << endl;
+    out << "+ WEN_BLB17 WEN_BLB1 WEN_BLB5 WEN_BLB21 WEN_BL24 WEN_BL8 WEN_BL12 WEN_BL28" << endl;
+    out << "+ WEN_BLB24 WEN_BLB8 WEN_BLB12 WEN_BLB28 WEN_BL25 WEN_BL9 WEN_BL13 WEN_BL29" << endl;
+    out << "+ WEN_BLB25 WEN_BLB9 WEN_BLB13 WEN_BLB29 WEN_BL18 WEN_BL2 WEN_BL6 WEN_BL22" << endl;
+    out << "+ WEN_BLB18 WEN_BLB2 WEN_BLB6 WEN_BLB22 WEN_BL19 WEN_BL3 WEN_BL7 WEN_BL23" << endl;
+    out << "+ WEN_BLB19 WEN_BLB3 WEN_BLB7 WEN_BLB23 WEN_BL26 WEN_BL10 WEN_BL14 WEN_BL30" << endl;
+    out << "+ WEN_BLB26 WEN_BLB10 WEN_BLB14 WEN_BLB30 WEN_BL27 WEN_BL11 WEN_BL15 WEN_BL31" << endl;
+    out << "+ WEN_BLB27 WEN_BLB11 WEN_BLB15 WEN_BLB31 A0q D0q D4q D1q D5q D8q D12q D9q D13q D2q D6q D3q" << endl;
+    out << "+ D7q D10q D14q D11q D15q VSS_SUB VDD_W VDD_W VDD_W VDD_W VDD_W" << endl;
+#else
     out << "Xcol_driver_array_w A0q WENq" << endl;
     for(int i=0; i<2; i++) {
         out << "+ ";
@@ -164,14 +195,49 @@ int main(int argc, char *argv[])
     }
     print_ports(out, "WEN_BL", 32, 8);
     print_ports(out, "WEN_BLB", 32, 8);
+    out << "+ VDD VSS VSS_SUB" << endl;
+    out << "+ VDD_W VDD_W VDD_W VDD_W VDD_W" << endl;
+#endif
     out << "+ COL_DRIVER_ARRAY" << endl;
     out << endl;
 
+#if POST_SIMULATION
+    // refer to: COL_SEL.pex.netlist
+    // .subckt COL_SEL  VSS VDD WEN IN QB0 Q0 QB4 Q4 QB1 Q1 QB5 Q5 QB2 Q2 QB6 Q6 QB3 Q3
+    // + QB7 Q7 QB12 Q12 QB8 Q8 QB13 Q13 QB9 Q9 QB14 Q14 QB10 Q10 QB15 Q15 QB11 Q11
+    // + SENSE_OUTB0 SENSE_OUT0 SENSE_OUTB16 SENSE_OUT16 SENSE_OUTB1 SENSE_OUT1
+    // + SENSE_OUTB17 SENSE_OUT17 SENSE_OUTB2 SENSE_OUT2 SENSE_OUTB18 SENSE_OUT18
+    // + SENSE_OUTB3 SENSE_OUT3 SENSE_OUTB19 SENSE_OUT19 SENSE_OUTB20 SENSE_OUT20
+    // + SENSE_OUTB4 SENSE_OUT4 SENSE_OUTB21 SENSE_OUT21 SENSE_OUTB5 SENSE_OUT5
+    // + SENSE_OUTB22 SENSE_OUT22 SENSE_OUTB6 SENSE_OUT6 SENSE_OUTB23 SENSE_OUT23
+    // + SENSE_OUTB7 SENSE_OUT7 SENSE_OUTB12 SENSE_OUT12 SENSE_OUTB28 SENSE_OUT28
+    // + SENSE_OUTB13 SENSE_OUT13 SENSE_OUTB29 SENSE_OUT29 SENSE_OUTB14 SENSE_OUT14
+    // + SENSE_OUTB30 SENSE_OUT30 SENSE_OUTB15 SENSE_OUT15 SENSE_OUTB31 SENSE_OUT31
+    // + SENSE_OUTB8 SENSE_OUT8 SENSE_OUTB24 SENSE_OUT24 SENSE_OUTB9 SENSE_OUT9
+    // + SENSE_OUTB25 SENSE_OUT25 SENSE_OUTB10 SENSE_OUT10 SENSE_OUTB26 SENSE_OUT26
+    // + SENSE_OUTB11 SENSE_OUT11 SENSE_OUTB27 SENSE_OUT27 VSS_SUB VDD_W0 VDD_W1
+    out << "Xcol_selector_r" << endl;
+    out << "+ VSS VDD WENq A0q QB0 Q0 QB4 Q4 QB1 Q1 QB5 Q5 QB2 Q2 QB6 Q6 QB3 Q3" << endl;
+    out << " + QB7 Q7 QB12 Q12 QB8 Q8 QB13 Q13 QB9 Q9 QB14 Q14 QB10 Q10 QB15 Q15 QB11 Q11" << endl;
+    out << " + SENSE_OUTB0 SENSE_OUT0 SENSE_OUTB16 SENSE_OUT16 SENSE_OUTB1 SENSE_OUT1" << endl;
+    out << " + SENSE_OUTB17 SENSE_OUT17 SENSE_OUTB2 SENSE_OUT2 SENSE_OUTB18 SENSE_OUT18" << endl;
+    out << " + SENSE_OUTB3 SENSE_OUT3 SENSE_OUTB19 SENSE_OUT19 SENSE_OUTB20 SENSE_OUT20" << endl;
+    out << " + SENSE_OUTB4 SENSE_OUT4 SENSE_OUTB21 SENSE_OUT21 SENSE_OUTB5 SENSE_OUT5" << endl;
+    out << " + SENSE_OUTB22 SENSE_OUT22 SENSE_OUTB6 SENSE_OUT6 SENSE_OUTB23 SENSE_OUT23" << endl;
+    out << " + SENSE_OUTB7 SENSE_OUT7 SENSE_OUTB12 SENSE_OUT12 SENSE_OUTB28 SENSE_OUT28" << endl;
+    out << " + SENSE_OUTB13 SENSE_OUT13 SENSE_OUTB29 SENSE_OUT29 SENSE_OUTB14 SENSE_OUT14" << endl;
+    out << " + SENSE_OUTB30 SENSE_OUT30 SENSE_OUTB15 SENSE_OUT15 SENSE_OUTB31 SENSE_OUT31" << endl;
+    out << " + SENSE_OUTB8 SENSE_OUT8 SENSE_OUTB24 SENSE_OUT24 SENSE_OUTB9 SENSE_OUT9" << endl;
+    out << " + SENSE_OUTB25 SENSE_OUT25 SENSE_OUTB10 SENSE_OUT10 SENSE_OUTB26 SENSE_OUT26" << endl;
+    out << " + SENSE_OUTB11 SENSE_OUT11 SENSE_OUTB27 SENSE_OUT27 VSS_SUB VDD_W VDD_W" << endl;
+#else
     out << "Xcol_selector_r A0q WENq" << endl;
     print_ports(out, "Q", 16, 8);
     print_ports(out, "QB", 16, 8);
     print_ports(out, "SENSE_OUT", 32, 8);
     print_ports(out, "SENSE_OUTB", 32, 8);
+    out << "+ VDD VSS VDD_W VDD_W VSS_SUB" << endl;
+#endif
     out << "+ COL_SEL" << endl;
     out << endl;
 

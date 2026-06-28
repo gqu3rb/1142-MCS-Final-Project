@@ -1,0 +1,2549 @@
+* File: COL_DRIVER_ARRAY.pex.netlist
+* Created: Sat Jun 27 18:21:20 2026
+* Program "Calibre xACT"
+* Version "v2019.2_26.18"
+* 
+.include "COL_DRIVER_ARRAY.pex.netlist.pex"
+.subckt COL_DRIVER_ARRAY  VSS VDD WEN WEN_BL16 WEN_BL0 WEN_BL4 WEN_BL20
++ WEN_BLB16 WEN_BLB0 WEN_BLB4 WEN_BLB20 WEN_BL17 WEN_BL1 WEN_BL5 WEN_BL21
++ WEN_BLB17 WEN_BLB1 WEN_BLB5 WEN_BLB21 WEN_BL24 WEN_BL8 WEN_BL12 WEN_BL28
++ WEN_BLB24 WEN_BLB8 WEN_BLB12 WEN_BLB28 WEN_BL25 WEN_BL9 WEN_BL13 WEN_BL29
++ WEN_BLB25 WEN_BLB9 WEN_BLB13 WEN_BLB29 WEN_BL18 WEN_BL2 WEN_BL6 WEN_BL22
++ WEN_BLB18 WEN_BLB2 WEN_BLB6 WEN_BLB22 WEN_BL19 WEN_BL3 WEN_BL7 WEN_BL23
++ WEN_BLB19 WEN_BLB3 WEN_BLB7 WEN_BLB23 WEN_BL26 WEN_BL10 WEN_BL14 WEN_BL30
++ WEN_BLB26 WEN_BLB10 WEN_BLB14 WEN_BLB30 WEN_BL27 WEN_BL11 WEN_BL15 WEN_BL31
++ WEN_BLB27 WEN_BLB11 WEN_BLB15 WEN_BLB31 IN D0 D4 D1 D5 D8 D12 D9 D13 D2 D6 D3
++ D7 D10 D14 D11 D15 VSS_SUB VDD_W2 VDD_W3 VDD_W1 VDD_W0 VDD_W4
+* 
+* VDD_W4	VDD_W4
+* VDD_W0	VDD_W0
+* VDD_W1	VDD_W1
+* VDD_W3	VDD_W3
+* VDD_W2	VDD_W2
+* VSS_SUB	VSS_SUB
+* D15	D15
+* D11	D11
+* D14	D14
+* D10	D10
+* D7	D7
+* D3	D3
+* D6	D6
+* D2	D2
+* D13	D13
+* D9	D9
+* D12	D12
+* D8	D8
+* D5	D5
+* D1	D1
+* D4	D4
+* D0	D0
+* IN	IN
+* WEN_BLB31	WEN_BLB31
+* WEN_BLB15	WEN_BLB15
+* WEN_BLB11	WEN_BLB11
+* WEN_BLB27	WEN_BLB27
+* WEN_BL31	WEN_BL31
+* WEN_BL15	WEN_BL15
+* WEN_BL11	WEN_BL11
+* WEN_BL27	WEN_BL27
+* WEN_BLB30	WEN_BLB30
+* WEN_BLB14	WEN_BLB14
+* WEN_BLB10	WEN_BLB10
+* WEN_BLB26	WEN_BLB26
+* WEN_BL30	WEN_BL30
+* WEN_BL14	WEN_BL14
+* WEN_BL10	WEN_BL10
+* WEN_BL26	WEN_BL26
+* WEN_BLB23	WEN_BLB23
+* WEN_BLB7	WEN_BLB7
+* WEN_BLB3	WEN_BLB3
+* WEN_BLB19	WEN_BLB19
+* WEN_BL23	WEN_BL23
+* WEN_BL7	WEN_BL7
+* WEN_BL3	WEN_BL3
+* WEN_BL19	WEN_BL19
+* WEN_BLB22	WEN_BLB22
+* WEN_BLB6	WEN_BLB6
+* WEN_BLB2	WEN_BLB2
+* WEN_BLB18	WEN_BLB18
+* WEN_BL22	WEN_BL22
+* WEN_BL6	WEN_BL6
+* WEN_BL2	WEN_BL2
+* WEN_BL18	WEN_BL18
+* WEN_BLB29	WEN_BLB29
+* WEN_BLB13	WEN_BLB13
+* WEN_BLB9	WEN_BLB9
+* WEN_BLB25	WEN_BLB25
+* WEN_BL29	WEN_BL29
+* WEN_BL13	WEN_BL13
+* WEN_BL9	WEN_BL9
+* WEN_BL25	WEN_BL25
+* WEN_BLB28	WEN_BLB28
+* WEN_BLB12	WEN_BLB12
+* WEN_BLB8	WEN_BLB8
+* WEN_BLB24	WEN_BLB24
+* WEN_BL28	WEN_BL28
+* WEN_BL12	WEN_BL12
+* WEN_BL8	WEN_BL8
+* WEN_BL24	WEN_BL24
+* WEN_BLB21	WEN_BLB21
+* WEN_BLB5	WEN_BLB5
+* WEN_BLB1	WEN_BLB1
+* WEN_BLB17	WEN_BLB17
+* WEN_BL21	WEN_BL21
+* WEN_BL5	WEN_BL5
+* WEN_BL1	WEN_BL1
+* WEN_BL17	WEN_BL17
+* WEN_BLB20	WEN_BLB20
+* WEN_BLB4	WEN_BLB4
+* WEN_BLB0	WEN_BLB0
+* WEN_BLB16	WEN_BLB16
+* WEN_BL20	WEN_BL20
+* WEN_BL4	WEN_BL4
+* WEN_BL0	WEN_BL0
+* WEN_BL16	WEN_BL16
+* WEN	WEN
+* VDD	VDD
+* VSS	VSS
+mXinv_en1.Mn N_WEN_B0_Xinv_en1.Mn_d N_WEN_Xinv_en1.Mn_g N_VSS_Xinv_en1.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mXinv_en1.Mp N_WEN_B0_Xinv_en1.Mp_d N_WEN_Xinv_en1.Mp_g N_VDD_Xinv_en1.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xand1.Mn1 N_X_SLICE0.XAND1.N1_X_slice0.Xand1.Mn1_d
++ N_WEN_B0_X_slice0.Xand1.Mn1_g N_VSS_X_slice0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xand1.Mn2 N_X_SLICE0.XAND1.OUT_B_X_slice0.Xand1.Mn2_d
++ N_A0_X_slice0.Xand1.Mn2_g N_X_SLICE0.XAND1.N1_X_slice0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xand1.Mp1 N_X_SLICE0.XAND1.OUT_B_X_slice0.Xand1.Mp1_d
++ N_WEN_B0_X_slice0.Xand1.Mp1_g N_VDD_X_slice0.Xand1.Mp1_s VDD_W0 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice0.Xand1.Mp2 N_X_SLICE0.XAND1.OUT_B_X_slice0.Xand1.Mp2_d
++ N_A0_X_slice0.Xand1.Mp2_g N_VDD_X_slice0.Xand1.Mp2_s VDD_W0 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice0.Xand1.Xinv.Mn N_X_SLICE0.WEN1_X_slice0.Xand1.Xinv.Mn_d
++ N_X_SLICE0.XAND1.OUT_B_X_slice0.Xand1.Xinv.Mn_g N_VSS_X_slice0.Xand1.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xand1.Xinv.Mp N_X_SLICE0.WEN1_X_slice0.Xand1.Xinv.Mp_d
++ N_X_SLICE0.XAND1.OUT_B_X_slice0.Xand1.Xinv.Mp_g N_VDD_X_slice0.Xand1.Xinv.Mp_s
++ VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xand0.Mn1 N_X_SLICE0.XAND0.N1_X_slice0.Xand0.Mn1_d
++ N_WEN_B0_X_slice0.Xand0.Mn1_g N_VSS_X_slice0.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xand0.Mn2 N_X_SLICE0.XAND0.OUT_B_X_slice0.Xand0.Mn2_d
++ N_A0_B_X_slice0.Xand0.Mn2_g N_X_SLICE0.XAND0.N1_X_slice0.Xand0.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xand0.Mp1 N_X_SLICE0.XAND0.OUT_B_X_slice0.Xand0.Mp1_d
++ N_WEN_B0_X_slice0.Xand0.Mp1_g N_VDD_X_slice0.Xand0.Mp1_s VDD_W1 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice0.Xand0.Mp2 N_X_SLICE0.XAND0.OUT_B_X_slice0.Xand0.Mp2_d
++ N_A0_B_X_slice0.Xand0.Mp2_g N_VDD_X_slice0.Xand0.Mp2_s VDD_W1 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice0.Xand0.Xinv.Mn N_X_SLICE0.WEN0_X_slice0.Xand0.Xinv.Mn_d
++ N_X_SLICE0.XAND0.OUT_B_X_slice0.Xand0.Xinv.Mn_g N_VSS_X_slice0.Xand0.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xand0.Xinv.Mp N_X_SLICE0.WEN0_X_slice0.Xand0.Xinv.Mp_d
++ N_X_SLICE0.XAND0.OUT_B_X_slice0.Xand0.Xinv.Mp_g N_VDD_X_slice0.Xand0.Xinv.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver1.Xinv.Mn N_X_SLICE0.XDRIVER1.IN_B_X_slice0.Xdriver1.Xinv.Mn_d
++ N_D0_X_slice0.Xdriver1.Xinv.Mn_g N_VSS_X_slice0.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver1.Xinv.Mp N_X_SLICE0.XDRIVER1.IN_B_X_slice0.Xdriver1.Xinv.Mp_d
++ N_D0_X_slice0.Xdriver1.Xinv.Mp_g N_VDD_X_slice0.Xdriver1.Xinv.Mp_s VDD_W0
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver1.Xand1.Mn2
++ N_X_SLICE0.XDRIVER1.XAND1.N1_X_slice0.Xdriver1.Xand1.Mn2_d
++ N_D0_X_slice0.Xdriver1.Xand1.Mn2_g N_VSS_X_slice0.Xdriver1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver1.Xand1.Mn1
++ N_X_SLICE0.XDRIVER1.XAND1.OUT_B_X_slice0.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE0.WEN1_X_slice0.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE0.XDRIVER1.XAND1.N1_X_slice0.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver1.Xand1.Mp2
++ N_X_SLICE0.XDRIVER1.XAND1.OUT_B_X_slice0.Xdriver1.Xand1.Mp2_d
++ N_D0_X_slice0.Xdriver1.Xand1.Mp2_g N_VDD_X_slice0.Xdriver1.Xand1.Mp2_s VDD_W0
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice0.Xdriver1.Xand1.Mp1
++ N_X_SLICE0.XDRIVER1.XAND1.OUT_B_X_slice0.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE0.WEN1_X_slice0.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice0.Xdriver1.Xand1.Mp1_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice0.Xdriver1.Xand1.Xinv.Mn N_WEN_BL16_X_slice0.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE0.XDRIVER1.XAND1.OUT_B_X_slice0.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice0.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice0.Xdriver1.Xand1.Xinv.Mp N_WEN_BL16_X_slice0.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE0.XDRIVER1.XAND1.OUT_B_X_slice0.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice0.Xdriver1.Xand1.Xinv.Mp_s VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice0.Xdriver1.Xand2.Mn1
++ N_X_SLICE0.XDRIVER1.XAND2.N1_X_slice0.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE0.WEN1_X_slice0.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice0.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver1.Xand2.Mn2
++ N_X_SLICE0.XDRIVER1.XAND2.OUT_B_X_slice0.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE0.XDRIVER1.IN_B_X_slice0.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE0.XDRIVER1.XAND2.N1_X_slice0.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver1.Xand2.Mp1
++ N_X_SLICE0.XDRIVER1.XAND2.OUT_B_X_slice0.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE0.WEN1_X_slice0.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice0.Xdriver1.Xand2.Mp1_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice0.Xdriver1.Xand2.Mp2
++ N_X_SLICE0.XDRIVER1.XAND2.OUT_B_X_slice0.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE0.XDRIVER1.IN_B_X_slice0.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice0.Xdriver1.Xand2.Mp2_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice0.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB16_X_slice0.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE0.XDRIVER1.XAND2.OUT_B_X_slice0.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice0.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice0.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB16_X_slice0.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE0.XDRIVER1.XAND2.OUT_B_X_slice0.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice0.Xdriver1.Xand2.Xinv.Mp_s VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice0.Xdriver0.Xinv.Mn N_X_SLICE0.XDRIVER0.IN_B_X_slice0.Xdriver0.Xinv.Mn_d
++ N_D0_X_slice0.Xdriver0.Xinv.Mn_g N_VSS_X_slice0.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver0.Xinv.Mp N_X_SLICE0.XDRIVER0.IN_B_X_slice0.Xdriver0.Xinv.Mp_d
++ N_D0_X_slice0.Xdriver0.Xinv.Mp_g N_VDD_X_slice0.Xdriver0.Xinv.Mp_s VDD_W1
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver0.Xand1.Mn2
++ N_X_SLICE0.XDRIVER0.XAND1.N1_X_slice0.Xdriver0.Xand1.Mn2_d
++ N_D0_X_slice0.Xdriver0.Xand1.Mn2_g N_VSS_X_slice0.Xdriver0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver0.Xand1.Mn1
++ N_X_SLICE0.XDRIVER0.XAND1.OUT_B_X_slice0.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE0.WEN0_X_slice0.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE0.XDRIVER0.XAND1.N1_X_slice0.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver0.Xand1.Mp2
++ N_X_SLICE0.XDRIVER0.XAND1.OUT_B_X_slice0.Xdriver0.Xand1.Mp2_d
++ N_D0_X_slice0.Xdriver0.Xand1.Mp2_g N_VDD_X_slice0.Xdriver0.Xand1.Mp2_s VDD_W1
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice0.Xdriver0.Xand1.Mp1
++ N_X_SLICE0.XDRIVER0.XAND1.OUT_B_X_slice0.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE0.WEN0_X_slice0.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice0.Xdriver0.Xand1.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice0.Xdriver0.Xand1.Xinv.Mn N_WEN_BL0_X_slice0.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE0.XDRIVER0.XAND1.OUT_B_X_slice0.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice0.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice0.Xdriver0.Xand1.Xinv.Mp N_WEN_BL0_X_slice0.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE0.XDRIVER0.XAND1.OUT_B_X_slice0.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice0.Xdriver0.Xand1.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice0.Xdriver0.Xand2.Mn1
++ N_X_SLICE0.XDRIVER0.XAND2.N1_X_slice0.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE0.WEN0_X_slice0.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice0.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver0.Xand2.Mn2
++ N_X_SLICE0.XDRIVER0.XAND2.OUT_B_X_slice0.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE0.XDRIVER0.IN_B_X_slice0.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE0.XDRIVER0.XAND2.N1_X_slice0.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice0.Xdriver0.Xand2.Mp1
++ N_X_SLICE0.XDRIVER0.XAND2.OUT_B_X_slice0.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE0.WEN0_X_slice0.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice0.Xdriver0.Xand2.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice0.Xdriver0.Xand2.Mp2
++ N_X_SLICE0.XDRIVER0.XAND2.OUT_B_X_slice0.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE0.XDRIVER0.IN_B_X_slice0.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice0.Xdriver0.Xand2.Mp2_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice0.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB0_X_slice0.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE0.XDRIVER0.XAND2.OUT_B_X_slice0.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice0.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice0.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB0_X_slice0.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE0.XDRIVER0.XAND2.OUT_B_X_slice0.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice0.Xdriver0.Xand2.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice1.Xand1.Mn1 N_X_SLICE1.XAND1.N1_X_slice1.Xand1.Mn1_d
++ N_WEN_B0_X_slice1.Xand1.Mn1_g N_VSS_X_slice1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xand1.Mn2 N_X_SLICE1.XAND1.OUT_B_X_slice1.Xand1.Mn2_d
++ N_A0_X_slice1.Xand1.Mn2_g N_X_SLICE1.XAND1.N1_X_slice1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xand1.Mp1 N_X_SLICE1.XAND1.OUT_B_X_slice1.Xand1.Mp1_d
++ N_WEN_B0_X_slice1.Xand1.Mp1_g N_VDD_X_slice1.Xand1.Mp1_s VDD_W0 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice1.Xand1.Mp2 N_X_SLICE1.XAND1.OUT_B_X_slice1.Xand1.Mp2_d
++ N_A0_X_slice1.Xand1.Mp2_g N_VDD_X_slice1.Xand1.Mp2_s VDD_W0 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice1.Xand1.Xinv.Mn N_X_SLICE1.WEN1_X_slice1.Xand1.Xinv.Mn_d
++ N_X_SLICE1.XAND1.OUT_B_X_slice1.Xand1.Xinv.Mn_g N_VSS_X_slice1.Xand1.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xand1.Xinv.Mp N_X_SLICE1.WEN1_X_slice1.Xand1.Xinv.Mp_d
++ N_X_SLICE1.XAND1.OUT_B_X_slice1.Xand1.Xinv.Mp_g N_VDD_X_slice1.Xand1.Xinv.Mp_s
++ VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xand0.Mn1 N_X_SLICE1.XAND0.N1_X_slice1.Xand0.Mn1_d
++ N_WEN_B0_X_slice1.Xand0.Mn1_g N_VSS_X_slice1.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xand0.Mn2 N_X_SLICE1.XAND0.OUT_B_X_slice1.Xand0.Mn2_d
++ N_A0_B_X_slice1.Xand0.Mn2_g N_X_SLICE1.XAND0.N1_X_slice1.Xand0.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xand0.Mp1 N_X_SLICE1.XAND0.OUT_B_X_slice1.Xand0.Mp1_d
++ N_WEN_B0_X_slice1.Xand0.Mp1_g N_VDD_X_slice1.Xand0.Mp1_s VDD_W1 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice1.Xand0.Mp2 N_X_SLICE1.XAND0.OUT_B_X_slice1.Xand0.Mp2_d
++ N_A0_B_X_slice1.Xand0.Mp2_g N_VDD_X_slice1.Xand0.Mp2_s VDD_W1 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice1.Xand0.Xinv.Mn N_X_SLICE1.WEN0_X_slice1.Xand0.Xinv.Mn_d
++ N_X_SLICE1.XAND0.OUT_B_X_slice1.Xand0.Xinv.Mn_g N_VSS_X_slice1.Xand0.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xand0.Xinv.Mp N_X_SLICE1.WEN0_X_slice1.Xand0.Xinv.Mp_d
++ N_X_SLICE1.XAND0.OUT_B_X_slice1.Xand0.Xinv.Mp_g N_VDD_X_slice1.Xand0.Xinv.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver1.Xinv.Mn N_X_SLICE1.XDRIVER1.IN_B_X_slice1.Xdriver1.Xinv.Mn_d
++ N_D1_X_slice1.Xdriver1.Xinv.Mn_g N_VSS_X_slice1.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver1.Xinv.Mp N_X_SLICE1.XDRIVER1.IN_B_X_slice1.Xdriver1.Xinv.Mp_d
++ N_D1_X_slice1.Xdriver1.Xinv.Mp_g N_VDD_X_slice1.Xdriver1.Xinv.Mp_s VDD_W0
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver1.Xand1.Mn2
++ N_X_SLICE1.XDRIVER1.XAND1.N1_X_slice1.Xdriver1.Xand1.Mn2_d
++ N_D1_X_slice1.Xdriver1.Xand1.Mn2_g N_VSS_X_slice1.Xdriver1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver1.Xand1.Mn1
++ N_X_SLICE1.XDRIVER1.XAND1.OUT_B_X_slice1.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE1.WEN1_X_slice1.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE1.XDRIVER1.XAND1.N1_X_slice1.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver1.Xand1.Mp2
++ N_X_SLICE1.XDRIVER1.XAND1.OUT_B_X_slice1.Xdriver1.Xand1.Mp2_d
++ N_D1_X_slice1.Xdriver1.Xand1.Mp2_g N_VDD_X_slice1.Xdriver1.Xand1.Mp2_s VDD_W0
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice1.Xdriver1.Xand1.Mp1
++ N_X_SLICE1.XDRIVER1.XAND1.OUT_B_X_slice1.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE1.WEN1_X_slice1.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice1.Xdriver1.Xand1.Mp1_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice1.Xdriver1.Xand1.Xinv.Mn N_WEN_BL17_X_slice1.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE1.XDRIVER1.XAND1.OUT_B_X_slice1.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice1.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice1.Xdriver1.Xand1.Xinv.Mp N_WEN_BL17_X_slice1.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE1.XDRIVER1.XAND1.OUT_B_X_slice1.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice1.Xdriver1.Xand1.Xinv.Mp_s VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice1.Xdriver1.Xand2.Mn1
++ N_X_SLICE1.XDRIVER1.XAND2.N1_X_slice1.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE1.WEN1_X_slice1.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice1.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver1.Xand2.Mn2
++ N_X_SLICE1.XDRIVER1.XAND2.OUT_B_X_slice1.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE1.XDRIVER1.IN_B_X_slice1.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE1.XDRIVER1.XAND2.N1_X_slice1.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver1.Xand2.Mp1
++ N_X_SLICE1.XDRIVER1.XAND2.OUT_B_X_slice1.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE1.WEN1_X_slice1.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice1.Xdriver1.Xand2.Mp1_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice1.Xdriver1.Xand2.Mp2
++ N_X_SLICE1.XDRIVER1.XAND2.OUT_B_X_slice1.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE1.XDRIVER1.IN_B_X_slice1.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice1.Xdriver1.Xand2.Mp2_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice1.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB17_X_slice1.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE1.XDRIVER1.XAND2.OUT_B_X_slice1.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice1.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice1.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB17_X_slice1.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE1.XDRIVER1.XAND2.OUT_B_X_slice1.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice1.Xdriver1.Xand2.Xinv.Mp_s VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice1.Xdriver0.Xinv.Mn N_X_SLICE1.XDRIVER0.IN_B_X_slice1.Xdriver0.Xinv.Mn_d
++ N_D1_X_slice1.Xdriver0.Xinv.Mn_g N_VSS_X_slice1.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver0.Xinv.Mp N_X_SLICE1.XDRIVER0.IN_B_X_slice1.Xdriver0.Xinv.Mp_d
++ N_D1_X_slice1.Xdriver0.Xinv.Mp_g N_VDD_X_slice1.Xdriver0.Xinv.Mp_s VDD_W1
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver0.Xand1.Mn2
++ N_X_SLICE1.XDRIVER0.XAND1.N1_X_slice1.Xdriver0.Xand1.Mn2_d
++ N_D1_X_slice1.Xdriver0.Xand1.Mn2_g N_VSS_X_slice1.Xdriver0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver0.Xand1.Mn1
++ N_X_SLICE1.XDRIVER0.XAND1.OUT_B_X_slice1.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE1.WEN0_X_slice1.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE1.XDRIVER0.XAND1.N1_X_slice1.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver0.Xand1.Mp2
++ N_X_SLICE1.XDRIVER0.XAND1.OUT_B_X_slice1.Xdriver0.Xand1.Mp2_d
++ N_D1_X_slice1.Xdriver0.Xand1.Mp2_g N_VDD_X_slice1.Xdriver0.Xand1.Mp2_s VDD_W1
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice1.Xdriver0.Xand1.Mp1
++ N_X_SLICE1.XDRIVER0.XAND1.OUT_B_X_slice1.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE1.WEN0_X_slice1.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice1.Xdriver0.Xand1.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice1.Xdriver0.Xand1.Xinv.Mn N_WEN_BL1_X_slice1.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE1.XDRIVER0.XAND1.OUT_B_X_slice1.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice1.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice1.Xdriver0.Xand1.Xinv.Mp N_WEN_BL1_X_slice1.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE1.XDRIVER0.XAND1.OUT_B_X_slice1.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice1.Xdriver0.Xand1.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice1.Xdriver0.Xand2.Mn1
++ N_X_SLICE1.XDRIVER0.XAND2.N1_X_slice1.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE1.WEN0_X_slice1.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice1.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver0.Xand2.Mn2
++ N_X_SLICE1.XDRIVER0.XAND2.OUT_B_X_slice1.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE1.XDRIVER0.IN_B_X_slice1.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE1.XDRIVER0.XAND2.N1_X_slice1.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice1.Xdriver0.Xand2.Mp1
++ N_X_SLICE1.XDRIVER0.XAND2.OUT_B_X_slice1.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE1.WEN0_X_slice1.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice1.Xdriver0.Xand2.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice1.Xdriver0.Xand2.Mp2
++ N_X_SLICE1.XDRIVER0.XAND2.OUT_B_X_slice1.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE1.XDRIVER0.IN_B_X_slice1.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice1.Xdriver0.Xand2.Mp2_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice1.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB1_X_slice1.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE1.XDRIVER0.XAND2.OUT_B_X_slice1.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice1.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice1.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB1_X_slice1.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE1.XDRIVER0.XAND2.OUT_B_X_slice1.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice1.Xdriver0.Xand2.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice4.Xand1.Mn1 N_X_SLICE4.XAND1.N1_X_slice4.Xand1.Mn1_d
++ N_WEN_B0_X_slice4.Xand1.Mn1_g N_VSS_X_slice4.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xand1.Mn2 N_X_SLICE4.XAND1.OUT_B_X_slice4.Xand1.Mn2_d
++ N_A1_X_slice4.Xand1.Mn2_g N_X_SLICE4.XAND1.N1_X_slice4.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xand1.Mp1 N_X_SLICE4.XAND1.OUT_B_X_slice4.Xand1.Mp1_d
++ N_WEN_B0_X_slice4.Xand1.Mp1_g N_VDD_X_slice4.Xand1.Mp1_s VDD_W2 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice4.Xand1.Mp2 N_X_SLICE4.XAND1.OUT_B_X_slice4.Xand1.Mp2_d
++ N_A1_X_slice4.Xand1.Mp2_g N_VDD_X_slice4.Xand1.Mp2_s VDD_W2 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice4.Xand1.Xinv.Mn N_X_SLICE4.WEN1_X_slice4.Xand1.Xinv.Mn_d
++ N_X_SLICE4.XAND1.OUT_B_X_slice4.Xand1.Xinv.Mn_g N_VSS_X_slice4.Xand1.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xand1.Xinv.Mp N_X_SLICE4.WEN1_X_slice4.Xand1.Xinv.Mp_d
++ N_X_SLICE4.XAND1.OUT_B_X_slice4.Xand1.Xinv.Mp_g N_VDD_X_slice4.Xand1.Xinv.Mp_s
++ VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xand0.Mn1 N_X_SLICE4.XAND0.N1_X_slice4.Xand0.Mn1_d
++ N_WEN_B0_X_slice4.Xand0.Mn1_g N_VSS_X_slice4.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xand0.Mn2 N_X_SLICE4.XAND0.OUT_B_X_slice4.Xand0.Mn2_d
++ N_A1_B_X_slice4.Xand0.Mn2_g N_X_SLICE4.XAND0.N1_X_slice4.Xand0.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xand0.Mp1 N_X_SLICE4.XAND0.OUT_B_X_slice4.Xand0.Mp1_d
++ N_WEN_B0_X_slice4.Xand0.Mp1_g N_VDD_X_slice4.Xand0.Mp1_s VDD_W1 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice4.Xand0.Mp2 N_X_SLICE4.XAND0.OUT_B_X_slice4.Xand0.Mp2_d
++ N_A1_B_X_slice4.Xand0.Mp2_g N_VDD_X_slice4.Xand0.Mp2_s VDD_W1 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice4.Xand0.Xinv.Mn N_X_SLICE4.WEN0_X_slice4.Xand0.Xinv.Mn_d
++ N_X_SLICE4.XAND0.OUT_B_X_slice4.Xand0.Xinv.Mn_g N_VSS_X_slice4.Xand0.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xand0.Xinv.Mp N_X_SLICE4.WEN0_X_slice4.Xand0.Xinv.Mp_d
++ N_X_SLICE4.XAND0.OUT_B_X_slice4.Xand0.Xinv.Mp_g N_VDD_X_slice4.Xand0.Xinv.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver1.Xinv.Mn N_X_SLICE4.XDRIVER1.IN_B_X_slice4.Xdriver1.Xinv.Mn_d
++ N_D4_X_slice4.Xdriver1.Xinv.Mn_g N_VSS_X_slice4.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver1.Xinv.Mp N_X_SLICE4.XDRIVER1.IN_B_X_slice4.Xdriver1.Xinv.Mp_d
++ N_D4_X_slice4.Xdriver1.Xinv.Mp_g N_VDD_X_slice4.Xdriver1.Xinv.Mp_s VDD_W2
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver1.Xand1.Mn2
++ N_X_SLICE4.XDRIVER1.XAND1.N1_X_slice4.Xdriver1.Xand1.Mn2_d
++ N_D4_X_slice4.Xdriver1.Xand1.Mn2_g N_VSS_X_slice4.Xdriver1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver1.Xand1.Mn1
++ N_X_SLICE4.XDRIVER1.XAND1.OUT_B_X_slice4.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE4.WEN1_X_slice4.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE4.XDRIVER1.XAND1.N1_X_slice4.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver1.Xand1.Mp2
++ N_X_SLICE4.XDRIVER1.XAND1.OUT_B_X_slice4.Xdriver1.Xand1.Mp2_d
++ N_D4_X_slice4.Xdriver1.Xand1.Mp2_g N_VDD_X_slice4.Xdriver1.Xand1.Mp2_s VDD_W2
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice4.Xdriver1.Xand1.Mp1
++ N_X_SLICE4.XDRIVER1.XAND1.OUT_B_X_slice4.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE4.WEN1_X_slice4.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice4.Xdriver1.Xand1.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice4.Xdriver1.Xand1.Xinv.Mn N_WEN_BL20_X_slice4.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE4.XDRIVER1.XAND1.OUT_B_X_slice4.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice4.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice4.Xdriver1.Xand1.Xinv.Mp N_WEN_BL20_X_slice4.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE4.XDRIVER1.XAND1.OUT_B_X_slice4.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice4.Xdriver1.Xand1.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice4.Xdriver1.Xand2.Mn1
++ N_X_SLICE4.XDRIVER1.XAND2.N1_X_slice4.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE4.WEN1_X_slice4.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice4.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver1.Xand2.Mn2
++ N_X_SLICE4.XDRIVER1.XAND2.OUT_B_X_slice4.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE4.XDRIVER1.IN_B_X_slice4.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE4.XDRIVER1.XAND2.N1_X_slice4.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver1.Xand2.Mp1
++ N_X_SLICE4.XDRIVER1.XAND2.OUT_B_X_slice4.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE4.WEN1_X_slice4.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice4.Xdriver1.Xand2.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice4.Xdriver1.Xand2.Mp2
++ N_X_SLICE4.XDRIVER1.XAND2.OUT_B_X_slice4.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE4.XDRIVER1.IN_B_X_slice4.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice4.Xdriver1.Xand2.Mp2_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice4.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB20_X_slice4.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE4.XDRIVER1.XAND2.OUT_B_X_slice4.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice4.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice4.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB20_X_slice4.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE4.XDRIVER1.XAND2.OUT_B_X_slice4.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice4.Xdriver1.Xand2.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice4.Xdriver0.Xinv.Mn N_X_SLICE4.XDRIVER0.IN_B_X_slice4.Xdriver0.Xinv.Mn_d
++ N_D4_X_slice4.Xdriver0.Xinv.Mn_g N_VSS_X_slice4.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver0.Xinv.Mp N_X_SLICE4.XDRIVER0.IN_B_X_slice4.Xdriver0.Xinv.Mp_d
++ N_D4_X_slice4.Xdriver0.Xinv.Mp_g N_VDD_X_slice4.Xdriver0.Xinv.Mp_s VDD_W1
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver0.Xand1.Mn2
++ N_X_SLICE4.XDRIVER0.XAND1.N1_X_slice4.Xdriver0.Xand1.Mn2_d
++ N_D4_X_slice4.Xdriver0.Xand1.Mn2_g N_VSS_X_slice4.Xdriver0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver0.Xand1.Mn1
++ N_X_SLICE4.XDRIVER0.XAND1.OUT_B_X_slice4.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE4.WEN0_X_slice4.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE4.XDRIVER0.XAND1.N1_X_slice4.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver0.Xand1.Mp2
++ N_X_SLICE4.XDRIVER0.XAND1.OUT_B_X_slice4.Xdriver0.Xand1.Mp2_d
++ N_D4_X_slice4.Xdriver0.Xand1.Mp2_g N_VDD_X_slice4.Xdriver0.Xand1.Mp2_s VDD_W1
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice4.Xdriver0.Xand1.Mp1
++ N_X_SLICE4.XDRIVER0.XAND1.OUT_B_X_slice4.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE4.WEN0_X_slice4.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice4.Xdriver0.Xand1.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice4.Xdriver0.Xand1.Xinv.Mn N_WEN_BL4_X_slice4.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE4.XDRIVER0.XAND1.OUT_B_X_slice4.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice4.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice4.Xdriver0.Xand1.Xinv.Mp N_WEN_BL4_X_slice4.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE4.XDRIVER0.XAND1.OUT_B_X_slice4.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice4.Xdriver0.Xand1.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice4.Xdriver0.Xand2.Mn1
++ N_X_SLICE4.XDRIVER0.XAND2.N1_X_slice4.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE4.WEN0_X_slice4.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice4.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver0.Xand2.Mn2
++ N_X_SLICE4.XDRIVER0.XAND2.OUT_B_X_slice4.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE4.XDRIVER0.IN_B_X_slice4.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE4.XDRIVER0.XAND2.N1_X_slice4.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice4.Xdriver0.Xand2.Mp1
++ N_X_SLICE4.XDRIVER0.XAND2.OUT_B_X_slice4.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE4.WEN0_X_slice4.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice4.Xdriver0.Xand2.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice4.Xdriver0.Xand2.Mp2
++ N_X_SLICE4.XDRIVER0.XAND2.OUT_B_X_slice4.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE4.XDRIVER0.IN_B_X_slice4.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice4.Xdriver0.Xand2.Mp2_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice4.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB4_X_slice4.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE4.XDRIVER0.XAND2.OUT_B_X_slice4.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice4.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice4.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB4_X_slice4.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE4.XDRIVER0.XAND2.OUT_B_X_slice4.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice4.Xdriver0.Xand2.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice5.Xand1.Mn1 N_X_SLICE5.XAND1.N1_X_slice5.Xand1.Mn1_d
++ N_WEN_B0_X_slice5.Xand1.Mn1_g N_VSS_X_slice5.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xand1.Mn2 N_X_SLICE5.XAND1.OUT_B_X_slice5.Xand1.Mn2_d
++ N_A1_X_slice5.Xand1.Mn2_g N_X_SLICE5.XAND1.N1_X_slice5.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xand1.Mp1 N_X_SLICE5.XAND1.OUT_B_X_slice5.Xand1.Mp1_d
++ N_WEN_B0_X_slice5.Xand1.Mp1_g N_VDD_X_slice5.Xand1.Mp1_s VDD_W2 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice5.Xand1.Mp2 N_X_SLICE5.XAND1.OUT_B_X_slice5.Xand1.Mp2_d
++ N_A1_X_slice5.Xand1.Mp2_g N_VDD_X_slice5.Xand1.Mp2_s VDD_W2 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice5.Xand1.Xinv.Mn N_X_SLICE5.WEN1_X_slice5.Xand1.Xinv.Mn_d
++ N_X_SLICE5.XAND1.OUT_B_X_slice5.Xand1.Xinv.Mn_g N_VSS_X_slice5.Xand1.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xand1.Xinv.Mp N_X_SLICE5.WEN1_X_slice5.Xand1.Xinv.Mp_d
++ N_X_SLICE5.XAND1.OUT_B_X_slice5.Xand1.Xinv.Mp_g N_VDD_X_slice5.Xand1.Xinv.Mp_s
++ VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xand0.Mn1 N_X_SLICE5.XAND0.N1_X_slice5.Xand0.Mn1_d
++ N_WEN_B0_X_slice5.Xand0.Mn1_g N_VSS_X_slice5.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xand0.Mn2 N_X_SLICE5.XAND0.OUT_B_X_slice5.Xand0.Mn2_d
++ N_A1_B_X_slice5.Xand0.Mn2_g N_X_SLICE5.XAND0.N1_X_slice5.Xand0.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xand0.Mp1 N_X_SLICE5.XAND0.OUT_B_X_slice5.Xand0.Mp1_d
++ N_WEN_B0_X_slice5.Xand0.Mp1_g N_VDD_X_slice5.Xand0.Mp1_s VDD_W1 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice5.Xand0.Mp2 N_X_SLICE5.XAND0.OUT_B_X_slice5.Xand0.Mp2_d
++ N_A1_B_X_slice5.Xand0.Mp2_g N_VDD_X_slice5.Xand0.Mp2_s VDD_W1 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice5.Xand0.Xinv.Mn N_X_SLICE5.WEN0_X_slice5.Xand0.Xinv.Mn_d
++ N_X_SLICE5.XAND0.OUT_B_X_slice5.Xand0.Xinv.Mn_g N_VSS_X_slice5.Xand0.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xand0.Xinv.Mp N_X_SLICE5.WEN0_X_slice5.Xand0.Xinv.Mp_d
++ N_X_SLICE5.XAND0.OUT_B_X_slice5.Xand0.Xinv.Mp_g N_VDD_X_slice5.Xand0.Xinv.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver1.Xinv.Mn N_X_SLICE5.XDRIVER1.IN_B_X_slice5.Xdriver1.Xinv.Mn_d
++ N_D5_X_slice5.Xdriver1.Xinv.Mn_g N_VSS_X_slice5.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver1.Xinv.Mp N_X_SLICE5.XDRIVER1.IN_B_X_slice5.Xdriver1.Xinv.Mp_d
++ N_D5_X_slice5.Xdriver1.Xinv.Mp_g N_VDD_X_slice5.Xdriver1.Xinv.Mp_s VDD_W2
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver1.Xand1.Mn2
++ N_X_SLICE5.XDRIVER1.XAND1.N1_X_slice5.Xdriver1.Xand1.Mn2_d
++ N_D5_X_slice5.Xdriver1.Xand1.Mn2_g N_VSS_X_slice5.Xdriver1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver1.Xand1.Mn1
++ N_X_SLICE5.XDRIVER1.XAND1.OUT_B_X_slice5.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE5.WEN1_X_slice5.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE5.XDRIVER1.XAND1.N1_X_slice5.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver1.Xand1.Mp2
++ N_X_SLICE5.XDRIVER1.XAND1.OUT_B_X_slice5.Xdriver1.Xand1.Mp2_d
++ N_D5_X_slice5.Xdriver1.Xand1.Mp2_g N_VDD_X_slice5.Xdriver1.Xand1.Mp2_s VDD_W2
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice5.Xdriver1.Xand1.Mp1
++ N_X_SLICE5.XDRIVER1.XAND1.OUT_B_X_slice5.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE5.WEN1_X_slice5.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice5.Xdriver1.Xand1.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice5.Xdriver1.Xand1.Xinv.Mn N_WEN_BL21_X_slice5.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE5.XDRIVER1.XAND1.OUT_B_X_slice5.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice5.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice5.Xdriver1.Xand1.Xinv.Mp N_WEN_BL21_X_slice5.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE5.XDRIVER1.XAND1.OUT_B_X_slice5.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice5.Xdriver1.Xand1.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice5.Xdriver1.Xand2.Mn1
++ N_X_SLICE5.XDRIVER1.XAND2.N1_X_slice5.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE5.WEN1_X_slice5.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice5.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver1.Xand2.Mn2
++ N_X_SLICE5.XDRIVER1.XAND2.OUT_B_X_slice5.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE5.XDRIVER1.IN_B_X_slice5.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE5.XDRIVER1.XAND2.N1_X_slice5.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver1.Xand2.Mp1
++ N_X_SLICE5.XDRIVER1.XAND2.OUT_B_X_slice5.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE5.WEN1_X_slice5.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice5.Xdriver1.Xand2.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice5.Xdriver1.Xand2.Mp2
++ N_X_SLICE5.XDRIVER1.XAND2.OUT_B_X_slice5.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE5.XDRIVER1.IN_B_X_slice5.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice5.Xdriver1.Xand2.Mp2_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice5.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB21_X_slice5.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE5.XDRIVER1.XAND2.OUT_B_X_slice5.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice5.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice5.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB21_X_slice5.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE5.XDRIVER1.XAND2.OUT_B_X_slice5.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice5.Xdriver1.Xand2.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice5.Xdriver0.Xinv.Mn N_X_SLICE5.XDRIVER0.IN_B_X_slice5.Xdriver0.Xinv.Mn_d
++ N_D5_X_slice5.Xdriver0.Xinv.Mn_g N_VSS_X_slice5.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver0.Xinv.Mp N_X_SLICE5.XDRIVER0.IN_B_X_slice5.Xdriver0.Xinv.Mp_d
++ N_D5_X_slice5.Xdriver0.Xinv.Mp_g N_VDD_X_slice5.Xdriver0.Xinv.Mp_s VDD_W1
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver0.Xand1.Mn2
++ N_X_SLICE5.XDRIVER0.XAND1.N1_X_slice5.Xdriver0.Xand1.Mn2_d
++ N_D5_X_slice5.Xdriver0.Xand1.Mn2_g N_VSS_X_slice5.Xdriver0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver0.Xand1.Mn1
++ N_X_SLICE5.XDRIVER0.XAND1.OUT_B_X_slice5.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE5.WEN0_X_slice5.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE5.XDRIVER0.XAND1.N1_X_slice5.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver0.Xand1.Mp2
++ N_X_SLICE5.XDRIVER0.XAND1.OUT_B_X_slice5.Xdriver0.Xand1.Mp2_d
++ N_D5_X_slice5.Xdriver0.Xand1.Mp2_g N_VDD_X_slice5.Xdriver0.Xand1.Mp2_s VDD_W1
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice5.Xdriver0.Xand1.Mp1
++ N_X_SLICE5.XDRIVER0.XAND1.OUT_B_X_slice5.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE5.WEN0_X_slice5.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice5.Xdriver0.Xand1.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice5.Xdriver0.Xand1.Xinv.Mn N_WEN_BL5_X_slice5.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE5.XDRIVER0.XAND1.OUT_B_X_slice5.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice5.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice5.Xdriver0.Xand1.Xinv.Mp N_WEN_BL5_X_slice5.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE5.XDRIVER0.XAND1.OUT_B_X_slice5.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice5.Xdriver0.Xand1.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice5.Xdriver0.Xand2.Mn1
++ N_X_SLICE5.XDRIVER0.XAND2.N1_X_slice5.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE5.WEN0_X_slice5.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice5.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver0.Xand2.Mn2
++ N_X_SLICE5.XDRIVER0.XAND2.OUT_B_X_slice5.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE5.XDRIVER0.IN_B_X_slice5.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE5.XDRIVER0.XAND2.N1_X_slice5.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice5.Xdriver0.Xand2.Mp1
++ N_X_SLICE5.XDRIVER0.XAND2.OUT_B_X_slice5.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE5.WEN0_X_slice5.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice5.Xdriver0.Xand2.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice5.Xdriver0.Xand2.Mp2
++ N_X_SLICE5.XDRIVER0.XAND2.OUT_B_X_slice5.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE5.XDRIVER0.IN_B_X_slice5.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice5.Xdriver0.Xand2.Mp2_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice5.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB5_X_slice5.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE5.XDRIVER0.XAND2.OUT_B_X_slice5.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice5.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice5.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB5_X_slice5.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE5.XDRIVER0.XAND2.OUT_B_X_slice5.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice5.Xdriver0.Xand2.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice8.Xand1.Mn1 N_X_SLICE8.XAND1.N1_X_slice8.Xand1.Mn1_d
++ N_WEN_B1_X_slice8.Xand1.Mn1_g N_VSS_X_slice8.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xand1.Mn2 N_X_SLICE8.XAND1.OUT_B_X_slice8.Xand1.Mn2_d
++ N_A2_X_slice8.Xand1.Mn2_g N_X_SLICE8.XAND1.N1_X_slice8.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xand1.Mp1 N_X_SLICE8.XAND1.OUT_B_X_slice8.Xand1.Mp1_d
++ N_WEN_B1_X_slice8.Xand1.Mp1_g N_VDD_X_slice8.Xand1.Mp1_s VDD_W2 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice8.Xand1.Mp2 N_X_SLICE8.XAND1.OUT_B_X_slice8.Xand1.Mp2_d
++ N_A2_X_slice8.Xand1.Mp2_g N_VDD_X_slice8.Xand1.Mp2_s VDD_W2 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice8.Xand1.Xinv.Mn N_X_SLICE8.WEN1_X_slice8.Xand1.Xinv.Mn_d
++ N_X_SLICE8.XAND1.OUT_B_X_slice8.Xand1.Xinv.Mn_g N_VSS_X_slice8.Xand1.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xand1.Xinv.Mp N_X_SLICE8.WEN1_X_slice8.Xand1.Xinv.Mp_d
++ N_X_SLICE8.XAND1.OUT_B_X_slice8.Xand1.Xinv.Mp_g N_VDD_X_slice8.Xand1.Xinv.Mp_s
++ VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xand0.Mn1 N_X_SLICE8.XAND0.N1_X_slice8.Xand0.Mn1_d
++ N_WEN_B1_X_slice8.Xand0.Mn1_g N_VSS_X_slice8.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xand0.Mn2 N_X_SLICE8.XAND0.OUT_B_X_slice8.Xand0.Mn2_d
++ N_A2_B_X_slice8.Xand0.Mn2_g N_X_SLICE8.XAND0.N1_X_slice8.Xand0.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xand0.Mp1 N_X_SLICE8.XAND0.OUT_B_X_slice8.Xand0.Mp1_d
++ N_WEN_B1_X_slice8.Xand0.Mp1_g N_VDD_X_slice8.Xand0.Mp1_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice8.Xand0.Mp2 N_X_SLICE8.XAND0.OUT_B_X_slice8.Xand0.Mp2_d
++ N_A2_B_X_slice8.Xand0.Mp2_g N_VDD_X_slice8.Xand0.Mp2_s VDD_W3 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice8.Xand0.Xinv.Mn N_X_SLICE8.WEN0_X_slice8.Xand0.Xinv.Mn_d
++ N_X_SLICE8.XAND0.OUT_B_X_slice8.Xand0.Xinv.Mn_g N_VSS_X_slice8.Xand0.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xand0.Xinv.Mp N_X_SLICE8.WEN0_X_slice8.Xand0.Xinv.Mp_d
++ N_X_SLICE8.XAND0.OUT_B_X_slice8.Xand0.Xinv.Mp_g N_VDD_X_slice8.Xand0.Xinv.Mp_s
++ VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver1.Xinv.Mn N_X_SLICE8.XDRIVER1.IN_B_X_slice8.Xdriver1.Xinv.Mn_d
++ N_D8_X_slice8.Xdriver1.Xinv.Mn_g N_VSS_X_slice8.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver1.Xinv.Mp N_X_SLICE8.XDRIVER1.IN_B_X_slice8.Xdriver1.Xinv.Mp_d
++ N_D8_X_slice8.Xdriver1.Xinv.Mp_g N_VDD_X_slice8.Xdriver1.Xinv.Mp_s VDD_W2
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver1.Xand1.Mn2
++ N_X_SLICE8.XDRIVER1.XAND1.N1_X_slice8.Xdriver1.Xand1.Mn2_d
++ N_D8_X_slice8.Xdriver1.Xand1.Mn2_g N_VSS_X_slice8.Xdriver1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver1.Xand1.Mn1
++ N_X_SLICE8.XDRIVER1.XAND1.OUT_B_X_slice8.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE8.WEN1_X_slice8.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE8.XDRIVER1.XAND1.N1_X_slice8.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver1.Xand1.Mp2
++ N_X_SLICE8.XDRIVER1.XAND1.OUT_B_X_slice8.Xdriver1.Xand1.Mp2_d
++ N_D8_X_slice8.Xdriver1.Xand1.Mp2_g N_VDD_X_slice8.Xdriver1.Xand1.Mp2_s VDD_W2
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice8.Xdriver1.Xand1.Mp1
++ N_X_SLICE8.XDRIVER1.XAND1.OUT_B_X_slice8.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE8.WEN1_X_slice8.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice8.Xdriver1.Xand1.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice8.Xdriver1.Xand1.Xinv.Mn N_WEN_BL24_X_slice8.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE8.XDRIVER1.XAND1.OUT_B_X_slice8.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice8.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice8.Xdriver1.Xand1.Xinv.Mp N_WEN_BL24_X_slice8.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE8.XDRIVER1.XAND1.OUT_B_X_slice8.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice8.Xdriver1.Xand1.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice8.Xdriver1.Xand2.Mn1
++ N_X_SLICE8.XDRIVER1.XAND2.N1_X_slice8.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE8.WEN1_X_slice8.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice8.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver1.Xand2.Mn2
++ N_X_SLICE8.XDRIVER1.XAND2.OUT_B_X_slice8.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE8.XDRIVER1.IN_B_X_slice8.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE8.XDRIVER1.XAND2.N1_X_slice8.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver1.Xand2.Mp1
++ N_X_SLICE8.XDRIVER1.XAND2.OUT_B_X_slice8.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE8.WEN1_X_slice8.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice8.Xdriver1.Xand2.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice8.Xdriver1.Xand2.Mp2
++ N_X_SLICE8.XDRIVER1.XAND2.OUT_B_X_slice8.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE8.XDRIVER1.IN_B_X_slice8.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice8.Xdriver1.Xand2.Mp2_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice8.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB24_X_slice8.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE8.XDRIVER1.XAND2.OUT_B_X_slice8.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice8.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice8.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB24_X_slice8.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE8.XDRIVER1.XAND2.OUT_B_X_slice8.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice8.Xdriver1.Xand2.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice8.Xdriver0.Xinv.Mn N_X_SLICE8.XDRIVER0.IN_B_X_slice8.Xdriver0.Xinv.Mn_d
++ N_D8_X_slice8.Xdriver0.Xinv.Mn_g N_VSS_X_slice8.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver0.Xinv.Mp N_X_SLICE8.XDRIVER0.IN_B_X_slice8.Xdriver0.Xinv.Mp_d
++ N_D8_X_slice8.Xdriver0.Xinv.Mp_g N_VDD_X_slice8.Xdriver0.Xinv.Mp_s VDD_W3
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver0.Xand1.Mn2
++ N_X_SLICE8.XDRIVER0.XAND1.N1_X_slice8.Xdriver0.Xand1.Mn2_d
++ N_D8_X_slice8.Xdriver0.Xand1.Mn2_g N_VSS_X_slice8.Xdriver0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver0.Xand1.Mn1
++ N_X_SLICE8.XDRIVER0.XAND1.OUT_B_X_slice8.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE8.WEN0_X_slice8.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE8.XDRIVER0.XAND1.N1_X_slice8.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver0.Xand1.Mp2
++ N_X_SLICE8.XDRIVER0.XAND1.OUT_B_X_slice8.Xdriver0.Xand1.Mp2_d
++ N_D8_X_slice8.Xdriver0.Xand1.Mp2_g N_VDD_X_slice8.Xdriver0.Xand1.Mp2_s VDD_W3
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice8.Xdriver0.Xand1.Mp1
++ N_X_SLICE8.XDRIVER0.XAND1.OUT_B_X_slice8.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE8.WEN0_X_slice8.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice8.Xdriver0.Xand1.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice8.Xdriver0.Xand1.Xinv.Mn N_WEN_BL8_X_slice8.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE8.XDRIVER0.XAND1.OUT_B_X_slice8.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice8.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice8.Xdriver0.Xand1.Xinv.Mp N_WEN_BL8_X_slice8.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE8.XDRIVER0.XAND1.OUT_B_X_slice8.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice8.Xdriver0.Xand1.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice8.Xdriver0.Xand2.Mn1
++ N_X_SLICE8.XDRIVER0.XAND2.N1_X_slice8.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE8.WEN0_X_slice8.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice8.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver0.Xand2.Mn2
++ N_X_SLICE8.XDRIVER0.XAND2.OUT_B_X_slice8.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE8.XDRIVER0.IN_B_X_slice8.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE8.XDRIVER0.XAND2.N1_X_slice8.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice8.Xdriver0.Xand2.Mp1
++ N_X_SLICE8.XDRIVER0.XAND2.OUT_B_X_slice8.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE8.WEN0_X_slice8.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice8.Xdriver0.Xand2.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice8.Xdriver0.Xand2.Mp2
++ N_X_SLICE8.XDRIVER0.XAND2.OUT_B_X_slice8.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE8.XDRIVER0.IN_B_X_slice8.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice8.Xdriver0.Xand2.Mp2_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice8.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB8_X_slice8.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE8.XDRIVER0.XAND2.OUT_B_X_slice8.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice8.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice8.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB8_X_slice8.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE8.XDRIVER0.XAND2.OUT_B_X_slice8.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice8.Xdriver0.Xand2.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice9.Xand1.Mn1 N_X_SLICE9.XAND1.N1_X_slice9.Xand1.Mn1_d
++ N_WEN_B1_X_slice9.Xand1.Mn1_g N_VSS_X_slice9.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xand1.Mn2 N_X_SLICE9.XAND1.OUT_B_X_slice9.Xand1.Mn2_d
++ N_A2_X_slice9.Xand1.Mn2_g N_X_SLICE9.XAND1.N1_X_slice9.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xand1.Mp1 N_X_SLICE9.XAND1.OUT_B_X_slice9.Xand1.Mp1_d
++ N_WEN_B1_X_slice9.Xand1.Mp1_g N_VDD_X_slice9.Xand1.Mp1_s VDD_W2 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice9.Xand1.Mp2 N_X_SLICE9.XAND1.OUT_B_X_slice9.Xand1.Mp2_d
++ N_A2_X_slice9.Xand1.Mp2_g N_VDD_X_slice9.Xand1.Mp2_s VDD_W2 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice9.Xand1.Xinv.Mn N_X_SLICE9.WEN1_X_slice9.Xand1.Xinv.Mn_d
++ N_X_SLICE9.XAND1.OUT_B_X_slice9.Xand1.Xinv.Mn_g N_VSS_X_slice9.Xand1.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xand1.Xinv.Mp N_X_SLICE9.WEN1_X_slice9.Xand1.Xinv.Mp_d
++ N_X_SLICE9.XAND1.OUT_B_X_slice9.Xand1.Xinv.Mp_g N_VDD_X_slice9.Xand1.Xinv.Mp_s
++ VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xand0.Mn1 N_X_SLICE9.XAND0.N1_X_slice9.Xand0.Mn1_d
++ N_WEN_B1_X_slice9.Xand0.Mn1_g N_VSS_X_slice9.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xand0.Mn2 N_X_SLICE9.XAND0.OUT_B_X_slice9.Xand0.Mn2_d
++ N_A2_B_X_slice9.Xand0.Mn2_g N_X_SLICE9.XAND0.N1_X_slice9.Xand0.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xand0.Mp1 N_X_SLICE9.XAND0.OUT_B_X_slice9.Xand0.Mp1_d
++ N_WEN_B1_X_slice9.Xand0.Mp1_g N_VDD_X_slice9.Xand0.Mp1_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice9.Xand0.Mp2 N_X_SLICE9.XAND0.OUT_B_X_slice9.Xand0.Mp2_d
++ N_A2_B_X_slice9.Xand0.Mp2_g N_VDD_X_slice9.Xand0.Mp2_s VDD_W3 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice9.Xand0.Xinv.Mn N_X_SLICE9.WEN0_X_slice9.Xand0.Xinv.Mn_d
++ N_X_SLICE9.XAND0.OUT_B_X_slice9.Xand0.Xinv.Mn_g N_VSS_X_slice9.Xand0.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xand0.Xinv.Mp N_X_SLICE9.WEN0_X_slice9.Xand0.Xinv.Mp_d
++ N_X_SLICE9.XAND0.OUT_B_X_slice9.Xand0.Xinv.Mp_g N_VDD_X_slice9.Xand0.Xinv.Mp_s
++ VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver1.Xinv.Mn N_X_SLICE9.XDRIVER1.IN_B_X_slice9.Xdriver1.Xinv.Mn_d
++ N_D9_X_slice9.Xdriver1.Xinv.Mn_g N_VSS_X_slice9.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver1.Xinv.Mp N_X_SLICE9.XDRIVER1.IN_B_X_slice9.Xdriver1.Xinv.Mp_d
++ N_D9_X_slice9.Xdriver1.Xinv.Mp_g N_VDD_X_slice9.Xdriver1.Xinv.Mp_s VDD_W2
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver1.Xand1.Mn2
++ N_X_SLICE9.XDRIVER1.XAND1.N1_X_slice9.Xdriver1.Xand1.Mn2_d
++ N_D9_X_slice9.Xdriver1.Xand1.Mn2_g N_VSS_X_slice9.Xdriver1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver1.Xand1.Mn1
++ N_X_SLICE9.XDRIVER1.XAND1.OUT_B_X_slice9.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE9.WEN1_X_slice9.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE9.XDRIVER1.XAND1.N1_X_slice9.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver1.Xand1.Mp2
++ N_X_SLICE9.XDRIVER1.XAND1.OUT_B_X_slice9.Xdriver1.Xand1.Mp2_d
++ N_D9_X_slice9.Xdriver1.Xand1.Mp2_g N_VDD_X_slice9.Xdriver1.Xand1.Mp2_s VDD_W2
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice9.Xdriver1.Xand1.Mp1
++ N_X_SLICE9.XDRIVER1.XAND1.OUT_B_X_slice9.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE9.WEN1_X_slice9.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice9.Xdriver1.Xand1.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice9.Xdriver1.Xand1.Xinv.Mn N_WEN_BL25_X_slice9.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE9.XDRIVER1.XAND1.OUT_B_X_slice9.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice9.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice9.Xdriver1.Xand1.Xinv.Mp N_WEN_BL25_X_slice9.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE9.XDRIVER1.XAND1.OUT_B_X_slice9.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice9.Xdriver1.Xand1.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice9.Xdriver1.Xand2.Mn1
++ N_X_SLICE9.XDRIVER1.XAND2.N1_X_slice9.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE9.WEN1_X_slice9.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice9.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver1.Xand2.Mn2
++ N_X_SLICE9.XDRIVER1.XAND2.OUT_B_X_slice9.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE9.XDRIVER1.IN_B_X_slice9.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE9.XDRIVER1.XAND2.N1_X_slice9.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver1.Xand2.Mp1
++ N_X_SLICE9.XDRIVER1.XAND2.OUT_B_X_slice9.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE9.WEN1_X_slice9.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice9.Xdriver1.Xand2.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice9.Xdriver1.Xand2.Mp2
++ N_X_SLICE9.XDRIVER1.XAND2.OUT_B_X_slice9.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE9.XDRIVER1.IN_B_X_slice9.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice9.Xdriver1.Xand2.Mp2_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice9.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB25_X_slice9.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE9.XDRIVER1.XAND2.OUT_B_X_slice9.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice9.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice9.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB25_X_slice9.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE9.XDRIVER1.XAND2.OUT_B_X_slice9.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice9.Xdriver1.Xand2.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice9.Xdriver0.Xinv.Mn N_X_SLICE9.XDRIVER0.IN_B_X_slice9.Xdriver0.Xinv.Mn_d
++ N_D9_X_slice9.Xdriver0.Xinv.Mn_g N_VSS_X_slice9.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver0.Xinv.Mp N_X_SLICE9.XDRIVER0.IN_B_X_slice9.Xdriver0.Xinv.Mp_d
++ N_D9_X_slice9.Xdriver0.Xinv.Mp_g N_VDD_X_slice9.Xdriver0.Xinv.Mp_s VDD_W3
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver0.Xand1.Mn2
++ N_X_SLICE9.XDRIVER0.XAND1.N1_X_slice9.Xdriver0.Xand1.Mn2_d
++ N_D9_X_slice9.Xdriver0.Xand1.Mn2_g N_VSS_X_slice9.Xdriver0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver0.Xand1.Mn1
++ N_X_SLICE9.XDRIVER0.XAND1.OUT_B_X_slice9.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE9.WEN0_X_slice9.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE9.XDRIVER0.XAND1.N1_X_slice9.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver0.Xand1.Mp2
++ N_X_SLICE9.XDRIVER0.XAND1.OUT_B_X_slice9.Xdriver0.Xand1.Mp2_d
++ N_D9_X_slice9.Xdriver0.Xand1.Mp2_g N_VDD_X_slice9.Xdriver0.Xand1.Mp2_s VDD_W3
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice9.Xdriver0.Xand1.Mp1
++ N_X_SLICE9.XDRIVER0.XAND1.OUT_B_X_slice9.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE9.WEN0_X_slice9.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice9.Xdriver0.Xand1.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice9.Xdriver0.Xand1.Xinv.Mn N_WEN_BL9_X_slice9.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE9.XDRIVER0.XAND1.OUT_B_X_slice9.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice9.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice9.Xdriver0.Xand1.Xinv.Mp N_WEN_BL9_X_slice9.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE9.XDRIVER0.XAND1.OUT_B_X_slice9.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice9.Xdriver0.Xand1.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice9.Xdriver0.Xand2.Mn1
++ N_X_SLICE9.XDRIVER0.XAND2.N1_X_slice9.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE9.WEN0_X_slice9.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice9.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver0.Xand2.Mn2
++ N_X_SLICE9.XDRIVER0.XAND2.OUT_B_X_slice9.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE9.XDRIVER0.IN_B_X_slice9.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE9.XDRIVER0.XAND2.N1_X_slice9.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice9.Xdriver0.Xand2.Mp1
++ N_X_SLICE9.XDRIVER0.XAND2.OUT_B_X_slice9.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE9.WEN0_X_slice9.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice9.Xdriver0.Xand2.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice9.Xdriver0.Xand2.Mp2
++ N_X_SLICE9.XDRIVER0.XAND2.OUT_B_X_slice9.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE9.XDRIVER0.IN_B_X_slice9.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice9.Xdriver0.Xand2.Mp2_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice9.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB9_X_slice9.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE9.XDRIVER0.XAND2.OUT_B_X_slice9.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice9.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice9.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB9_X_slice9.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE9.XDRIVER0.XAND2.OUT_B_X_slice9.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice9.Xdriver0.Xand2.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice12.Xand1.Mn1 N_X_SLICE12.XAND1.N1_X_slice12.Xand1.Mn1_d
++ N_WEN_B1_X_slice12.Xand1.Mn1_g N_VSS_X_slice12.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xand1.Mn2 N_X_SLICE12.XAND1.OUT_B_X_slice12.Xand1.Mn2_d
++ N_A3_X_slice12.Xand1.Mn2_g N_X_SLICE12.XAND1.N1_X_slice12.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xand1.Mp1 N_X_SLICE12.XAND1.OUT_B_X_slice12.Xand1.Mp1_d
++ N_WEN_B1_X_slice12.Xand1.Mp1_g N_VDD_X_slice12.Xand1.Mp1_s VDD_W4 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xand1.Mp2 N_X_SLICE12.XAND1.OUT_B_X_slice12.Xand1.Mp2_d
++ N_A3_X_slice12.Xand1.Mp2_g N_VDD_X_slice12.Xand1.Mp2_s VDD_W4 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice12.Xand1.Xinv.Mn N_X_SLICE12.WEN1_X_slice12.Xand1.Xinv.Mn_d
++ N_X_SLICE12.XAND1.OUT_B_X_slice12.Xand1.Xinv.Mn_g
++ N_VSS_X_slice12.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xand1.Xinv.Mp N_X_SLICE12.WEN1_X_slice12.Xand1.Xinv.Mp_d
++ N_X_SLICE12.XAND1.OUT_B_X_slice12.Xand1.Xinv.Mp_g
++ N_VDD_X_slice12.Xand1.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xand0.Mn1 N_X_SLICE12.XAND0.N1_X_slice12.Xand0.Mn1_d
++ N_WEN_B1_X_slice12.Xand0.Mn1_g N_VSS_X_slice12.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xand0.Mn2 N_X_SLICE12.XAND0.OUT_B_X_slice12.Xand0.Mn2_d
++ N_A3_B_X_slice12.Xand0.Mn2_g N_X_SLICE12.XAND0.N1_X_slice12.Xand0.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xand0.Mp1 N_X_SLICE12.XAND0.OUT_B_X_slice12.Xand0.Mp1_d
++ N_WEN_B1_X_slice12.Xand0.Mp1_g N_VDD_X_slice12.Xand0.Mp1_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xand0.Mp2 N_X_SLICE12.XAND0.OUT_B_X_slice12.Xand0.Mp2_d
++ N_A3_B_X_slice12.Xand0.Mp2_g N_VDD_X_slice12.Xand0.Mp2_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xand0.Xinv.Mn N_X_SLICE12.WEN0_X_slice12.Xand0.Xinv.Mn_d
++ N_X_SLICE12.XAND0.OUT_B_X_slice12.Xand0.Xinv.Mn_g
++ N_VSS_X_slice12.Xand0.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xand0.Xinv.Mp N_X_SLICE12.WEN0_X_slice12.Xand0.Xinv.Mp_d
++ N_X_SLICE12.XAND0.OUT_B_X_slice12.Xand0.Xinv.Mp_g
++ N_VDD_X_slice12.Xand0.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver1.Xinv.Mn
++ N_X_SLICE12.XDRIVER1.IN_B_X_slice12.Xdriver1.Xinv.Mn_d
++ N_D12_X_slice12.Xdriver1.Xinv.Mn_g N_VSS_X_slice12.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver1.Xinv.Mp
++ N_X_SLICE12.XDRIVER1.IN_B_X_slice12.Xdriver1.Xinv.Mp_d
++ N_D12_X_slice12.Xdriver1.Xinv.Mp_g N_VDD_X_slice12.Xdriver1.Xinv.Mp_s VDD_W4
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver1.Xand1.Mn2
++ N_X_SLICE12.XDRIVER1.XAND1.N1_X_slice12.Xdriver1.Xand1.Mn2_d
++ N_D12_X_slice12.Xdriver1.Xand1.Mn2_g N_VSS_X_slice12.Xdriver1.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver1.Xand1.Mn1
++ N_X_SLICE12.XDRIVER1.XAND1.OUT_B_X_slice12.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE12.WEN1_X_slice12.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE12.XDRIVER1.XAND1.N1_X_slice12.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver1.Xand1.Mp2
++ N_X_SLICE12.XDRIVER1.XAND1.OUT_B_X_slice12.Xdriver1.Xand1.Mp2_d
++ N_D12_X_slice12.Xdriver1.Xand1.Mp2_g N_VDD_X_slice12.Xdriver1.Xand1.Mp2_s
++ VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xdriver1.Xand1.Mp1
++ N_X_SLICE12.XDRIVER1.XAND1.OUT_B_X_slice12.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE12.WEN1_X_slice12.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice12.Xdriver1.Xand1.Mp1_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xdriver1.Xand1.Xinv.Mn N_WEN_BL28_X_slice12.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE12.XDRIVER1.XAND1.OUT_B_X_slice12.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice12.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice12.Xdriver1.Xand1.Xinv.Mp N_WEN_BL28_X_slice12.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE12.XDRIVER1.XAND1.OUT_B_X_slice12.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice12.Xdriver1.Xand1.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice12.Xdriver1.Xand2.Mn1
++ N_X_SLICE12.XDRIVER1.XAND2.N1_X_slice12.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE12.WEN1_X_slice12.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice12.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver1.Xand2.Mn2
++ N_X_SLICE12.XDRIVER1.XAND2.OUT_B_X_slice12.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE12.XDRIVER1.IN_B_X_slice12.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE12.XDRIVER1.XAND2.N1_X_slice12.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver1.Xand2.Mp1
++ N_X_SLICE12.XDRIVER1.XAND2.OUT_B_X_slice12.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE12.WEN1_X_slice12.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice12.Xdriver1.Xand2.Mp1_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xdriver1.Xand2.Mp2
++ N_X_SLICE12.XDRIVER1.XAND2.OUT_B_X_slice12.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE12.XDRIVER1.IN_B_X_slice12.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice12.Xdriver1.Xand2.Mp2_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB28_X_slice12.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE12.XDRIVER1.XAND2.OUT_B_X_slice12.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice12.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice12.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB28_X_slice12.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE12.XDRIVER1.XAND2.OUT_B_X_slice12.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice12.Xdriver1.Xand2.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice12.Xdriver0.Xinv.Mn
++ N_X_SLICE12.XDRIVER0.IN_B_X_slice12.Xdriver0.Xinv.Mn_d
++ N_D12_X_slice12.Xdriver0.Xinv.Mn_g N_VSS_X_slice12.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver0.Xinv.Mp
++ N_X_SLICE12.XDRIVER0.IN_B_X_slice12.Xdriver0.Xinv.Mp_d
++ N_D12_X_slice12.Xdriver0.Xinv.Mp_g N_VDD_X_slice12.Xdriver0.Xinv.Mp_s VDD_W3
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver0.Xand1.Mn2
++ N_X_SLICE12.XDRIVER0.XAND1.N1_X_slice12.Xdriver0.Xand1.Mn2_d
++ N_D12_X_slice12.Xdriver0.Xand1.Mn2_g N_VSS_X_slice12.Xdriver0.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver0.Xand1.Mn1
++ N_X_SLICE12.XDRIVER0.XAND1.OUT_B_X_slice12.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE12.WEN0_X_slice12.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE12.XDRIVER0.XAND1.N1_X_slice12.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver0.Xand1.Mp2
++ N_X_SLICE12.XDRIVER0.XAND1.OUT_B_X_slice12.Xdriver0.Xand1.Mp2_d
++ N_D12_X_slice12.Xdriver0.Xand1.Mp2_g N_VDD_X_slice12.Xdriver0.Xand1.Mp2_s
++ VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xdriver0.Xand1.Mp1
++ N_X_SLICE12.XDRIVER0.XAND1.OUT_B_X_slice12.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE12.WEN0_X_slice12.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice12.Xdriver0.Xand1.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xdriver0.Xand1.Xinv.Mn N_WEN_BL12_X_slice12.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE12.XDRIVER0.XAND1.OUT_B_X_slice12.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice12.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice12.Xdriver0.Xand1.Xinv.Mp N_WEN_BL12_X_slice12.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE12.XDRIVER0.XAND1.OUT_B_X_slice12.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice12.Xdriver0.Xand1.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice12.Xdriver0.Xand2.Mn1
++ N_X_SLICE12.XDRIVER0.XAND2.N1_X_slice12.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE12.WEN0_X_slice12.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice12.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver0.Xand2.Mn2
++ N_X_SLICE12.XDRIVER0.XAND2.OUT_B_X_slice12.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE12.XDRIVER0.IN_B_X_slice12.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE12.XDRIVER0.XAND2.N1_X_slice12.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice12.Xdriver0.Xand2.Mp1
++ N_X_SLICE12.XDRIVER0.XAND2.OUT_B_X_slice12.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE12.WEN0_X_slice12.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice12.Xdriver0.Xand2.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xdriver0.Xand2.Mp2
++ N_X_SLICE12.XDRIVER0.XAND2.OUT_B_X_slice12.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE12.XDRIVER0.IN_B_X_slice12.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice12.Xdriver0.Xand2.Mp2_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice12.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB12_X_slice12.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE12.XDRIVER0.XAND2.OUT_B_X_slice12.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice12.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice12.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB12_X_slice12.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE12.XDRIVER0.XAND2.OUT_B_X_slice12.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice12.Xdriver0.Xand2.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice13.Xand1.Mn1 N_X_SLICE13.XAND1.N1_X_slice13.Xand1.Mn1_d
++ N_WEN_B1_X_slice13.Xand1.Mn1_g N_VSS_X_slice13.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xand1.Mn2 N_X_SLICE13.XAND1.OUT_B_X_slice13.Xand1.Mn2_d
++ N_A3_X_slice13.Xand1.Mn2_g N_X_SLICE13.XAND1.N1_X_slice13.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xand1.Mp1 N_X_SLICE13.XAND1.OUT_B_X_slice13.Xand1.Mp1_d
++ N_WEN_B1_X_slice13.Xand1.Mp1_g N_VDD_X_slice13.Xand1.Mp1_s VDD_W4 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xand1.Mp2 N_X_SLICE13.XAND1.OUT_B_X_slice13.Xand1.Mp2_d
++ N_A3_X_slice13.Xand1.Mp2_g N_VDD_X_slice13.Xand1.Mp2_s VDD_W4 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice13.Xand1.Xinv.Mn N_X_SLICE13.WEN1_X_slice13.Xand1.Xinv.Mn_d
++ N_X_SLICE13.XAND1.OUT_B_X_slice13.Xand1.Xinv.Mn_g
++ N_VSS_X_slice13.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xand1.Xinv.Mp N_X_SLICE13.WEN1_X_slice13.Xand1.Xinv.Mp_d
++ N_X_SLICE13.XAND1.OUT_B_X_slice13.Xand1.Xinv.Mp_g
++ N_VDD_X_slice13.Xand1.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xand0.Mn1 N_X_SLICE13.XAND0.N1_X_slice13.Xand0.Mn1_d
++ N_WEN_B1_X_slice13.Xand0.Mn1_g N_VSS_X_slice13.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xand0.Mn2 N_X_SLICE13.XAND0.OUT_B_X_slice13.Xand0.Mn2_d
++ N_A3_B_X_slice13.Xand0.Mn2_g N_X_SLICE13.XAND0.N1_X_slice13.Xand0.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xand0.Mp1 N_X_SLICE13.XAND0.OUT_B_X_slice13.Xand0.Mp1_d
++ N_WEN_B1_X_slice13.Xand0.Mp1_g N_VDD_X_slice13.Xand0.Mp1_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xand0.Mp2 N_X_SLICE13.XAND0.OUT_B_X_slice13.Xand0.Mp2_d
++ N_A3_B_X_slice13.Xand0.Mp2_g N_VDD_X_slice13.Xand0.Mp2_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xand0.Xinv.Mn N_X_SLICE13.WEN0_X_slice13.Xand0.Xinv.Mn_d
++ N_X_SLICE13.XAND0.OUT_B_X_slice13.Xand0.Xinv.Mn_g
++ N_VSS_X_slice13.Xand0.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xand0.Xinv.Mp N_X_SLICE13.WEN0_X_slice13.Xand0.Xinv.Mp_d
++ N_X_SLICE13.XAND0.OUT_B_X_slice13.Xand0.Xinv.Mp_g
++ N_VDD_X_slice13.Xand0.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver1.Xinv.Mn
++ N_X_SLICE13.XDRIVER1.IN_B_X_slice13.Xdriver1.Xinv.Mn_d
++ N_D13_X_slice13.Xdriver1.Xinv.Mn_g N_VSS_X_slice13.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver1.Xinv.Mp
++ N_X_SLICE13.XDRIVER1.IN_B_X_slice13.Xdriver1.Xinv.Mp_d
++ N_D13_X_slice13.Xdriver1.Xinv.Mp_g N_VDD_X_slice13.Xdriver1.Xinv.Mp_s VDD_W4
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver1.Xand1.Mn2
++ N_X_SLICE13.XDRIVER1.XAND1.N1_X_slice13.Xdriver1.Xand1.Mn2_d
++ N_D13_X_slice13.Xdriver1.Xand1.Mn2_g N_VSS_X_slice13.Xdriver1.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver1.Xand1.Mn1
++ N_X_SLICE13.XDRIVER1.XAND1.OUT_B_X_slice13.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE13.WEN1_X_slice13.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE13.XDRIVER1.XAND1.N1_X_slice13.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver1.Xand1.Mp2
++ N_X_SLICE13.XDRIVER1.XAND1.OUT_B_X_slice13.Xdriver1.Xand1.Mp2_d
++ N_D13_X_slice13.Xdriver1.Xand1.Mp2_g N_VDD_X_slice13.Xdriver1.Xand1.Mp2_s
++ VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xdriver1.Xand1.Mp1
++ N_X_SLICE13.XDRIVER1.XAND1.OUT_B_X_slice13.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE13.WEN1_X_slice13.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice13.Xdriver1.Xand1.Mp1_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xdriver1.Xand1.Xinv.Mn N_WEN_BL29_X_slice13.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE13.XDRIVER1.XAND1.OUT_B_X_slice13.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice13.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice13.Xdriver1.Xand1.Xinv.Mp N_WEN_BL29_X_slice13.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE13.XDRIVER1.XAND1.OUT_B_X_slice13.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice13.Xdriver1.Xand1.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice13.Xdriver1.Xand2.Mn1
++ N_X_SLICE13.XDRIVER1.XAND2.N1_X_slice13.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE13.WEN1_X_slice13.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice13.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver1.Xand2.Mn2
++ N_X_SLICE13.XDRIVER1.XAND2.OUT_B_X_slice13.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE13.XDRIVER1.IN_B_X_slice13.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE13.XDRIVER1.XAND2.N1_X_slice13.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver1.Xand2.Mp1
++ N_X_SLICE13.XDRIVER1.XAND2.OUT_B_X_slice13.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE13.WEN1_X_slice13.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice13.Xdriver1.Xand2.Mp1_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xdriver1.Xand2.Mp2
++ N_X_SLICE13.XDRIVER1.XAND2.OUT_B_X_slice13.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE13.XDRIVER1.IN_B_X_slice13.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice13.Xdriver1.Xand2.Mp2_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB29_X_slice13.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE13.XDRIVER1.XAND2.OUT_B_X_slice13.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice13.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice13.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB29_X_slice13.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE13.XDRIVER1.XAND2.OUT_B_X_slice13.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice13.Xdriver1.Xand2.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice13.Xdriver0.Xinv.Mn
++ N_X_SLICE13.XDRIVER0.IN_B_X_slice13.Xdriver0.Xinv.Mn_d
++ N_D13_X_slice13.Xdriver0.Xinv.Mn_g N_VSS_X_slice13.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver0.Xinv.Mp
++ N_X_SLICE13.XDRIVER0.IN_B_X_slice13.Xdriver0.Xinv.Mp_d
++ N_D13_X_slice13.Xdriver0.Xinv.Mp_g N_VDD_X_slice13.Xdriver0.Xinv.Mp_s VDD_W3
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver0.Xand1.Mn2
++ N_X_SLICE13.XDRIVER0.XAND1.N1_X_slice13.Xdriver0.Xand1.Mn2_d
++ N_D13_X_slice13.Xdriver0.Xand1.Mn2_g N_VSS_X_slice13.Xdriver0.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver0.Xand1.Mn1
++ N_X_SLICE13.XDRIVER0.XAND1.OUT_B_X_slice13.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE13.WEN0_X_slice13.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE13.XDRIVER0.XAND1.N1_X_slice13.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver0.Xand1.Mp2
++ N_X_SLICE13.XDRIVER0.XAND1.OUT_B_X_slice13.Xdriver0.Xand1.Mp2_d
++ N_D13_X_slice13.Xdriver0.Xand1.Mp2_g N_VDD_X_slice13.Xdriver0.Xand1.Mp2_s
++ VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xdriver0.Xand1.Mp1
++ N_X_SLICE13.XDRIVER0.XAND1.OUT_B_X_slice13.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE13.WEN0_X_slice13.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice13.Xdriver0.Xand1.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xdriver0.Xand1.Xinv.Mn N_WEN_BL13_X_slice13.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE13.XDRIVER0.XAND1.OUT_B_X_slice13.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice13.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice13.Xdriver0.Xand1.Xinv.Mp N_WEN_BL13_X_slice13.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE13.XDRIVER0.XAND1.OUT_B_X_slice13.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice13.Xdriver0.Xand1.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice13.Xdriver0.Xand2.Mn1
++ N_X_SLICE13.XDRIVER0.XAND2.N1_X_slice13.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE13.WEN0_X_slice13.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice13.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver0.Xand2.Mn2
++ N_X_SLICE13.XDRIVER0.XAND2.OUT_B_X_slice13.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE13.XDRIVER0.IN_B_X_slice13.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE13.XDRIVER0.XAND2.N1_X_slice13.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice13.Xdriver0.Xand2.Mp1
++ N_X_SLICE13.XDRIVER0.XAND2.OUT_B_X_slice13.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE13.WEN0_X_slice13.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice13.Xdriver0.Xand2.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xdriver0.Xand2.Mp2
++ N_X_SLICE13.XDRIVER0.XAND2.OUT_B_X_slice13.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE13.XDRIVER0.IN_B_X_slice13.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice13.Xdriver0.Xand2.Mp2_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice13.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB13_X_slice13.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE13.XDRIVER0.XAND2.OUT_B_X_slice13.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice13.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice13.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB13_X_slice13.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE13.XDRIVER0.XAND2.OUT_B_X_slice13.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice13.Xdriver0.Xand2.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice2.Xand1.Mn1 N_X_SLICE2.XAND1.N1_X_slice2.Xand1.Mn1_d
++ N_WEN_B0_X_slice2.Xand1.Mn1_g N_VSS_X_slice2.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xand1.Mn2 N_X_SLICE2.XAND1.OUT_B_X_slice2.Xand1.Mn2_d
++ N_A0_X_slice2.Xand1.Mn2_g N_X_SLICE2.XAND1.N1_X_slice2.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xand1.Mp1 N_X_SLICE2.XAND1.OUT_B_X_slice2.Xand1.Mp1_d
++ N_WEN_B0_X_slice2.Xand1.Mp1_g N_VDD_X_slice2.Xand1.Mp1_s VDD_W0 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice2.Xand1.Mp2 N_X_SLICE2.XAND1.OUT_B_X_slice2.Xand1.Mp2_d
++ N_A0_X_slice2.Xand1.Mp2_g N_VDD_X_slice2.Xand1.Mp2_s VDD_W0 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice2.Xand1.Xinv.Mn N_X_SLICE2.WEN1_X_slice2.Xand1.Xinv.Mn_d
++ N_X_SLICE2.XAND1.OUT_B_X_slice2.Xand1.Xinv.Mn_g N_VSS_X_slice2.Xand1.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xand1.Xinv.Mp N_X_SLICE2.WEN1_X_slice2.Xand1.Xinv.Mp_d
++ N_X_SLICE2.XAND1.OUT_B_X_slice2.Xand1.Xinv.Mp_g N_VDD_X_slice2.Xand1.Xinv.Mp_s
++ VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xand0.Mn1 N_X_SLICE2.XAND0.N1_X_slice2.Xand0.Mn1_d
++ N_WEN_B0_X_slice2.Xand0.Mn1_g N_VSS_X_slice2.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xand0.Mn2 N_X_SLICE2.XAND0.OUT_B_X_slice2.Xand0.Mn2_d
++ N_A0_B_X_slice2.Xand0.Mn2_g N_X_SLICE2.XAND0.N1_X_slice2.Xand0.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xand0.Mp1 N_X_SLICE2.XAND0.OUT_B_X_slice2.Xand0.Mp1_d
++ N_WEN_B0_X_slice2.Xand0.Mp1_g N_VDD_X_slice2.Xand0.Mp1_s VDD_W1 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice2.Xand0.Mp2 N_X_SLICE2.XAND0.OUT_B_X_slice2.Xand0.Mp2_d
++ N_A0_B_X_slice2.Xand0.Mp2_g N_VDD_X_slice2.Xand0.Mp2_s VDD_W1 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice2.Xand0.Xinv.Mn N_X_SLICE2.WEN0_X_slice2.Xand0.Xinv.Mn_d
++ N_X_SLICE2.XAND0.OUT_B_X_slice2.Xand0.Xinv.Mn_g N_VSS_X_slice2.Xand0.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xand0.Xinv.Mp N_X_SLICE2.WEN0_X_slice2.Xand0.Xinv.Mp_d
++ N_X_SLICE2.XAND0.OUT_B_X_slice2.Xand0.Xinv.Mp_g N_VDD_X_slice2.Xand0.Xinv.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver1.Xinv.Mn N_X_SLICE2.XDRIVER1.IN_B_X_slice2.Xdriver1.Xinv.Mn_d
++ N_D2_X_slice2.Xdriver1.Xinv.Mn_g N_VSS_X_slice2.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver1.Xinv.Mp N_X_SLICE2.XDRIVER1.IN_B_X_slice2.Xdriver1.Xinv.Mp_d
++ N_D2_X_slice2.Xdriver1.Xinv.Mp_g N_VDD_X_slice2.Xdriver1.Xinv.Mp_s VDD_W0
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver1.Xand1.Mn2
++ N_X_SLICE2.XDRIVER1.XAND1.N1_X_slice2.Xdriver1.Xand1.Mn2_d
++ N_D2_X_slice2.Xdriver1.Xand1.Mn2_g N_VSS_X_slice2.Xdriver1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver1.Xand1.Mn1
++ N_X_SLICE2.XDRIVER1.XAND1.OUT_B_X_slice2.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE2.WEN1_X_slice2.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE2.XDRIVER1.XAND1.N1_X_slice2.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver1.Xand1.Mp2
++ N_X_SLICE2.XDRIVER1.XAND1.OUT_B_X_slice2.Xdriver1.Xand1.Mp2_d
++ N_D2_X_slice2.Xdriver1.Xand1.Mp2_g N_VDD_X_slice2.Xdriver1.Xand1.Mp2_s VDD_W0
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice2.Xdriver1.Xand1.Mp1
++ N_X_SLICE2.XDRIVER1.XAND1.OUT_B_X_slice2.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE2.WEN1_X_slice2.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice2.Xdriver1.Xand1.Mp1_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice2.Xdriver1.Xand1.Xinv.Mn N_WEN_BL18_X_slice2.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE2.XDRIVER1.XAND1.OUT_B_X_slice2.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice2.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice2.Xdriver1.Xand1.Xinv.Mp N_WEN_BL18_X_slice2.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE2.XDRIVER1.XAND1.OUT_B_X_slice2.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice2.Xdriver1.Xand1.Xinv.Mp_s VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice2.Xdriver1.Xand2.Mn1
++ N_X_SLICE2.XDRIVER1.XAND2.N1_X_slice2.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE2.WEN1_X_slice2.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice2.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver1.Xand2.Mn2
++ N_X_SLICE2.XDRIVER1.XAND2.OUT_B_X_slice2.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE2.XDRIVER1.IN_B_X_slice2.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE2.XDRIVER1.XAND2.N1_X_slice2.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver1.Xand2.Mp1
++ N_X_SLICE2.XDRIVER1.XAND2.OUT_B_X_slice2.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE2.WEN1_X_slice2.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice2.Xdriver1.Xand2.Mp1_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice2.Xdriver1.Xand2.Mp2
++ N_X_SLICE2.XDRIVER1.XAND2.OUT_B_X_slice2.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE2.XDRIVER1.IN_B_X_slice2.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice2.Xdriver1.Xand2.Mp2_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice2.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB18_X_slice2.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE2.XDRIVER1.XAND2.OUT_B_X_slice2.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice2.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice2.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB18_X_slice2.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE2.XDRIVER1.XAND2.OUT_B_X_slice2.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice2.Xdriver1.Xand2.Xinv.Mp_s VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice2.Xdriver0.Xinv.Mn N_X_SLICE2.XDRIVER0.IN_B_X_slice2.Xdriver0.Xinv.Mn_d
++ N_D2_X_slice2.Xdriver0.Xinv.Mn_g N_VSS_X_slice2.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver0.Xinv.Mp N_X_SLICE2.XDRIVER0.IN_B_X_slice2.Xdriver0.Xinv.Mp_d
++ N_D2_X_slice2.Xdriver0.Xinv.Mp_g N_VDD_X_slice2.Xdriver0.Xinv.Mp_s VDD_W1
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver0.Xand1.Mn2
++ N_X_SLICE2.XDRIVER0.XAND1.N1_X_slice2.Xdriver0.Xand1.Mn2_d
++ N_D2_X_slice2.Xdriver0.Xand1.Mn2_g N_VSS_X_slice2.Xdriver0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver0.Xand1.Mn1
++ N_X_SLICE2.XDRIVER0.XAND1.OUT_B_X_slice2.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE2.WEN0_X_slice2.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE2.XDRIVER0.XAND1.N1_X_slice2.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver0.Xand1.Mp2
++ N_X_SLICE2.XDRIVER0.XAND1.OUT_B_X_slice2.Xdriver0.Xand1.Mp2_d
++ N_D2_X_slice2.Xdriver0.Xand1.Mp2_g N_VDD_X_slice2.Xdriver0.Xand1.Mp2_s VDD_W1
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice2.Xdriver0.Xand1.Mp1
++ N_X_SLICE2.XDRIVER0.XAND1.OUT_B_X_slice2.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE2.WEN0_X_slice2.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice2.Xdriver0.Xand1.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice2.Xdriver0.Xand1.Xinv.Mn N_WEN_BL2_X_slice2.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE2.XDRIVER0.XAND1.OUT_B_X_slice2.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice2.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice2.Xdriver0.Xand1.Xinv.Mp N_WEN_BL2_X_slice2.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE2.XDRIVER0.XAND1.OUT_B_X_slice2.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice2.Xdriver0.Xand1.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice2.Xdriver0.Xand2.Mn1
++ N_X_SLICE2.XDRIVER0.XAND2.N1_X_slice2.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE2.WEN0_X_slice2.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice2.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver0.Xand2.Mn2
++ N_X_SLICE2.XDRIVER0.XAND2.OUT_B_X_slice2.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE2.XDRIVER0.IN_B_X_slice2.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE2.XDRIVER0.XAND2.N1_X_slice2.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice2.Xdriver0.Xand2.Mp1
++ N_X_SLICE2.XDRIVER0.XAND2.OUT_B_X_slice2.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE2.WEN0_X_slice2.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice2.Xdriver0.Xand2.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice2.Xdriver0.Xand2.Mp2
++ N_X_SLICE2.XDRIVER0.XAND2.OUT_B_X_slice2.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE2.XDRIVER0.IN_B_X_slice2.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice2.Xdriver0.Xand2.Mp2_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice2.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB2_X_slice2.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE2.XDRIVER0.XAND2.OUT_B_X_slice2.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice2.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice2.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB2_X_slice2.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE2.XDRIVER0.XAND2.OUT_B_X_slice2.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice2.Xdriver0.Xand2.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice3.Xand1.Mn1 N_X_SLICE3.XAND1.N1_X_slice3.Xand1.Mn1_d
++ N_WEN_B0_X_slice3.Xand1.Mn1_g N_VSS_X_slice3.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xand1.Mn2 N_X_SLICE3.XAND1.OUT_B_X_slice3.Xand1.Mn2_d
++ N_A0_X_slice3.Xand1.Mn2_g N_X_SLICE3.XAND1.N1_X_slice3.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xand1.Mp1 N_X_SLICE3.XAND1.OUT_B_X_slice3.Xand1.Mp1_d
++ N_WEN_B0_X_slice3.Xand1.Mp1_g N_VDD_X_slice3.Xand1.Mp1_s VDD_W0 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice3.Xand1.Mp2 N_X_SLICE3.XAND1.OUT_B_X_slice3.Xand1.Mp2_d
++ N_A0_X_slice3.Xand1.Mp2_g N_VDD_X_slice3.Xand1.Mp2_s VDD_W0 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice3.Xand1.Xinv.Mn N_X_SLICE3.WEN1_X_slice3.Xand1.Xinv.Mn_d
++ N_X_SLICE3.XAND1.OUT_B_X_slice3.Xand1.Xinv.Mn_g N_VSS_X_slice3.Xand1.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xand1.Xinv.Mp N_X_SLICE3.WEN1_X_slice3.Xand1.Xinv.Mp_d
++ N_X_SLICE3.XAND1.OUT_B_X_slice3.Xand1.Xinv.Mp_g N_VDD_X_slice3.Xand1.Xinv.Mp_s
++ VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xand0.Mn1 N_X_SLICE3.XAND0.N1_X_slice3.Xand0.Mn1_d
++ N_WEN_B0_X_slice3.Xand0.Mn1_g N_VSS_X_slice3.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xand0.Mn2 N_X_SLICE3.XAND0.OUT_B_X_slice3.Xand0.Mn2_d
++ N_A0_B_X_slice3.Xand0.Mn2_g N_X_SLICE3.XAND0.N1_X_slice3.Xand0.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xand0.Mp1 N_X_SLICE3.XAND0.OUT_B_X_slice3.Xand0.Mp1_d
++ N_WEN_B0_X_slice3.Xand0.Mp1_g N_VDD_X_slice3.Xand0.Mp1_s VDD_W1 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice3.Xand0.Mp2 N_X_SLICE3.XAND0.OUT_B_X_slice3.Xand0.Mp2_d
++ N_A0_B_X_slice3.Xand0.Mp2_g N_VDD_X_slice3.Xand0.Mp2_s VDD_W1 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice3.Xand0.Xinv.Mn N_X_SLICE3.WEN0_X_slice3.Xand0.Xinv.Mn_d
++ N_X_SLICE3.XAND0.OUT_B_X_slice3.Xand0.Xinv.Mn_g N_VSS_X_slice3.Xand0.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xand0.Xinv.Mp N_X_SLICE3.WEN0_X_slice3.Xand0.Xinv.Mp_d
++ N_X_SLICE3.XAND0.OUT_B_X_slice3.Xand0.Xinv.Mp_g N_VDD_X_slice3.Xand0.Xinv.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver1.Xinv.Mn N_X_SLICE3.XDRIVER1.IN_B_X_slice3.Xdriver1.Xinv.Mn_d
++ N_D3_X_slice3.Xdriver1.Xinv.Mn_g N_VSS_X_slice3.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver1.Xinv.Mp N_X_SLICE3.XDRIVER1.IN_B_X_slice3.Xdriver1.Xinv.Mp_d
++ N_D3_X_slice3.Xdriver1.Xinv.Mp_g N_VDD_X_slice3.Xdriver1.Xinv.Mp_s VDD_W0
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver1.Xand1.Mn2
++ N_X_SLICE3.XDRIVER1.XAND1.N1_X_slice3.Xdriver1.Xand1.Mn2_d
++ N_D3_X_slice3.Xdriver1.Xand1.Mn2_g N_VSS_X_slice3.Xdriver1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver1.Xand1.Mn1
++ N_X_SLICE3.XDRIVER1.XAND1.OUT_B_X_slice3.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE3.WEN1_X_slice3.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE3.XDRIVER1.XAND1.N1_X_slice3.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver1.Xand1.Mp2
++ N_X_SLICE3.XDRIVER1.XAND1.OUT_B_X_slice3.Xdriver1.Xand1.Mp2_d
++ N_D3_X_slice3.Xdriver1.Xand1.Mp2_g N_VDD_X_slice3.Xdriver1.Xand1.Mp2_s VDD_W0
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice3.Xdriver1.Xand1.Mp1
++ N_X_SLICE3.XDRIVER1.XAND1.OUT_B_X_slice3.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE3.WEN1_X_slice3.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice3.Xdriver1.Xand1.Mp1_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice3.Xdriver1.Xand1.Xinv.Mn N_WEN_BL19_X_slice3.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE3.XDRIVER1.XAND1.OUT_B_X_slice3.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice3.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice3.Xdriver1.Xand1.Xinv.Mp N_WEN_BL19_X_slice3.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE3.XDRIVER1.XAND1.OUT_B_X_slice3.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice3.Xdriver1.Xand1.Xinv.Mp_s VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice3.Xdriver1.Xand2.Mn1
++ N_X_SLICE3.XDRIVER1.XAND2.N1_X_slice3.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE3.WEN1_X_slice3.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice3.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver1.Xand2.Mn2
++ N_X_SLICE3.XDRIVER1.XAND2.OUT_B_X_slice3.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE3.XDRIVER1.IN_B_X_slice3.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE3.XDRIVER1.XAND2.N1_X_slice3.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver1.Xand2.Mp1
++ N_X_SLICE3.XDRIVER1.XAND2.OUT_B_X_slice3.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE3.WEN1_X_slice3.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice3.Xdriver1.Xand2.Mp1_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice3.Xdriver1.Xand2.Mp2
++ N_X_SLICE3.XDRIVER1.XAND2.OUT_B_X_slice3.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE3.XDRIVER1.IN_B_X_slice3.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice3.Xdriver1.Xand2.Mp2_s VDD_W0 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice3.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB19_X_slice3.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE3.XDRIVER1.XAND2.OUT_B_X_slice3.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice3.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice3.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB19_X_slice3.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE3.XDRIVER1.XAND2.OUT_B_X_slice3.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice3.Xdriver1.Xand2.Xinv.Mp_s VDD_W0 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice3.Xdriver0.Xinv.Mn N_X_SLICE3.XDRIVER0.IN_B_X_slice3.Xdriver0.Xinv.Mn_d
++ N_D3_X_slice3.Xdriver0.Xinv.Mn_g N_VSS_X_slice3.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver0.Xinv.Mp N_X_SLICE3.XDRIVER0.IN_B_X_slice3.Xdriver0.Xinv.Mp_d
++ N_D3_X_slice3.Xdriver0.Xinv.Mp_g N_VDD_X_slice3.Xdriver0.Xinv.Mp_s VDD_W1
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver0.Xand1.Mn2
++ N_X_SLICE3.XDRIVER0.XAND1.N1_X_slice3.Xdriver0.Xand1.Mn2_d
++ N_D3_X_slice3.Xdriver0.Xand1.Mn2_g N_VSS_X_slice3.Xdriver0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver0.Xand1.Mn1
++ N_X_SLICE3.XDRIVER0.XAND1.OUT_B_X_slice3.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE3.WEN0_X_slice3.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE3.XDRIVER0.XAND1.N1_X_slice3.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver0.Xand1.Mp2
++ N_X_SLICE3.XDRIVER0.XAND1.OUT_B_X_slice3.Xdriver0.Xand1.Mp2_d
++ N_D3_X_slice3.Xdriver0.Xand1.Mp2_g N_VDD_X_slice3.Xdriver0.Xand1.Mp2_s VDD_W1
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice3.Xdriver0.Xand1.Mp1
++ N_X_SLICE3.XDRIVER0.XAND1.OUT_B_X_slice3.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE3.WEN0_X_slice3.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice3.Xdriver0.Xand1.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice3.Xdriver0.Xand1.Xinv.Mn N_WEN_BL3_X_slice3.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE3.XDRIVER0.XAND1.OUT_B_X_slice3.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice3.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice3.Xdriver0.Xand1.Xinv.Mp N_WEN_BL3_X_slice3.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE3.XDRIVER0.XAND1.OUT_B_X_slice3.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice3.Xdriver0.Xand1.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice3.Xdriver0.Xand2.Mn1
++ N_X_SLICE3.XDRIVER0.XAND2.N1_X_slice3.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE3.WEN0_X_slice3.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice3.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver0.Xand2.Mn2
++ N_X_SLICE3.XDRIVER0.XAND2.OUT_B_X_slice3.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE3.XDRIVER0.IN_B_X_slice3.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE3.XDRIVER0.XAND2.N1_X_slice3.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice3.Xdriver0.Xand2.Mp1
++ N_X_SLICE3.XDRIVER0.XAND2.OUT_B_X_slice3.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE3.WEN0_X_slice3.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice3.Xdriver0.Xand2.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice3.Xdriver0.Xand2.Mp2
++ N_X_SLICE3.XDRIVER0.XAND2.OUT_B_X_slice3.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE3.XDRIVER0.IN_B_X_slice3.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice3.Xdriver0.Xand2.Mp2_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice3.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB3_X_slice3.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE3.XDRIVER0.XAND2.OUT_B_X_slice3.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice3.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice3.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB3_X_slice3.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE3.XDRIVER0.XAND2.OUT_B_X_slice3.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice3.Xdriver0.Xand2.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice6.Xand1.Mn1 N_X_SLICE6.XAND1.N1_X_slice6.Xand1.Mn1_d
++ N_WEN_B0_X_slice6.Xand1.Mn1_g N_VSS_X_slice6.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xand1.Mn2 N_X_SLICE6.XAND1.OUT_B_X_slice6.Xand1.Mn2_d
++ N_A1_X_slice6.Xand1.Mn2_g N_X_SLICE6.XAND1.N1_X_slice6.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xand1.Mp1 N_X_SLICE6.XAND1.OUT_B_X_slice6.Xand1.Mp1_d
++ N_WEN_B0_X_slice6.Xand1.Mp1_g N_VDD_X_slice6.Xand1.Mp1_s VDD_W2 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice6.Xand1.Mp2 N_X_SLICE6.XAND1.OUT_B_X_slice6.Xand1.Mp2_d
++ N_A1_X_slice6.Xand1.Mp2_g N_VDD_X_slice6.Xand1.Mp2_s VDD_W2 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice6.Xand1.Xinv.Mn N_X_SLICE6.WEN1_X_slice6.Xand1.Xinv.Mn_d
++ N_X_SLICE6.XAND1.OUT_B_X_slice6.Xand1.Xinv.Mn_g N_VSS_X_slice6.Xand1.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xand1.Xinv.Mp N_X_SLICE6.WEN1_X_slice6.Xand1.Xinv.Mp_d
++ N_X_SLICE6.XAND1.OUT_B_X_slice6.Xand1.Xinv.Mp_g N_VDD_X_slice6.Xand1.Xinv.Mp_s
++ VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xand0.Mn1 N_X_SLICE6.XAND0.N1_X_slice6.Xand0.Mn1_d
++ N_WEN_B0_X_slice6.Xand0.Mn1_g N_VSS_X_slice6.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xand0.Mn2 N_X_SLICE6.XAND0.OUT_B_X_slice6.Xand0.Mn2_d
++ N_A1_B_X_slice6.Xand0.Mn2_g N_X_SLICE6.XAND0.N1_X_slice6.Xand0.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xand0.Mp1 N_X_SLICE6.XAND0.OUT_B_X_slice6.Xand0.Mp1_d
++ N_WEN_B0_X_slice6.Xand0.Mp1_g N_VDD_X_slice6.Xand0.Mp1_s VDD_W1 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice6.Xand0.Mp2 N_X_SLICE6.XAND0.OUT_B_X_slice6.Xand0.Mp2_d
++ N_A1_B_X_slice6.Xand0.Mp2_g N_VDD_X_slice6.Xand0.Mp2_s VDD_W1 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice6.Xand0.Xinv.Mn N_X_SLICE6.WEN0_X_slice6.Xand0.Xinv.Mn_d
++ N_X_SLICE6.XAND0.OUT_B_X_slice6.Xand0.Xinv.Mn_g N_VSS_X_slice6.Xand0.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xand0.Xinv.Mp N_X_SLICE6.WEN0_X_slice6.Xand0.Xinv.Mp_d
++ N_X_SLICE6.XAND0.OUT_B_X_slice6.Xand0.Xinv.Mp_g N_VDD_X_slice6.Xand0.Xinv.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver1.Xinv.Mn N_X_SLICE6.XDRIVER1.IN_B_X_slice6.Xdriver1.Xinv.Mn_d
++ N_D6_X_slice6.Xdriver1.Xinv.Mn_g N_VSS_X_slice6.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver1.Xinv.Mp N_X_SLICE6.XDRIVER1.IN_B_X_slice6.Xdriver1.Xinv.Mp_d
++ N_D6_X_slice6.Xdriver1.Xinv.Mp_g N_VDD_X_slice6.Xdriver1.Xinv.Mp_s VDD_W2
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver1.Xand1.Mn2
++ N_X_SLICE6.XDRIVER1.XAND1.N1_X_slice6.Xdriver1.Xand1.Mn2_d
++ N_D6_X_slice6.Xdriver1.Xand1.Mn2_g N_VSS_X_slice6.Xdriver1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver1.Xand1.Mn1
++ N_X_SLICE6.XDRIVER1.XAND1.OUT_B_X_slice6.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE6.WEN1_X_slice6.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE6.XDRIVER1.XAND1.N1_X_slice6.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver1.Xand1.Mp2
++ N_X_SLICE6.XDRIVER1.XAND1.OUT_B_X_slice6.Xdriver1.Xand1.Mp2_d
++ N_D6_X_slice6.Xdriver1.Xand1.Mp2_g N_VDD_X_slice6.Xdriver1.Xand1.Mp2_s VDD_W2
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice6.Xdriver1.Xand1.Mp1
++ N_X_SLICE6.XDRIVER1.XAND1.OUT_B_X_slice6.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE6.WEN1_X_slice6.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice6.Xdriver1.Xand1.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice6.Xdriver1.Xand1.Xinv.Mn N_WEN_BL22_X_slice6.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE6.XDRIVER1.XAND1.OUT_B_X_slice6.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice6.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice6.Xdriver1.Xand1.Xinv.Mp N_WEN_BL22_X_slice6.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE6.XDRIVER1.XAND1.OUT_B_X_slice6.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice6.Xdriver1.Xand1.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice6.Xdriver1.Xand2.Mn1
++ N_X_SLICE6.XDRIVER1.XAND2.N1_X_slice6.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE6.WEN1_X_slice6.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice6.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver1.Xand2.Mn2
++ N_X_SLICE6.XDRIVER1.XAND2.OUT_B_X_slice6.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE6.XDRIVER1.IN_B_X_slice6.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE6.XDRIVER1.XAND2.N1_X_slice6.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver1.Xand2.Mp1
++ N_X_SLICE6.XDRIVER1.XAND2.OUT_B_X_slice6.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE6.WEN1_X_slice6.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice6.Xdriver1.Xand2.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice6.Xdriver1.Xand2.Mp2
++ N_X_SLICE6.XDRIVER1.XAND2.OUT_B_X_slice6.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE6.XDRIVER1.IN_B_X_slice6.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice6.Xdriver1.Xand2.Mp2_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice6.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB22_X_slice6.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE6.XDRIVER1.XAND2.OUT_B_X_slice6.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice6.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice6.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB22_X_slice6.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE6.XDRIVER1.XAND2.OUT_B_X_slice6.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice6.Xdriver1.Xand2.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice6.Xdriver0.Xinv.Mn N_X_SLICE6.XDRIVER0.IN_B_X_slice6.Xdriver0.Xinv.Mn_d
++ N_D6_X_slice6.Xdriver0.Xinv.Mn_g N_VSS_X_slice6.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver0.Xinv.Mp N_X_SLICE6.XDRIVER0.IN_B_X_slice6.Xdriver0.Xinv.Mp_d
++ N_D6_X_slice6.Xdriver0.Xinv.Mp_g N_VDD_X_slice6.Xdriver0.Xinv.Mp_s VDD_W1
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver0.Xand1.Mn2
++ N_X_SLICE6.XDRIVER0.XAND1.N1_X_slice6.Xdriver0.Xand1.Mn2_d
++ N_D6_X_slice6.Xdriver0.Xand1.Mn2_g N_VSS_X_slice6.Xdriver0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver0.Xand1.Mn1
++ N_X_SLICE6.XDRIVER0.XAND1.OUT_B_X_slice6.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE6.WEN0_X_slice6.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE6.XDRIVER0.XAND1.N1_X_slice6.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver0.Xand1.Mp2
++ N_X_SLICE6.XDRIVER0.XAND1.OUT_B_X_slice6.Xdriver0.Xand1.Mp2_d
++ N_D6_X_slice6.Xdriver0.Xand1.Mp2_g N_VDD_X_slice6.Xdriver0.Xand1.Mp2_s VDD_W1
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice6.Xdriver0.Xand1.Mp1
++ N_X_SLICE6.XDRIVER0.XAND1.OUT_B_X_slice6.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE6.WEN0_X_slice6.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice6.Xdriver0.Xand1.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice6.Xdriver0.Xand1.Xinv.Mn N_WEN_BL6_X_slice6.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE6.XDRIVER0.XAND1.OUT_B_X_slice6.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice6.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice6.Xdriver0.Xand1.Xinv.Mp N_WEN_BL6_X_slice6.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE6.XDRIVER0.XAND1.OUT_B_X_slice6.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice6.Xdriver0.Xand1.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice6.Xdriver0.Xand2.Mn1
++ N_X_SLICE6.XDRIVER0.XAND2.N1_X_slice6.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE6.WEN0_X_slice6.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice6.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver0.Xand2.Mn2
++ N_X_SLICE6.XDRIVER0.XAND2.OUT_B_X_slice6.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE6.XDRIVER0.IN_B_X_slice6.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE6.XDRIVER0.XAND2.N1_X_slice6.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice6.Xdriver0.Xand2.Mp1
++ N_X_SLICE6.XDRIVER0.XAND2.OUT_B_X_slice6.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE6.WEN0_X_slice6.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice6.Xdriver0.Xand2.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice6.Xdriver0.Xand2.Mp2
++ N_X_SLICE6.XDRIVER0.XAND2.OUT_B_X_slice6.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE6.XDRIVER0.IN_B_X_slice6.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice6.Xdriver0.Xand2.Mp2_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice6.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB6_X_slice6.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE6.XDRIVER0.XAND2.OUT_B_X_slice6.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice6.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice6.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB6_X_slice6.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE6.XDRIVER0.XAND2.OUT_B_X_slice6.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice6.Xdriver0.Xand2.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice7.Xand1.Mn1 N_X_SLICE7.XAND1.N1_X_slice7.Xand1.Mn1_d
++ N_WEN_B0_X_slice7.Xand1.Mn1_g N_VSS_X_slice7.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xand1.Mn2 N_X_SLICE7.XAND1.OUT_B_X_slice7.Xand1.Mn2_d
++ N_A1_X_slice7.Xand1.Mn2_g N_X_SLICE7.XAND1.N1_X_slice7.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xand1.Mp1 N_X_SLICE7.XAND1.OUT_B_X_slice7.Xand1.Mp1_d
++ N_WEN_B0_X_slice7.Xand1.Mp1_g N_VDD_X_slice7.Xand1.Mp1_s VDD_W2 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice7.Xand1.Mp2 N_X_SLICE7.XAND1.OUT_B_X_slice7.Xand1.Mp2_d
++ N_A1_X_slice7.Xand1.Mp2_g N_VDD_X_slice7.Xand1.Mp2_s VDD_W2 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice7.Xand1.Xinv.Mn N_X_SLICE7.WEN1_X_slice7.Xand1.Xinv.Mn_d
++ N_X_SLICE7.XAND1.OUT_B_X_slice7.Xand1.Xinv.Mn_g N_VSS_X_slice7.Xand1.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xand1.Xinv.Mp N_X_SLICE7.WEN1_X_slice7.Xand1.Xinv.Mp_d
++ N_X_SLICE7.XAND1.OUT_B_X_slice7.Xand1.Xinv.Mp_g N_VDD_X_slice7.Xand1.Xinv.Mp_s
++ VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xand0.Mn1 N_X_SLICE7.XAND0.N1_X_slice7.Xand0.Mn1_d
++ N_WEN_B0_X_slice7.Xand0.Mn1_g N_VSS_X_slice7.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xand0.Mn2 N_X_SLICE7.XAND0.OUT_B_X_slice7.Xand0.Mn2_d
++ N_A1_B_X_slice7.Xand0.Mn2_g N_X_SLICE7.XAND0.N1_X_slice7.Xand0.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xand0.Mp1 N_X_SLICE7.XAND0.OUT_B_X_slice7.Xand0.Mp1_d
++ N_WEN_B0_X_slice7.Xand0.Mp1_g N_VDD_X_slice7.Xand0.Mp1_s VDD_W1 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice7.Xand0.Mp2 N_X_SLICE7.XAND0.OUT_B_X_slice7.Xand0.Mp2_d
++ N_A1_B_X_slice7.Xand0.Mp2_g N_VDD_X_slice7.Xand0.Mp2_s VDD_W1 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice7.Xand0.Xinv.Mn N_X_SLICE7.WEN0_X_slice7.Xand0.Xinv.Mn_d
++ N_X_SLICE7.XAND0.OUT_B_X_slice7.Xand0.Xinv.Mn_g N_VSS_X_slice7.Xand0.Xinv.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xand0.Xinv.Mp N_X_SLICE7.WEN0_X_slice7.Xand0.Xinv.Mp_d
++ N_X_SLICE7.XAND0.OUT_B_X_slice7.Xand0.Xinv.Mp_g N_VDD_X_slice7.Xand0.Xinv.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver1.Xinv.Mn N_X_SLICE7.XDRIVER1.IN_B_X_slice7.Xdriver1.Xinv.Mn_d
++ N_D7_X_slice7.Xdriver1.Xinv.Mn_g N_VSS_X_slice7.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver1.Xinv.Mp N_X_SLICE7.XDRIVER1.IN_B_X_slice7.Xdriver1.Xinv.Mp_d
++ N_D7_X_slice7.Xdriver1.Xinv.Mp_g N_VDD_X_slice7.Xdriver1.Xinv.Mp_s VDD_W2
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver1.Xand1.Mn2
++ N_X_SLICE7.XDRIVER1.XAND1.N1_X_slice7.Xdriver1.Xand1.Mn2_d
++ N_D7_X_slice7.Xdriver1.Xand1.Mn2_g N_VSS_X_slice7.Xdriver1.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver1.Xand1.Mn1
++ N_X_SLICE7.XDRIVER1.XAND1.OUT_B_X_slice7.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE7.WEN1_X_slice7.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE7.XDRIVER1.XAND1.N1_X_slice7.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver1.Xand1.Mp2
++ N_X_SLICE7.XDRIVER1.XAND1.OUT_B_X_slice7.Xdriver1.Xand1.Mp2_d
++ N_D7_X_slice7.Xdriver1.Xand1.Mp2_g N_VDD_X_slice7.Xdriver1.Xand1.Mp2_s VDD_W2
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice7.Xdriver1.Xand1.Mp1
++ N_X_SLICE7.XDRIVER1.XAND1.OUT_B_X_slice7.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE7.WEN1_X_slice7.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice7.Xdriver1.Xand1.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice7.Xdriver1.Xand1.Xinv.Mn N_WEN_BL23_X_slice7.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE7.XDRIVER1.XAND1.OUT_B_X_slice7.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice7.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice7.Xdriver1.Xand1.Xinv.Mp N_WEN_BL23_X_slice7.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE7.XDRIVER1.XAND1.OUT_B_X_slice7.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice7.Xdriver1.Xand1.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice7.Xdriver1.Xand2.Mn1
++ N_X_SLICE7.XDRIVER1.XAND2.N1_X_slice7.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE7.WEN1_X_slice7.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice7.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver1.Xand2.Mn2
++ N_X_SLICE7.XDRIVER1.XAND2.OUT_B_X_slice7.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE7.XDRIVER1.IN_B_X_slice7.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE7.XDRIVER1.XAND2.N1_X_slice7.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver1.Xand2.Mp1
++ N_X_SLICE7.XDRIVER1.XAND2.OUT_B_X_slice7.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE7.WEN1_X_slice7.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice7.Xdriver1.Xand2.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice7.Xdriver1.Xand2.Mp2
++ N_X_SLICE7.XDRIVER1.XAND2.OUT_B_X_slice7.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE7.XDRIVER1.IN_B_X_slice7.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice7.Xdriver1.Xand2.Mp2_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice7.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB23_X_slice7.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE7.XDRIVER1.XAND2.OUT_B_X_slice7.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice7.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice7.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB23_X_slice7.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE7.XDRIVER1.XAND2.OUT_B_X_slice7.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice7.Xdriver1.Xand2.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice7.Xdriver0.Xinv.Mn N_X_SLICE7.XDRIVER0.IN_B_X_slice7.Xdriver0.Xinv.Mn_d
++ N_D7_X_slice7.Xdriver0.Xinv.Mn_g N_VSS_X_slice7.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver0.Xinv.Mp N_X_SLICE7.XDRIVER0.IN_B_X_slice7.Xdriver0.Xinv.Mp_d
++ N_D7_X_slice7.Xdriver0.Xinv.Mp_g N_VDD_X_slice7.Xdriver0.Xinv.Mp_s VDD_W1
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver0.Xand1.Mn2
++ N_X_SLICE7.XDRIVER0.XAND1.N1_X_slice7.Xdriver0.Xand1.Mn2_d
++ N_D7_X_slice7.Xdriver0.Xand1.Mn2_g N_VSS_X_slice7.Xdriver0.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver0.Xand1.Mn1
++ N_X_SLICE7.XDRIVER0.XAND1.OUT_B_X_slice7.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE7.WEN0_X_slice7.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE7.XDRIVER0.XAND1.N1_X_slice7.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver0.Xand1.Mp2
++ N_X_SLICE7.XDRIVER0.XAND1.OUT_B_X_slice7.Xdriver0.Xand1.Mp2_d
++ N_D7_X_slice7.Xdriver0.Xand1.Mp2_g N_VDD_X_slice7.Xdriver0.Xand1.Mp2_s VDD_W1
++ PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice7.Xdriver0.Xand1.Mp1
++ N_X_SLICE7.XDRIVER0.XAND1.OUT_B_X_slice7.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE7.WEN0_X_slice7.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice7.Xdriver0.Xand1.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice7.Xdriver0.Xand1.Xinv.Mn N_WEN_BL7_X_slice7.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE7.XDRIVER0.XAND1.OUT_B_X_slice7.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice7.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice7.Xdriver0.Xand1.Xinv.Mp N_WEN_BL7_X_slice7.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE7.XDRIVER0.XAND1.OUT_B_X_slice7.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice7.Xdriver0.Xand1.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice7.Xdriver0.Xand2.Mn1
++ N_X_SLICE7.XDRIVER0.XAND2.N1_X_slice7.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE7.WEN0_X_slice7.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice7.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver0.Xand2.Mn2
++ N_X_SLICE7.XDRIVER0.XAND2.OUT_B_X_slice7.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE7.XDRIVER0.IN_B_X_slice7.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE7.XDRIVER0.XAND2.N1_X_slice7.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice7.Xdriver0.Xand2.Mp1
++ N_X_SLICE7.XDRIVER0.XAND2.OUT_B_X_slice7.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE7.WEN0_X_slice7.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice7.Xdriver0.Xand2.Mp1_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice7.Xdriver0.Xand2.Mp2
++ N_X_SLICE7.XDRIVER0.XAND2.OUT_B_X_slice7.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE7.XDRIVER0.IN_B_X_slice7.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice7.Xdriver0.Xand2.Mp2_s VDD_W1 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice7.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB7_X_slice7.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE7.XDRIVER0.XAND2.OUT_B_X_slice7.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice7.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice7.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB7_X_slice7.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE7.XDRIVER0.XAND2.OUT_B_X_slice7.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice7.Xdriver0.Xand2.Xinv.Mp_s VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice10.Xand1.Mn1 N_X_SLICE10.XAND1.N1_X_slice10.Xand1.Mn1_d
++ N_WEN_B1_X_slice10.Xand1.Mn1_g N_VSS_X_slice10.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xand1.Mn2 N_X_SLICE10.XAND1.OUT_B_X_slice10.Xand1.Mn2_d
++ N_A2_X_slice10.Xand1.Mn2_g N_X_SLICE10.XAND1.N1_X_slice10.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xand1.Mp1 N_X_SLICE10.XAND1.OUT_B_X_slice10.Xand1.Mp1_d
++ N_WEN_B1_X_slice10.Xand1.Mp1_g N_VDD_X_slice10.Xand1.Mp1_s VDD_W2 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xand1.Mp2 N_X_SLICE10.XAND1.OUT_B_X_slice10.Xand1.Mp2_d
++ N_A2_X_slice10.Xand1.Mp2_g N_VDD_X_slice10.Xand1.Mp2_s VDD_W2 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice10.Xand1.Xinv.Mn N_X_SLICE10.WEN1_X_slice10.Xand1.Xinv.Mn_d
++ N_X_SLICE10.XAND1.OUT_B_X_slice10.Xand1.Xinv.Mn_g
++ N_VSS_X_slice10.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xand1.Xinv.Mp N_X_SLICE10.WEN1_X_slice10.Xand1.Xinv.Mp_d
++ N_X_SLICE10.XAND1.OUT_B_X_slice10.Xand1.Xinv.Mp_g
++ N_VDD_X_slice10.Xand1.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xand0.Mn1 N_X_SLICE10.XAND0.N1_X_slice10.Xand0.Mn1_d
++ N_WEN_B1_X_slice10.Xand0.Mn1_g N_VSS_X_slice10.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xand0.Mn2 N_X_SLICE10.XAND0.OUT_B_X_slice10.Xand0.Mn2_d
++ N_A2_B_X_slice10.Xand0.Mn2_g N_X_SLICE10.XAND0.N1_X_slice10.Xand0.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xand0.Mp1 N_X_SLICE10.XAND0.OUT_B_X_slice10.Xand0.Mp1_d
++ N_WEN_B1_X_slice10.Xand0.Mp1_g N_VDD_X_slice10.Xand0.Mp1_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xand0.Mp2 N_X_SLICE10.XAND0.OUT_B_X_slice10.Xand0.Mp2_d
++ N_A2_B_X_slice10.Xand0.Mp2_g N_VDD_X_slice10.Xand0.Mp2_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xand0.Xinv.Mn N_X_SLICE10.WEN0_X_slice10.Xand0.Xinv.Mn_d
++ N_X_SLICE10.XAND0.OUT_B_X_slice10.Xand0.Xinv.Mn_g
++ N_VSS_X_slice10.Xand0.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xand0.Xinv.Mp N_X_SLICE10.WEN0_X_slice10.Xand0.Xinv.Mp_d
++ N_X_SLICE10.XAND0.OUT_B_X_slice10.Xand0.Xinv.Mp_g
++ N_VDD_X_slice10.Xand0.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver1.Xinv.Mn
++ N_X_SLICE10.XDRIVER1.IN_B_X_slice10.Xdriver1.Xinv.Mn_d
++ N_D10_X_slice10.Xdriver1.Xinv.Mn_g N_VSS_X_slice10.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver1.Xinv.Mp
++ N_X_SLICE10.XDRIVER1.IN_B_X_slice10.Xdriver1.Xinv.Mp_d
++ N_D10_X_slice10.Xdriver1.Xinv.Mp_g N_VDD_X_slice10.Xdriver1.Xinv.Mp_s VDD_W2
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver1.Xand1.Mn2
++ N_X_SLICE10.XDRIVER1.XAND1.N1_X_slice10.Xdriver1.Xand1.Mn2_d
++ N_D10_X_slice10.Xdriver1.Xand1.Mn2_g N_VSS_X_slice10.Xdriver1.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver1.Xand1.Mn1
++ N_X_SLICE10.XDRIVER1.XAND1.OUT_B_X_slice10.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE10.WEN1_X_slice10.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE10.XDRIVER1.XAND1.N1_X_slice10.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver1.Xand1.Mp2
++ N_X_SLICE10.XDRIVER1.XAND1.OUT_B_X_slice10.Xdriver1.Xand1.Mp2_d
++ N_D10_X_slice10.Xdriver1.Xand1.Mp2_g N_VDD_X_slice10.Xdriver1.Xand1.Mp2_s
++ VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xdriver1.Xand1.Mp1
++ N_X_SLICE10.XDRIVER1.XAND1.OUT_B_X_slice10.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE10.WEN1_X_slice10.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice10.Xdriver1.Xand1.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xdriver1.Xand1.Xinv.Mn N_WEN_BL26_X_slice10.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE10.XDRIVER1.XAND1.OUT_B_X_slice10.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice10.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice10.Xdriver1.Xand1.Xinv.Mp N_WEN_BL26_X_slice10.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE10.XDRIVER1.XAND1.OUT_B_X_slice10.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice10.Xdriver1.Xand1.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice10.Xdriver1.Xand2.Mn1
++ N_X_SLICE10.XDRIVER1.XAND2.N1_X_slice10.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE10.WEN1_X_slice10.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice10.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver1.Xand2.Mn2
++ N_X_SLICE10.XDRIVER1.XAND2.OUT_B_X_slice10.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE10.XDRIVER1.IN_B_X_slice10.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE10.XDRIVER1.XAND2.N1_X_slice10.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver1.Xand2.Mp1
++ N_X_SLICE10.XDRIVER1.XAND2.OUT_B_X_slice10.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE10.WEN1_X_slice10.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice10.Xdriver1.Xand2.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xdriver1.Xand2.Mp2
++ N_X_SLICE10.XDRIVER1.XAND2.OUT_B_X_slice10.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE10.XDRIVER1.IN_B_X_slice10.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice10.Xdriver1.Xand2.Mp2_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB26_X_slice10.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE10.XDRIVER1.XAND2.OUT_B_X_slice10.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice10.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice10.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB26_X_slice10.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE10.XDRIVER1.XAND2.OUT_B_X_slice10.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice10.Xdriver1.Xand2.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice10.Xdriver0.Xinv.Mn
++ N_X_SLICE10.XDRIVER0.IN_B_X_slice10.Xdriver0.Xinv.Mn_d
++ N_D10_X_slice10.Xdriver0.Xinv.Mn_g N_VSS_X_slice10.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver0.Xinv.Mp
++ N_X_SLICE10.XDRIVER0.IN_B_X_slice10.Xdriver0.Xinv.Mp_d
++ N_D10_X_slice10.Xdriver0.Xinv.Mp_g N_VDD_X_slice10.Xdriver0.Xinv.Mp_s VDD_W3
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver0.Xand1.Mn2
++ N_X_SLICE10.XDRIVER0.XAND1.N1_X_slice10.Xdriver0.Xand1.Mn2_d
++ N_D10_X_slice10.Xdriver0.Xand1.Mn2_g N_VSS_X_slice10.Xdriver0.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver0.Xand1.Mn1
++ N_X_SLICE10.XDRIVER0.XAND1.OUT_B_X_slice10.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE10.WEN0_X_slice10.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE10.XDRIVER0.XAND1.N1_X_slice10.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver0.Xand1.Mp2
++ N_X_SLICE10.XDRIVER0.XAND1.OUT_B_X_slice10.Xdriver0.Xand1.Mp2_d
++ N_D10_X_slice10.Xdriver0.Xand1.Mp2_g N_VDD_X_slice10.Xdriver0.Xand1.Mp2_s
++ VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xdriver0.Xand1.Mp1
++ N_X_SLICE10.XDRIVER0.XAND1.OUT_B_X_slice10.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE10.WEN0_X_slice10.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice10.Xdriver0.Xand1.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xdriver0.Xand1.Xinv.Mn N_WEN_BL10_X_slice10.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE10.XDRIVER0.XAND1.OUT_B_X_slice10.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice10.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice10.Xdriver0.Xand1.Xinv.Mp N_WEN_BL10_X_slice10.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE10.XDRIVER0.XAND1.OUT_B_X_slice10.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice10.Xdriver0.Xand1.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice10.Xdriver0.Xand2.Mn1
++ N_X_SLICE10.XDRIVER0.XAND2.N1_X_slice10.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE10.WEN0_X_slice10.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice10.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver0.Xand2.Mn2
++ N_X_SLICE10.XDRIVER0.XAND2.OUT_B_X_slice10.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE10.XDRIVER0.IN_B_X_slice10.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE10.XDRIVER0.XAND2.N1_X_slice10.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice10.Xdriver0.Xand2.Mp1
++ N_X_SLICE10.XDRIVER0.XAND2.OUT_B_X_slice10.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE10.WEN0_X_slice10.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice10.Xdriver0.Xand2.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xdriver0.Xand2.Mp2
++ N_X_SLICE10.XDRIVER0.XAND2.OUT_B_X_slice10.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE10.XDRIVER0.IN_B_X_slice10.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice10.Xdriver0.Xand2.Mp2_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice10.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB10_X_slice10.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE10.XDRIVER0.XAND2.OUT_B_X_slice10.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice10.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice10.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB10_X_slice10.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE10.XDRIVER0.XAND2.OUT_B_X_slice10.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice10.Xdriver0.Xand2.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice11.Xand1.Mn1 N_X_SLICE11.XAND1.N1_X_slice11.Xand1.Mn1_d
++ N_WEN_B1_X_slice11.Xand1.Mn1_g N_VSS_X_slice11.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xand1.Mn2 N_X_SLICE11.XAND1.OUT_B_X_slice11.Xand1.Mn2_d
++ N_A2_X_slice11.Xand1.Mn2_g N_X_SLICE11.XAND1.N1_X_slice11.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xand1.Mp1 N_X_SLICE11.XAND1.OUT_B_X_slice11.Xand1.Mp1_d
++ N_WEN_B1_X_slice11.Xand1.Mp1_g N_VDD_X_slice11.Xand1.Mp1_s VDD_W2 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xand1.Mp2 N_X_SLICE11.XAND1.OUT_B_X_slice11.Xand1.Mp2_d
++ N_A2_X_slice11.Xand1.Mp2_g N_VDD_X_slice11.Xand1.Mp2_s VDD_W2 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice11.Xand1.Xinv.Mn N_X_SLICE11.WEN1_X_slice11.Xand1.Xinv.Mn_d
++ N_X_SLICE11.XAND1.OUT_B_X_slice11.Xand1.Xinv.Mn_g
++ N_VSS_X_slice11.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xand1.Xinv.Mp N_X_SLICE11.WEN1_X_slice11.Xand1.Xinv.Mp_d
++ N_X_SLICE11.XAND1.OUT_B_X_slice11.Xand1.Xinv.Mp_g
++ N_VDD_X_slice11.Xand1.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xand0.Mn1 N_X_SLICE11.XAND0.N1_X_slice11.Xand0.Mn1_d
++ N_WEN_B1_X_slice11.Xand0.Mn1_g N_VSS_X_slice11.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xand0.Mn2 N_X_SLICE11.XAND0.OUT_B_X_slice11.Xand0.Mn2_d
++ N_A2_B_X_slice11.Xand0.Mn2_g N_X_SLICE11.XAND0.N1_X_slice11.Xand0.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xand0.Mp1 N_X_SLICE11.XAND0.OUT_B_X_slice11.Xand0.Mp1_d
++ N_WEN_B1_X_slice11.Xand0.Mp1_g N_VDD_X_slice11.Xand0.Mp1_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xand0.Mp2 N_X_SLICE11.XAND0.OUT_B_X_slice11.Xand0.Mp2_d
++ N_A2_B_X_slice11.Xand0.Mp2_g N_VDD_X_slice11.Xand0.Mp2_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xand0.Xinv.Mn N_X_SLICE11.WEN0_X_slice11.Xand0.Xinv.Mn_d
++ N_X_SLICE11.XAND0.OUT_B_X_slice11.Xand0.Xinv.Mn_g
++ N_VSS_X_slice11.Xand0.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xand0.Xinv.Mp N_X_SLICE11.WEN0_X_slice11.Xand0.Xinv.Mp_d
++ N_X_SLICE11.XAND0.OUT_B_X_slice11.Xand0.Xinv.Mp_g
++ N_VDD_X_slice11.Xand0.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver1.Xinv.Mn
++ N_X_SLICE11.XDRIVER1.IN_B_X_slice11.Xdriver1.Xinv.Mn_d
++ N_D11_X_slice11.Xdriver1.Xinv.Mn_g N_VSS_X_slice11.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver1.Xinv.Mp
++ N_X_SLICE11.XDRIVER1.IN_B_X_slice11.Xdriver1.Xinv.Mp_d
++ N_D11_X_slice11.Xdriver1.Xinv.Mp_g N_VDD_X_slice11.Xdriver1.Xinv.Mp_s VDD_W2
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver1.Xand1.Mn2
++ N_X_SLICE11.XDRIVER1.XAND1.N1_X_slice11.Xdriver1.Xand1.Mn2_d
++ N_D11_X_slice11.Xdriver1.Xand1.Mn2_g N_VSS_X_slice11.Xdriver1.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver1.Xand1.Mn1
++ N_X_SLICE11.XDRIVER1.XAND1.OUT_B_X_slice11.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE11.WEN1_X_slice11.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE11.XDRIVER1.XAND1.N1_X_slice11.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver1.Xand1.Mp2
++ N_X_SLICE11.XDRIVER1.XAND1.OUT_B_X_slice11.Xdriver1.Xand1.Mp2_d
++ N_D11_X_slice11.Xdriver1.Xand1.Mp2_g N_VDD_X_slice11.Xdriver1.Xand1.Mp2_s
++ VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xdriver1.Xand1.Mp1
++ N_X_SLICE11.XDRIVER1.XAND1.OUT_B_X_slice11.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE11.WEN1_X_slice11.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice11.Xdriver1.Xand1.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xdriver1.Xand1.Xinv.Mn N_WEN_BL27_X_slice11.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE11.XDRIVER1.XAND1.OUT_B_X_slice11.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice11.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice11.Xdriver1.Xand1.Xinv.Mp N_WEN_BL27_X_slice11.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE11.XDRIVER1.XAND1.OUT_B_X_slice11.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice11.Xdriver1.Xand1.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice11.Xdriver1.Xand2.Mn1
++ N_X_SLICE11.XDRIVER1.XAND2.N1_X_slice11.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE11.WEN1_X_slice11.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice11.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver1.Xand2.Mn2
++ N_X_SLICE11.XDRIVER1.XAND2.OUT_B_X_slice11.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE11.XDRIVER1.IN_B_X_slice11.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE11.XDRIVER1.XAND2.N1_X_slice11.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver1.Xand2.Mp1
++ N_X_SLICE11.XDRIVER1.XAND2.OUT_B_X_slice11.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE11.WEN1_X_slice11.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice11.Xdriver1.Xand2.Mp1_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xdriver1.Xand2.Mp2
++ N_X_SLICE11.XDRIVER1.XAND2.OUT_B_X_slice11.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE11.XDRIVER1.IN_B_X_slice11.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice11.Xdriver1.Xand2.Mp2_s VDD_W2 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB27_X_slice11.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE11.XDRIVER1.XAND2.OUT_B_X_slice11.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice11.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice11.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB27_X_slice11.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE11.XDRIVER1.XAND2.OUT_B_X_slice11.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice11.Xdriver1.Xand2.Xinv.Mp_s VDD_W2 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice11.Xdriver0.Xinv.Mn
++ N_X_SLICE11.XDRIVER0.IN_B_X_slice11.Xdriver0.Xinv.Mn_d
++ N_D11_X_slice11.Xdriver0.Xinv.Mn_g N_VSS_X_slice11.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver0.Xinv.Mp
++ N_X_SLICE11.XDRIVER0.IN_B_X_slice11.Xdriver0.Xinv.Mp_d
++ N_D11_X_slice11.Xdriver0.Xinv.Mp_g N_VDD_X_slice11.Xdriver0.Xinv.Mp_s VDD_W3
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver0.Xand1.Mn2
++ N_X_SLICE11.XDRIVER0.XAND1.N1_X_slice11.Xdriver0.Xand1.Mn2_d
++ N_D11_X_slice11.Xdriver0.Xand1.Mn2_g N_VSS_X_slice11.Xdriver0.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver0.Xand1.Mn1
++ N_X_SLICE11.XDRIVER0.XAND1.OUT_B_X_slice11.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE11.WEN0_X_slice11.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE11.XDRIVER0.XAND1.N1_X_slice11.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver0.Xand1.Mp2
++ N_X_SLICE11.XDRIVER0.XAND1.OUT_B_X_slice11.Xdriver0.Xand1.Mp2_d
++ N_D11_X_slice11.Xdriver0.Xand1.Mp2_g N_VDD_X_slice11.Xdriver0.Xand1.Mp2_s
++ VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xdriver0.Xand1.Mp1
++ N_X_SLICE11.XDRIVER0.XAND1.OUT_B_X_slice11.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE11.WEN0_X_slice11.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice11.Xdriver0.Xand1.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xdriver0.Xand1.Xinv.Mn N_WEN_BL11_X_slice11.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE11.XDRIVER0.XAND1.OUT_B_X_slice11.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice11.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice11.Xdriver0.Xand1.Xinv.Mp N_WEN_BL11_X_slice11.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE11.XDRIVER0.XAND1.OUT_B_X_slice11.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice11.Xdriver0.Xand1.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice11.Xdriver0.Xand2.Mn1
++ N_X_SLICE11.XDRIVER0.XAND2.N1_X_slice11.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE11.WEN0_X_slice11.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice11.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver0.Xand2.Mn2
++ N_X_SLICE11.XDRIVER0.XAND2.OUT_B_X_slice11.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE11.XDRIVER0.IN_B_X_slice11.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE11.XDRIVER0.XAND2.N1_X_slice11.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice11.Xdriver0.Xand2.Mp1
++ N_X_SLICE11.XDRIVER0.XAND2.OUT_B_X_slice11.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE11.WEN0_X_slice11.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice11.Xdriver0.Xand2.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xdriver0.Xand2.Mp2
++ N_X_SLICE11.XDRIVER0.XAND2.OUT_B_X_slice11.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE11.XDRIVER0.IN_B_X_slice11.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice11.Xdriver0.Xand2.Mp2_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice11.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB11_X_slice11.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE11.XDRIVER0.XAND2.OUT_B_X_slice11.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice11.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice11.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB11_X_slice11.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE11.XDRIVER0.XAND2.OUT_B_X_slice11.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice11.Xdriver0.Xand2.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice14.Xand1.Mn1 N_X_SLICE14.XAND1.N1_X_slice14.Xand1.Mn1_d
++ N_WEN_B1_X_slice14.Xand1.Mn1_g N_VSS_X_slice14.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xand1.Mn2 N_X_SLICE14.XAND1.OUT_B_X_slice14.Xand1.Mn2_d
++ N_A3_X_slice14.Xand1.Mn2_g N_X_SLICE14.XAND1.N1_X_slice14.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xand1.Mp1 N_X_SLICE14.XAND1.OUT_B_X_slice14.Xand1.Mp1_d
++ N_WEN_B1_X_slice14.Xand1.Mp1_g N_VDD_X_slice14.Xand1.Mp1_s VDD_W4 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xand1.Mp2 N_X_SLICE14.XAND1.OUT_B_X_slice14.Xand1.Mp2_d
++ N_A3_X_slice14.Xand1.Mp2_g N_VDD_X_slice14.Xand1.Mp2_s VDD_W4 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice14.Xand1.Xinv.Mn N_X_SLICE14.WEN1_X_slice14.Xand1.Xinv.Mn_d
++ N_X_SLICE14.XAND1.OUT_B_X_slice14.Xand1.Xinv.Mn_g
++ N_VSS_X_slice14.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xand1.Xinv.Mp N_X_SLICE14.WEN1_X_slice14.Xand1.Xinv.Mp_d
++ N_X_SLICE14.XAND1.OUT_B_X_slice14.Xand1.Xinv.Mp_g
++ N_VDD_X_slice14.Xand1.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xand0.Mn1 N_X_SLICE14.XAND0.N1_X_slice14.Xand0.Mn1_d
++ N_WEN_B1_X_slice14.Xand0.Mn1_g N_VSS_X_slice14.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xand0.Mn2 N_X_SLICE14.XAND0.OUT_B_X_slice14.Xand0.Mn2_d
++ N_A3_B_X_slice14.Xand0.Mn2_g N_X_SLICE14.XAND0.N1_X_slice14.Xand0.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xand0.Mp1 N_X_SLICE14.XAND0.OUT_B_X_slice14.Xand0.Mp1_d
++ N_WEN_B1_X_slice14.Xand0.Mp1_g N_VDD_X_slice14.Xand0.Mp1_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xand0.Mp2 N_X_SLICE14.XAND0.OUT_B_X_slice14.Xand0.Mp2_d
++ N_A3_B_X_slice14.Xand0.Mp2_g N_VDD_X_slice14.Xand0.Mp2_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xand0.Xinv.Mn N_X_SLICE14.WEN0_X_slice14.Xand0.Xinv.Mn_d
++ N_X_SLICE14.XAND0.OUT_B_X_slice14.Xand0.Xinv.Mn_g
++ N_VSS_X_slice14.Xand0.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xand0.Xinv.Mp N_X_SLICE14.WEN0_X_slice14.Xand0.Xinv.Mp_d
++ N_X_SLICE14.XAND0.OUT_B_X_slice14.Xand0.Xinv.Mp_g
++ N_VDD_X_slice14.Xand0.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver1.Xinv.Mn
++ N_X_SLICE14.XDRIVER1.IN_B_X_slice14.Xdriver1.Xinv.Mn_d
++ N_D14_X_slice14.Xdriver1.Xinv.Mn_g N_VSS_X_slice14.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver1.Xinv.Mp
++ N_X_SLICE14.XDRIVER1.IN_B_X_slice14.Xdriver1.Xinv.Mp_d
++ N_D14_X_slice14.Xdriver1.Xinv.Mp_g N_VDD_X_slice14.Xdriver1.Xinv.Mp_s VDD_W4
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver1.Xand1.Mn2
++ N_X_SLICE14.XDRIVER1.XAND1.N1_X_slice14.Xdriver1.Xand1.Mn2_d
++ N_D14_X_slice14.Xdriver1.Xand1.Mn2_g N_VSS_X_slice14.Xdriver1.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver1.Xand1.Mn1
++ N_X_SLICE14.XDRIVER1.XAND1.OUT_B_X_slice14.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE14.WEN1_X_slice14.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE14.XDRIVER1.XAND1.N1_X_slice14.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver1.Xand1.Mp2
++ N_X_SLICE14.XDRIVER1.XAND1.OUT_B_X_slice14.Xdriver1.Xand1.Mp2_d
++ N_D14_X_slice14.Xdriver1.Xand1.Mp2_g N_VDD_X_slice14.Xdriver1.Xand1.Mp2_s
++ VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xdriver1.Xand1.Mp1
++ N_X_SLICE14.XDRIVER1.XAND1.OUT_B_X_slice14.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE14.WEN1_X_slice14.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice14.Xdriver1.Xand1.Mp1_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xdriver1.Xand1.Xinv.Mn N_WEN_BL30_X_slice14.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE14.XDRIVER1.XAND1.OUT_B_X_slice14.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice14.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice14.Xdriver1.Xand1.Xinv.Mp N_WEN_BL30_X_slice14.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE14.XDRIVER1.XAND1.OUT_B_X_slice14.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice14.Xdriver1.Xand1.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice14.Xdriver1.Xand2.Mn1
++ N_X_SLICE14.XDRIVER1.XAND2.N1_X_slice14.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE14.WEN1_X_slice14.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice14.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver1.Xand2.Mn2
++ N_X_SLICE14.XDRIVER1.XAND2.OUT_B_X_slice14.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE14.XDRIVER1.IN_B_X_slice14.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE14.XDRIVER1.XAND2.N1_X_slice14.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver1.Xand2.Mp1
++ N_X_SLICE14.XDRIVER1.XAND2.OUT_B_X_slice14.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE14.WEN1_X_slice14.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice14.Xdriver1.Xand2.Mp1_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xdriver1.Xand2.Mp2
++ N_X_SLICE14.XDRIVER1.XAND2.OUT_B_X_slice14.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE14.XDRIVER1.IN_B_X_slice14.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice14.Xdriver1.Xand2.Mp2_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB30_X_slice14.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE14.XDRIVER1.XAND2.OUT_B_X_slice14.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice14.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice14.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB30_X_slice14.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE14.XDRIVER1.XAND2.OUT_B_X_slice14.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice14.Xdriver1.Xand2.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice14.Xdriver0.Xinv.Mn
++ N_X_SLICE14.XDRIVER0.IN_B_X_slice14.Xdriver0.Xinv.Mn_d
++ N_D14_X_slice14.Xdriver0.Xinv.Mn_g N_VSS_X_slice14.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver0.Xinv.Mp
++ N_X_SLICE14.XDRIVER0.IN_B_X_slice14.Xdriver0.Xinv.Mp_d
++ N_D14_X_slice14.Xdriver0.Xinv.Mp_g N_VDD_X_slice14.Xdriver0.Xinv.Mp_s VDD_W3
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver0.Xand1.Mn2
++ N_X_SLICE14.XDRIVER0.XAND1.N1_X_slice14.Xdriver0.Xand1.Mn2_d
++ N_D14_X_slice14.Xdriver0.Xand1.Mn2_g N_VSS_X_slice14.Xdriver0.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver0.Xand1.Mn1
++ N_X_SLICE14.XDRIVER0.XAND1.OUT_B_X_slice14.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE14.WEN0_X_slice14.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE14.XDRIVER0.XAND1.N1_X_slice14.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver0.Xand1.Mp2
++ N_X_SLICE14.XDRIVER0.XAND1.OUT_B_X_slice14.Xdriver0.Xand1.Mp2_d
++ N_D14_X_slice14.Xdriver0.Xand1.Mp2_g N_VDD_X_slice14.Xdriver0.Xand1.Mp2_s
++ VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xdriver0.Xand1.Mp1
++ N_X_SLICE14.XDRIVER0.XAND1.OUT_B_X_slice14.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE14.WEN0_X_slice14.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice14.Xdriver0.Xand1.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xdriver0.Xand1.Xinv.Mn N_WEN_BL14_X_slice14.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE14.XDRIVER0.XAND1.OUT_B_X_slice14.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice14.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice14.Xdriver0.Xand1.Xinv.Mp N_WEN_BL14_X_slice14.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE14.XDRIVER0.XAND1.OUT_B_X_slice14.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice14.Xdriver0.Xand1.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice14.Xdriver0.Xand2.Mn1
++ N_X_SLICE14.XDRIVER0.XAND2.N1_X_slice14.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE14.WEN0_X_slice14.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice14.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver0.Xand2.Mn2
++ N_X_SLICE14.XDRIVER0.XAND2.OUT_B_X_slice14.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE14.XDRIVER0.IN_B_X_slice14.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE14.XDRIVER0.XAND2.N1_X_slice14.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice14.Xdriver0.Xand2.Mp1
++ N_X_SLICE14.XDRIVER0.XAND2.OUT_B_X_slice14.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE14.WEN0_X_slice14.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice14.Xdriver0.Xand2.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xdriver0.Xand2.Mp2
++ N_X_SLICE14.XDRIVER0.XAND2.OUT_B_X_slice14.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE14.XDRIVER0.IN_B_X_slice14.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice14.Xdriver0.Xand2.Mp2_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice14.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB14_X_slice14.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE14.XDRIVER0.XAND2.OUT_B_X_slice14.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice14.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice14.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB14_X_slice14.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE14.XDRIVER0.XAND2.OUT_B_X_slice14.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice14.Xdriver0.Xand2.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice15.Xand1.Mn1 N_X_SLICE15.XAND1.N1_X_slice15.Xand1.Mn1_d
++ N_WEN_B1_X_slice15.Xand1.Mn1_g N_VSS_X_slice15.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xand1.Mn2 N_X_SLICE15.XAND1.OUT_B_X_slice15.Xand1.Mn2_d
++ N_A3_X_slice15.Xand1.Mn2_g N_X_SLICE15.XAND1.N1_X_slice15.Xand1.Mn2_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xand1.Mp1 N_X_SLICE15.XAND1.OUT_B_X_slice15.Xand1.Mp1_d
++ N_WEN_B1_X_slice15.Xand1.Mp1_g N_VDD_X_slice15.Xand1.Mp1_s VDD_W4 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xand1.Mp2 N_X_SLICE15.XAND1.OUT_B_X_slice15.Xand1.Mp2_d
++ N_A3_X_slice15.Xand1.Mp2_g N_VDD_X_slice15.Xand1.Mp2_s VDD_W4 PMOS_LVT L=2e-08
++ W=2.7e-08 NFIN=1
+mX_slice15.Xand1.Xinv.Mn N_X_SLICE15.WEN1_X_slice15.Xand1.Xinv.Mn_d
++ N_X_SLICE15.XAND1.OUT_B_X_slice15.Xand1.Xinv.Mn_g
++ N_VSS_X_slice15.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xand1.Xinv.Mp N_X_SLICE15.WEN1_X_slice15.Xand1.Xinv.Mp_d
++ N_X_SLICE15.XAND1.OUT_B_X_slice15.Xand1.Xinv.Mp_g
++ N_VDD_X_slice15.Xand1.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xand0.Mn1 N_X_SLICE15.XAND0.N1_X_slice15.Xand0.Mn1_d
++ N_WEN_B1_X_slice15.Xand0.Mn1_g N_VSS_X_slice15.Xand0.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xand0.Mn2 N_X_SLICE15.XAND0.OUT_B_X_slice15.Xand0.Mn2_d
++ N_A3_B_X_slice15.Xand0.Mn2_g N_X_SLICE15.XAND0.N1_X_slice15.Xand0.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xand0.Mp1 N_X_SLICE15.XAND0.OUT_B_X_slice15.Xand0.Mp1_d
++ N_WEN_B1_X_slice15.Xand0.Mp1_g N_VDD_X_slice15.Xand0.Mp1_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xand0.Mp2 N_X_SLICE15.XAND0.OUT_B_X_slice15.Xand0.Mp2_d
++ N_A3_B_X_slice15.Xand0.Mp2_g N_VDD_X_slice15.Xand0.Mp2_s VDD_W3 PMOS_LVT
++ L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xand0.Xinv.Mn N_X_SLICE15.WEN0_X_slice15.Xand0.Xinv.Mn_d
++ N_X_SLICE15.XAND0.OUT_B_X_slice15.Xand0.Xinv.Mn_g
++ N_VSS_X_slice15.Xand0.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xand0.Xinv.Mp N_X_SLICE15.WEN0_X_slice15.Xand0.Xinv.Mp_d
++ N_X_SLICE15.XAND0.OUT_B_X_slice15.Xand0.Xinv.Mp_g
++ N_VDD_X_slice15.Xand0.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver1.Xinv.Mn
++ N_X_SLICE15.XDRIVER1.IN_B_X_slice15.Xdriver1.Xinv.Mn_d
++ N_D15_X_slice15.Xdriver1.Xinv.Mn_g N_VSS_X_slice15.Xdriver1.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver1.Xinv.Mp
++ N_X_SLICE15.XDRIVER1.IN_B_X_slice15.Xdriver1.Xinv.Mp_d
++ N_D15_X_slice15.Xdriver1.Xinv.Mp_g N_VDD_X_slice15.Xdriver1.Xinv.Mp_s VDD_W4
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver1.Xand1.Mn2
++ N_X_SLICE15.XDRIVER1.XAND1.N1_X_slice15.Xdriver1.Xand1.Mn2_d
++ N_D15_X_slice15.Xdriver1.Xand1.Mn2_g N_VSS_X_slice15.Xdriver1.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver1.Xand1.Mn1
++ N_X_SLICE15.XDRIVER1.XAND1.OUT_B_X_slice15.Xdriver1.Xand1.Mn1_d
++ N_X_SLICE15.WEN1_X_slice15.Xdriver1.Xand1.Mn1_g
++ N_X_SLICE15.XDRIVER1.XAND1.N1_X_slice15.Xdriver1.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver1.Xand1.Mp2
++ N_X_SLICE15.XDRIVER1.XAND1.OUT_B_X_slice15.Xdriver1.Xand1.Mp2_d
++ N_D15_X_slice15.Xdriver1.Xand1.Mp2_g N_VDD_X_slice15.Xdriver1.Xand1.Mp2_s
++ VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xdriver1.Xand1.Mp1
++ N_X_SLICE15.XDRIVER1.XAND1.OUT_B_X_slice15.Xdriver1.Xand1.Mp1_d
++ N_X_SLICE15.WEN1_X_slice15.Xdriver1.Xand1.Mp1_g
++ N_VDD_X_slice15.Xdriver1.Xand1.Mp1_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xdriver1.Xand1.Xinv.Mn N_WEN_BL31_X_slice15.Xdriver1.Xand1.Xinv.Mn_d
++ N_X_SLICE15.XDRIVER1.XAND1.OUT_B_X_slice15.Xdriver1.Xand1.Xinv.Mn_g
++ N_VSS_X_slice15.Xdriver1.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice15.Xdriver1.Xand1.Xinv.Mp N_WEN_BL31_X_slice15.Xdriver1.Xand1.Xinv.Mp_d
++ N_X_SLICE15.XDRIVER1.XAND1.OUT_B_X_slice15.Xdriver1.Xand1.Xinv.Mp_g
++ N_VDD_X_slice15.Xdriver1.Xand1.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice15.Xdriver1.Xand2.Mn1
++ N_X_SLICE15.XDRIVER1.XAND2.N1_X_slice15.Xdriver1.Xand2.Mn1_d
++ N_X_SLICE15.WEN1_X_slice15.Xdriver1.Xand2.Mn1_g
++ N_VSS_X_slice15.Xdriver1.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver1.Xand2.Mn2
++ N_X_SLICE15.XDRIVER1.XAND2.OUT_B_X_slice15.Xdriver1.Xand2.Mn2_d
++ N_X_SLICE15.XDRIVER1.IN_B_X_slice15.Xdriver1.Xand2.Mn2_g
++ N_X_SLICE15.XDRIVER1.XAND2.N1_X_slice15.Xdriver1.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver1.Xand2.Mp1
++ N_X_SLICE15.XDRIVER1.XAND2.OUT_B_X_slice15.Xdriver1.Xand2.Mp1_d
++ N_X_SLICE15.WEN1_X_slice15.Xdriver1.Xand2.Mp1_g
++ N_VDD_X_slice15.Xdriver1.Xand2.Mp1_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xdriver1.Xand2.Mp2
++ N_X_SLICE15.XDRIVER1.XAND2.OUT_B_X_slice15.Xdriver1.Xand2.Mp2_d
++ N_X_SLICE15.XDRIVER1.IN_B_X_slice15.Xdriver1.Xand2.Mp2_g
++ N_VDD_X_slice15.Xdriver1.Xand2.Mp2_s VDD_W4 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xdriver1.Xand2.Xinv.Mn N_WEN_BLB31_X_slice15.Xdriver1.Xand2.Xinv.Mn_d
++ N_X_SLICE15.XDRIVER1.XAND2.OUT_B_X_slice15.Xdriver1.Xand2.Xinv.Mn_g
++ N_VSS_X_slice15.Xdriver1.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice15.Xdriver1.Xand2.Xinv.Mp N_WEN_BLB31_X_slice15.Xdriver1.Xand2.Xinv.Mp_d
++ N_X_SLICE15.XDRIVER1.XAND2.OUT_B_X_slice15.Xdriver1.Xand2.Xinv.Mp_g
++ N_VDD_X_slice15.Xdriver1.Xand2.Xinv.Mp_s VDD_W4 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice15.Xdriver0.Xinv.Mn
++ N_X_SLICE15.XDRIVER0.IN_B_X_slice15.Xdriver0.Xinv.Mn_d
++ N_D15_X_slice15.Xdriver0.Xinv.Mn_g N_VSS_X_slice15.Xdriver0.Xinv.Mn_s VSS_SUB
++ NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver0.Xinv.Mp
++ N_X_SLICE15.XDRIVER0.IN_B_X_slice15.Xdriver0.Xinv.Mp_d
++ N_D15_X_slice15.Xdriver0.Xinv.Mp_g N_VDD_X_slice15.Xdriver0.Xinv.Mp_s VDD_W3
++ PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver0.Xand1.Mn2
++ N_X_SLICE15.XDRIVER0.XAND1.N1_X_slice15.Xdriver0.Xand1.Mn2_d
++ N_D15_X_slice15.Xdriver0.Xand1.Mn2_g N_VSS_X_slice15.Xdriver0.Xand1.Mn2_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver0.Xand1.Mn1
++ N_X_SLICE15.XDRIVER0.XAND1.OUT_B_X_slice15.Xdriver0.Xand1.Mn1_d
++ N_X_SLICE15.WEN0_X_slice15.Xdriver0.Xand1.Mn1_g
++ N_X_SLICE15.XDRIVER0.XAND1.N1_X_slice15.Xdriver0.Xand1.Mn1_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver0.Xand1.Mp2
++ N_X_SLICE15.XDRIVER0.XAND1.OUT_B_X_slice15.Xdriver0.Xand1.Mp2_d
++ N_D15_X_slice15.Xdriver0.Xand1.Mp2_g N_VDD_X_slice15.Xdriver0.Xand1.Mp2_s
++ VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xdriver0.Xand1.Mp1
++ N_X_SLICE15.XDRIVER0.XAND1.OUT_B_X_slice15.Xdriver0.Xand1.Mp1_d
++ N_X_SLICE15.WEN0_X_slice15.Xdriver0.Xand1.Mp1_g
++ N_VDD_X_slice15.Xdriver0.Xand1.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xdriver0.Xand1.Xinv.Mn N_WEN_BL15_X_slice15.Xdriver0.Xand1.Xinv.Mn_d
++ N_X_SLICE15.XDRIVER0.XAND1.OUT_B_X_slice15.Xdriver0.Xand1.Xinv.Mn_g
++ N_VSS_X_slice15.Xdriver0.Xand1.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice15.Xdriver0.Xand1.Xinv.Mp N_WEN_BL15_X_slice15.Xdriver0.Xand1.Xinv.Mp_d
++ N_X_SLICE15.XDRIVER0.XAND1.OUT_B_X_slice15.Xdriver0.Xand1.Xinv.Mp_g
++ N_VDD_X_slice15.Xdriver0.Xand1.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice15.Xdriver0.Xand2.Mn1
++ N_X_SLICE15.XDRIVER0.XAND2.N1_X_slice15.Xdriver0.Xand2.Mn1_d
++ N_X_SLICE15.WEN0_X_slice15.Xdriver0.Xand2.Mn1_g
++ N_VSS_X_slice15.Xdriver0.Xand2.Mn1_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver0.Xand2.Mn2
++ N_X_SLICE15.XDRIVER0.XAND2.OUT_B_X_slice15.Xdriver0.Xand2.Mn2_d
++ N_X_SLICE15.XDRIVER0.IN_B_X_slice15.Xdriver0.Xand2.Mn2_g
++ N_X_SLICE15.XDRIVER0.XAND2.N1_X_slice15.Xdriver0.Xand2.Mn2_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mX_slice15.Xdriver0.Xand2.Mp1
++ N_X_SLICE15.XDRIVER0.XAND2.OUT_B_X_slice15.Xdriver0.Xand2.Mp1_d
++ N_X_SLICE15.WEN0_X_slice15.Xdriver0.Xand2.Mp1_g
++ N_VDD_X_slice15.Xdriver0.Xand2.Mp1_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xdriver0.Xand2.Mp2
++ N_X_SLICE15.XDRIVER0.XAND2.OUT_B_X_slice15.Xdriver0.Xand2.Mp2_d
++ N_X_SLICE15.XDRIVER0.IN_B_X_slice15.Xdriver0.Xand2.Mp2_g
++ N_VDD_X_slice15.Xdriver0.Xand2.Mp2_s VDD_W3 PMOS_LVT L=2e-08 W=2.7e-08 NFIN=1
+mX_slice15.Xdriver0.Xand2.Xinv.Mn N_WEN_BLB15_X_slice15.Xdriver0.Xand2.Xinv.Mn_d
++ N_X_SLICE15.XDRIVER0.XAND2.OUT_B_X_slice15.Xdriver0.Xand2.Xinv.Mn_g
++ N_VSS_X_slice15.Xdriver0.Xand2.Xinv.Mn_s VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mX_slice15.Xdriver0.Xand2.Xinv.Mp N_WEN_BLB15_X_slice15.Xdriver0.Xand2.Xinv.Mp_d
++ N_X_SLICE15.XDRIVER0.XAND2.OUT_B_X_slice15.Xdriver0.Xand2.Xinv.Mp_g
++ N_VDD_X_slice15.Xdriver0.Xand2.Xinv.Mp_s VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08
++ NFIN=3
+mXdec.Xsel0.Mn N_A0_B_Xdec.Xsel0.Mn_d N_IN_Xdec.Xsel0.Mn_g N_VSS_Xdec.Xsel0.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mXdec.Xsel0.Mp N_A0_B_Xdec.Xsel0.Mp_d N_IN_Xdec.Xsel0.Mp_g N_VDD_Xdec.Xsel0.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mXdec.Xsel1.Mn N_A0_Xdec.Xsel1.Mn_d N_A0_B_Xdec.Xsel1.Mn_g N_VSS_Xdec.Xsel1.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mXdec.Xsel1.Mp N_A0_Xdec.Xsel1.Mp_d N_A0_B_Xdec.Xsel1.Mp_g N_VDD_Xdec.Xsel1.Mp_s
++ VDD_W1 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mXinv2.Mn N_A1_Xinv2.Mn_d N_A0_B_Xinv2.Mn_g N_VSS_Xinv2.Mn_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv2.Mp N_A1_Xinv2.Mp_d N_A0_B_Xinv2.Mp_g N_VDD_Xinv2.Mp_s VDD_W2 PMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv1.Mn N_A1_B_Xinv1.Mn_d N_A0_Xinv1.Mn_g N_VSS_Xinv1.Mn_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv1.Mp N_A1_B_Xinv1.Mp_d N_A0_Xinv1.Mp_g N_VDD_Xinv1.Mp_s VDD_W2 PMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv3.Mn N_A2_B_Xinv3.Mn_d N_A1_Xinv3.Mn_g N_VSS_Xinv3.Mn_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv3.Mp N_A2_B_Xinv3.Mp_d N_A1_Xinv3.Mp_g N_VDD_Xinv3.Mp_s VDD_W2 PMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv4.Mn N_A2_Xinv4.Mn_d N_A1_B_Xinv4.Mn_g N_VSS_Xinv4.Mn_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv4.Mp N_A2_Xinv4.Mp_d N_A1_B_Xinv4.Mp_g N_VDD_Xinv4.Mp_s VDD_W2 PMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv_en2.Mn N_WEN1_Xinv_en2.Mn_d N_WEN_B0_Xinv_en2.Mn_g N_VSS_Xinv_en2.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mXinv_en2.Mp N_WEN1_Xinv_en2.Mp_d N_WEN_B0_Xinv_en2.Mp_g N_VDD_Xinv_en2.Mp_s
++ VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mXinv_en3.Mn N_WEN_B1_Xinv_en3.Mn_d N_WEN1_Xinv_en3.Mn_g N_VSS_Xinv_en3.Mn_s
++ VSS_SUB NMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mXinv_en3.Mp N_WEN_B1_Xinv_en3.Mp_d N_WEN1_Xinv_en3.Mp_g N_VDD_Xinv_en3.Mp_s
++ VDD_W3 PMOS_LVT L=2e-08 W=8.1e-08 NFIN=3
+mXinv6.Mn N_A3_Xinv6.Mn_d N_A2_B_Xinv6.Mn_g N_VSS_Xinv6.Mn_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv6.Mp N_A3_Xinv6.Mp_d N_A2_B_Xinv6.Mp_g N_VDD_Xinv6.Mp_s VDD_W3 PMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv5.Mn N_A3_B_Xinv5.Mn_d N_A2_Xinv5.Mn_g N_VSS_Xinv5.Mn_s VSS_SUB NMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+mXinv5.Mp N_A3_B_Xinv5.Mp_d N_A2_Xinv5.Mp_g N_VDD_Xinv5.Mp_s VDD_W3 PMOS_LVT
++ L=2e-08 W=8.1e-08 NFIN=3
+*
+.include "COL_DRIVER_ARRAY.pex.netlist.COL_DRIVER_ARRAY.pxi"
+*
+.ends
+*
+*
