@@ -37,17 +37,17 @@ Mp8  sense    SAEN   VDD   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2
 
 .ends
 
-.subckt voltage_SA BL BLB sense senseB SAEN
-Mn0  net0    SAEN    GND   GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=4 
-
-Mn1  senseB  sense   net0  GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
-Mn2  sense   senseB  net0  GND  nmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
-
-Mp3  senseB  sense   VDD   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
-Mp4  sense   senseB  VDD   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
-Mp5  sense   SAEN    BL    VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
-Mp6  senseB  SAEN    BLB   VDD  pmos_lvt  L=2e-08 W=2.7e-08 nfin=2 
-
+.subckt SA BL BLB sense senseB SAEN VDD VSS VDD_W VSS_SUB
+Mn0      net0    SAEN    VSS    VSS_SUB  nmos_lvt  L=2e-08  W=5.4e-08  nfin=2
+Mn1      net0    SAEN    VSS    VSS_SUB  nmos_lvt  L=2e-08  W=5.4e-08  nfin=2
+Mn2      senseB  sense   net0   VSS_SUB  nmos_lvt  L=2e-08  W=5.4e-08  nfin=2
+Mn3      sense   senseB  net0   VSS_SUB  nmos_lvt  L=2e-08  W=5.4e-08  nfin=2
+Mp4      senseB  sense   VDD    VDD_W    pmos_lvt  L=2e-08  W=5.4e-08  nfin=2
+Mp5      sense   senseB  VDD    VDD_W    pmos_lvt  L=2e-08  W=5.4e-08  nfin=2
+Mp6      sense   SAEN    BL     VDD_W    pmos_lvt  L=2e-08  W=5.4e-08  nfin=2
+Mp7      senseB  SAEN    BLB    VDD_W    pmos_lvt  L=2e-08  W=5.4e-08  nfin=2
+Mpd      VDD     VDD     VDD    VDD_W    pmos_lvt  L=2e-08  W=5.4e-08  nfin=2
+Mnd      senseB  VSS     sense  VSS_SUB  nmos_lvt  L=2e-08  W=5.4e-08  nfin=2
 .ends
 
 
@@ -135,7 +135,7 @@ CBL BL GND '80f/512*64'
 CBLB BLB GND '80f/512*64' 
 
 * Sense Amplifier (voltage)
-xSA BL BLB sense senseB SAEN voltage_SA 
+xSA BL BLB sense senseB SAEN VDD VSS VDD_W VSS_SUB SA
 
 * write driver 
 Mnwd_blb BLB WEN_BL  VSS VSS nmos_lvt L=2e-08 W=2.7e-08 nfin=4
