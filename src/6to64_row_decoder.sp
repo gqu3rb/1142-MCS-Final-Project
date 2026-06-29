@@ -5,16 +5,35 @@
 
 * ------ 1. 基礎邏輯閘子電路 ------
 .subckt INV_m1 IN OUT
-Mp OUT IN VDD VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=1
-Mn OUT IN GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=1
+.param INV_NFIN_SIZE=1
+Mp OUT IN VDD VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=INV_NFIN_SIZE
+Mn OUT IN GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=INV_NFIN_SIZE
 .ends
 
 .subckt AND2 A B OUT
+.param NFIN_SIZE=1
 * adjust the fin number to balance rise and fall latency
-Mn1 net1 A    GND  GND nmos_lvt L=2e-08 W=2.7e-08 nfin=2
-Mn2 OUT_b B    net1 GND nmos_lvt L=2e-08 W=2.7e-08 nfin=2
-Mp1 OUT_b A    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=1
-Mp2 OUT_b B    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=1
+Mn1 net1 A    GND  GND nmos_lvt L=2e-08 W=2.7e-08 nfin='NFIN_SIZE*2'
+Mn2 OUT_b B    net1 GND nmos_lvt L=2e-08 W=2.7e-08 nfin='NFIN_SIZE*2'
+Mp1 OUT_b A    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=NFIN_SIZE
+Mp2 OUT_b B    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=NFIN_SIZE
+Xinv OUT_b OUT INV_m1 INV_NFIN_SIZE=NFIN_SIZE
+.ends
+
+.subckt NAND2 A B OUT
+.param NFIN_SIZE=1
+* adjust the fin number to balance rise and fall latency
+Mn1 net1 A    GND  GND nmos_lvt L=2e-08 W=2.7e-08 nfin='NFIN_SIZE*2'
+Mn2 OUT B    net1 GND nmos_lvt L=2e-08 W=2.7e-08 nfin='NFIN_SIZE*2'
+Mp1 OUT A    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=NFIN_SIZE
+Mp2 OUT B    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=NFIN_SIZE
+.ends
+
+.subckt OR2 A B OUT
+Mp1 net1 A VDD VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=2
+Mp2 OUT_b  B net1 VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=2
+Mn1 OUT_b  A GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=1
+Mn2 OUT_b  B GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=1
 Xinv OUT_b OUT INV_m1
 .ends
 

@@ -104,6 +104,7 @@ int main(int argc, char *argv[])
     vector<string> sub_circuits;
     // add more sub circuit files to the vector as you need
     sub_circuits.push_back("6to64_row_decoder.sp");
+    sub_circuits.push_back("global_controller.sp");
 #if POST_SIMULATION
     sub_circuits.push_back("SRAM_array_64x32_post.sp");
     sub_circuits.push_back(extracted_netlists_path+"COL_DRIVER_ARRAY.pex.netlist");
@@ -165,6 +166,10 @@ int main(int argc, char *argv[])
     }
     // buffers for wen DFF out
     out << "xbuf_wenq WENq WENq_buf BUF NFIN_SIZE=4" << endl;
+
+    // Global Controller
+    out << "xGLOBAL_CTRL CLK_in4 WENq PRE ROW_DEC_EN SAEN GLOBAL_CTRL" << endl;
+    out << endl;
 
     out << "* 呼叫 Row Decoder (注意：引腳順序必須跟上面定義的完全一模一樣)" << endl;
     out << "xdecoder A6q_buf A5q_buf A4q_buf A3q_buf A2q_buf A1q_buf ROW_DEC_EN" << endl;
@@ -283,7 +288,7 @@ for(int i=0; i<32; i++) {
     out << "+ COL_SEL" << endl;
 
     // output dff
-    out << "xbuf_clk_q CLK_in4 CLK_in4_q BUF NFIN_SIZE=4" << endl;
+    out << "xbuf_clk_q CLK_in CLK_in4_q BUF NFIN_SIZE=4" << endl;
     for(int i=0; i<16; i++) {
         out << "xdff_q" << i << " CLK_in4_q" << " Q" << i << " Q" << i << "out DFF" << endl;
     }
@@ -337,68 +342,6 @@ for(int i=0; i<32; i++) {
     out << "Vc CLK GND PULSE(0V " << VDD_VAL << "V "
         << T_BOOT << "ns " << RISE_FALL_TIME << "ns " << RISE_FALL_TIME << "ns "
         << (CLK_PERIOD / 2.0 - RISE_FALL_TIME) << "ns " << CLK_PERIOD << "ns)" << endl;
-    out << endl;
-
-    // ── PRE ────────────────────────────────────────────────────────────────
-    // ACTIVATE LOW precharge, only activated in read cycles
-    out << "Vp PRE GND PWL(0ns " << VDD_VAL << "V";
-    for (int k = 0; k < N_OPS; k++) {
-        double Tr = T_BOOT + (2.0 * k + 1.0) * CLK_PERIOD; // only activate in read cycles
-        double Ts1 = Tr; // first start time in a single cycle
-        double Ts2 = Tr + PRE_PHASE + RISE_FALL_TIME + WL_PHASE_READ; // second start time in a single cycle
-        out << " " << Ts1 << "ns " << VDD_VAL << "V"
-            << " " << (Ts1 + RISE_FALL_TIME) << "ns " << "0V"
-            << " " << (Ts1 + RISE_FALL_TIME + PRE_PHASE) << "ns " << "0V"
-            << " " << (Ts1 + RISE_FALL_TIME + PRE_PHASE + RISE_FALL_TIME) << "ns " << VDD_VAL << "V"
-            << " " << Ts2 << "ns " << VDD_VAL << "V"
-            // Refer to:
-            // Semiconductor Memory Devices and Circuits, Shimeng Yu, 2022.pdf, P.24(41)
-            // The second times PRE signal is asserted for the same duration as the SAEN
-            << " " << (Ts2 + RISE_FALL_TIME) << "ns " << "0V"
-            << " " << (Ts2 + RISE_FALL_TIME + SENSE_PHASE) << "ns " << "0V"
-            << " " << (Ts2 + RISE_FALL_TIME + SENSE_PHASE + RISE_FALL_TIME) << "ns " << VDD_VAL << "V";
-    }
-    out << ")" << endl;
-    out << endl;
-
-    // ── SAEN ───────────────────────────────────────────────────────────────
-    // Ideal internal sense-amp enable. Fires ONLY on read cycles (odd cycles);
-    // stays LOW during write cycles. Read of addr k = cycle (2k+1), whose clk
-    // edge is at T_BOOT+(2k+1)*CLK_PERIOD. SAEN pulses 0.25ns after that edge
-    // (bitline differential developed), width 0.10ns; the latch-type SA holds
-    // the result afterwards even when PRE re-precharges the bitlines.
-    out << "Vs SAEN GND PWL(0ns 0V";
-    for (int k = 0; k < N_OPS; k++) {
-        double Tr = T_BOOT + (2.0 * k + 1.0) * CLK_PERIOD; // only activate in read cycles
-        double Ts = Tr + PRE_PHASE + RISE_FALL_TIME + WL_PHASE_READ; // start time in a single cycle
-        out << " " << Ts << "ns 0V"
-            << " " << (Ts + RISE_FALL_TIME) << "ns " << VDD_VAL << "V"
-            << " " << (Ts + RISE_FALL_TIME + SENSE_PHASE) << "ns " << VDD_VAL << "V"
-            << " " << (Ts + RISE_FALL_TIME + SENSE_PHASE + RISE_FALL_TIME) << "ns 0V";
-    }
-    out << ")" << endl;
-    out << endl;
-
-    // Active LOW ROW_DEC_EN
-    out << "Vrow_dec_en ROW_DEC_EN GND PWL(0ns " << VDD_VAL << "V";
-    for (int k = 0; k < N_OPS*2; k++) {
-        double Tr = T_BOOT + k * CLK_PERIOD;
-        double Ts; // start time in a single cycle
-        double activate_len;
-        if(k%2) { // read cycles
-            Ts = Tr + PRE_PHASE;
-            activate_len = WL_PHASE_READ;
-        } else { // write cycles
-            Ts = Tr;
-            activate_len = WL_PHASE_WRITE;
-        }
-
-        out << " " << Ts << "ns " << VDD_VAL << "V"
-            << " " << (Ts + RISE_FALL_TIME) << "ns " << "0V"
-            << " " << (Ts + RISE_FALL_TIME + activate_len) << "ns " << "0V"
-            << " " << (Ts + RISE_FALL_TIME + activate_len + RISE_FALL_TIME) << "ns " << VDD_VAL << "V";
-    }
-    out << ")" << endl;
     out << endl;
 
     // ── WEN ────────────────────────────────────────────────────────────────
@@ -581,6 +524,9 @@ for(int i=0; i<32; i++) {
     out << ".probe tran v(XARRAY_TOP.xSRAM_Array_64x32.BLB31" << ")" << endl;
     out << ".probe tran v(SENSE_OUT31" << ")" << endl;
     out << ".probe tran v(SENSE_OUTB31" << ")" << endl;
+    out << ".probe tran v(xGLOBAL_CTRL.*" << ")" << endl;
+    print_probe_tran(out, "Q", 16);
+    print_probe_tran(out, "QB", 16);
 #endif
     out << endl;
 
