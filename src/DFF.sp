@@ -1,10 +1,11 @@
 .TITLE DFF
 
 .SUBCKT INV IN OUT
+.param NFIN_SIZE=1
 *Mxxx   Drain	Gate	Source	Bulk	Model
 *MP1     OUT     IN      VDD     VDD     pmos_lvt   W=2.7e-8    L=2e-8  nfin=1
-M1 OUT IN VDD VDD pmos_lvt W=2.7e-8 L=2e-8 nfin=1
-M2 OUT IN GND GND nmos_lvt W=2.7e-8 L=2e-8 nfin=1
+M1 OUT IN VDD VDD pmos_lvt W=2.7e-8 L=2e-8 nfin=NFIN_SIZE
+M2 OUT IN GND GND nmos_lvt W=2.7e-8 L=2e-8 nfin=NFIN_SIZE
 .ends 
 
 .SUBCKT SWITCH EN IN OUT

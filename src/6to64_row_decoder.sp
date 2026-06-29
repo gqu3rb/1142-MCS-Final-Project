@@ -30,18 +30,20 @@ Mp2 OUT B    VDD  VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=NFIN_SIZE
 .ends
 
 .subckt OR2 A B OUT
-Mp1 net1 A VDD VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=2
-Mp2 OUT_b  B net1 VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=2
-Mn1 OUT_b  A GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=1
-Mn2 OUT_b  B GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=1
-Xinv OUT_b OUT INV_m1
+.param NFIN_SIZE=1
+Mp1 net1 A VDD VDD pmos_lvt L=2e-08 W=2.7e-08 nfin='2*NFIN_SIZE'
+Mp2 OUT_b  B net1 VDD pmos_lvt L=2e-08 W=2.7e-08 nfin='2*NFIN_SIZE'
+Mn1 OUT_b  A GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=NFIN_SIZE
+Mn2 OUT_b  B GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=NFIN_SIZE
+Xinv OUT_b OUT INV_m1 INV_NFIN_SIZE=NFIN_SIZE
 .ends
 
 .subckt NOR2 A B OUT
-Mp1 net1 A VDD VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=2
-Mp2 OUT  B net1 VDD pmos_lvt L=2e-08 W=2.7e-08 nfin=2
-Mn1 OUT  A GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=1
-Mn2 OUT  B GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=1
+.param NFIN_SIZE=1
+Mp1 net1 A VDD VDD pmos_lvt L=2e-08 W=2.7e-08 nfin='2*NFIN_SIZE'
+Mp2 OUT  B net1 VDD pmos_lvt L=2e-08 W=2.7e-08 nfin='2*NFIN_SIZE'
+Mn1 OUT  A GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=NFIN_SIZE
+Mn2 OUT  B GND GND nmos_lvt L=2e-08 W=2.7e-08 nfin=NFIN_SIZE
 .ends
 
 * ACTIVE LOW

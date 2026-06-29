@@ -7,9 +7,9 @@
 
 // Simulation Options
 #define POST_SIMULATION 1 // 0: pre-sim; 1: post-sim
-#define ADJUST_TIMING_VER 0 // read write address 0x01 test, priority higher than SHORT_SIMULATION_VER
+#define ADJUST_TIMING_VER 1 // read write address 0x01 test, priority higher than SHORT_SIMULATION_VER
 #define SHORT_SIMULATION_VER 1 // short simulation ver only test the first 8 rows
-#define PROB_ALL_SIGNAL 0
+#define PROB_ALL_SIGNAL 1
 #define PROB_EACH_CELL_Q_QB 0 // prob q and qb of all the cells in 64x32 array
 #define PROB_ALL_FIRST_COLUMN_CELL 0 // prob all signals of the first column
 
@@ -203,6 +203,7 @@ int main(int argc, char *argv[])
 #endif
     out << endl;
 
+    out << "xor_wenq_buf_row_dec_en WENq_buf ROW_DEC_EN COL_DRIVER_EN OR2 NFIN_SIZE=16" << endl;
 #if POST_SIMULATION
     // refer to: COL_DRIVER_ARRAY.pex.netlist
     // .subckt COL_DRIVER_ARRAY  VSS VDD WEN WEN_BL16 WEN_BL0 WEN_BL4 WEN_BL20
@@ -216,7 +217,7 @@ int main(int argc, char *argv[])
     // + WEN_BLB27 WEN_BLB11 WEN_BLB15 WEN_BLB31 IN D0 D4 D1 D5 D8 D12 D9 D13 D2 D6 D3
     // + D7 D10 D14 D11 D15 VSS_SUB VDD_W2 VDD_W3 VDD_W1 VDD_W0 VDD_W4
     out << "Xcol_driver_array_w" << endl;
-    out << "+ VSS VDD WENq_buf WEN_BL16 WEN_BL0 WEN_BL4 WEN_BL20" << endl;
+    out << "+ VSS VDD COL_DRIVER_EN WEN_BL16 WEN_BL0 WEN_BL4 WEN_BL20" << endl;
     out << "+ WEN_BLB16 WEN_BLB0 WEN_BLB4 WEN_BLB20 WEN_BL17 WEN_BL1 WEN_BL5 WEN_BL21" << endl;
     out << "+ WEN_BLB17 WEN_BLB1 WEN_BLB5 WEN_BLB21 WEN_BL24 WEN_BL8 WEN_BL12 WEN_BL28" << endl;
     out << "+ WEN_BLB24 WEN_BLB8 WEN_BLB12 WEN_BLB28 WEN_BL25 WEN_BL9 WEN_BL13 WEN_BL29" << endl;
@@ -227,7 +228,7 @@ int main(int argc, char *argv[])
     out << "+ WEN_BLB27 WEN_BLB11 WEN_BLB15 WEN_BLB31 A0q_buf D0q_buf D4q_buf D1q_buf D5q_buf D8q_buf D12q_buf D9q_buf D13q_buf D2q_buf D6q_buf D3q_buf" << endl;
     out << "+ D7q_buf D10q_buf D14q_buf D11q_buf D15q_buf VSS_SUB VDD_W VDD_W VDD_W VDD_W VDD_W" << endl;
 #else
-    out << "Xcol_driver_array_w A0q_buf WENq_buf" << endl;
+    out << "Xcol_driver_array_w A0q_buf COL_DRIVER_EN" << endl;
     for(int i=0; i<2; i++) {
         out << "+ ";
         for(int j=0; j<8; j++) {
