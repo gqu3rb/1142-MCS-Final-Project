@@ -6,7 +6,8 @@
 #include <iomanip> // for setprecision(3)
 
 // Simulation Options
-#define POST_SIMULATION 0 // 0: pre-sim; 1: post-sim
+#define POST_SIMULATION 1 // 0: pre-sim; 1: post-sim
+#define ADJUST_TIMING_VER 0 // read write address 0x01 test, priority higher than SHORT_SIMULATION_VER
 #define SHORT_SIMULATION_VER 1 // short simulation ver only test the first 8 rows
 #define PROB_ALL_SIGNAL 0
 #define PROB_EACH_CELL_Q_QB 0 // prob q and qb of all the cells in 64x32 array
@@ -17,7 +18,7 @@
 #define INCLUDE_BIT_CAP 0
 #define VDD_VAL 0.7
 #define T_BOOT 4.0 // ns boot delay
-// Recall: Final Project.pdf, P.3: The rise time and fall time of all inputs are 50ps respectively. 
+// Recall: Final Project.pdf, P.3: The rise time and fall time of all inputs are 50ps respectively.
 #define RISE_FALL_TIME 0.05 // rise time and fall time are all 50ps
 // Recall: Final Project.pdf, P.3: The minimum frequency of this SRAM is 1GHz.
 #define CLK_PERIOD 1.0 // clock period 1ns (operating frequency 1GHz)
@@ -25,9 +26,9 @@
 // Read/Write Operation Timing Settings {{
 // for write operation
 //#define WL_PHASE_WRITE CLK_PERIOD
-// disable WL in advance to prevent from writing the wrong value due to 
+// disable WL in advance to prevent from writing the wrong value due to
 // the precharge stage in the next read/write operation
-#define WL_PHASE_WRITE 7*CLK_PERIOD/8 
+#define WL_PHASE_WRITE 7*CLK_PERIOD/8
 
 // for read operation
 #define PRE_PHASE 3*CLK_PERIOD/8
@@ -51,8 +52,18 @@ inline void print_ports(ofstream& out, string port_name, int port_num, int num_p
     }
 }
 
+inline void print_ports_suffix(ofstream& out, string port_name, string suffix, int port_num, int num_per_line) {
+    for(int i=0; i<port_num/num_per_line; i++) {
+        out << "+ ";
+        for(int j=0; j<num_per_line; j++) {
+            out << port_name << i*num_per_line+j << suffix << " ";
+        }
+        out << endl;
+    }
+}
+
 // print_probe_tran("A", 4) will print:
-// .probe tran v(A0) v(A1) v(A2) v(A3) 
+// .probe tran v(A0) v(A1) v(A2) v(A3)
 inline void print_probe_tran(ofstream& out, string port_name, int port_num) {
     out << ".probe tran ";
     for(int i=0; i<port_num; i++) out << "v(" << port_name << i << ") ";
@@ -116,7 +127,7 @@ int main(int argc, char *argv[])
     // BUF sub-circuit is in DFF.sp
     // .SUBCKT BUF IN OUT
     out << "xbuf_clk CLK CLK_in BUF" << endl;
-    out << "xbuf_clk4 CLK_in CLK_in4 BUF" << endl;
+    out << "xbuf_clk4 CLK_in CLK_in4 BUF NFIN_SIZE=2" << endl;
     out << "xbuf_wen WEN WEN_in BUF" << endl;
     for(int i=0; i<7; i++) {
         out << "xbuf_a" << i << " A" << i << " A" << i << "in BUF" << endl;
@@ -126,15 +137,15 @@ int main(int argc, char *argv[])
     }
     out << endl;
 
-    // buffers for addr in DFF
-    out << "xbuf_clk_addr CLK_in4 CLK_in4_a BUF NFIN_SIZE=4" << endl; 
+    // clock buffers for addr DFF
+    out << "xbuf_clk_addr CLK_in4 CLK_in4_a BUF NFIN_SIZE=4" << endl;
     for(int i=0; i<7; i++) {
         out << "xdff_a" << i << " CLK_in4_a" << " A" << i << "in" << " A" << i << "q DFF" << endl;
     }
-    // buffers for data in DFF
-    out << "xbuf_clk_data1 CLK_in4 CLK_in4_d1 BUF NFIN_SIZE=4" << endl; 
+    // clock buffers for data DFF
+    out << "xbuf_clk_data1 CLK_in4 CLK_in4_d1 BUF NFIN_SIZE=4" << endl;
     for (int i=0; i<4; i++) {
-        out << "xbuf_clk_data2" << i << " CLK_in4_d1 CLK_in4_d2" << i << " BUF NFIN_SIZE=4" << endl; 
+        out << "xbuf_clk_data2" << i << " CLK_in4_d1 CLK_in4_d2" << i << " BUF NFIN_SIZE=4" << endl;
     }
     for(int i=0; i<16; i++) {
         out << "xdff_d" << i << " CLK_in4_d2" << i/4 << " D" << i << "in" << " D" << i << "q DFF" << endl;
@@ -144,24 +155,45 @@ int main(int argc, char *argv[])
     //out << "xdff_saen SAEN CLK_in4 SAENq DFF" << endl;
     out << endl;
 
+    // buffers for addr DFF output
+    for(int i=0; i<7; i++) {
+        out << "xbuf_a" << i << "q" << " A" << i << "q" << " A" << i << "q_buf BUF NFIN_SIZE=4" << endl;
+    }
+    // buffers for data DFF output
+    for(int i=0; i<16; i++) {
+        out << "xbuf_d" << i << "q" << " D" << i << "q" << " D" << i << "q_buf BUF NFIN_SIZE=4" << endl;
+    }
+    // buffers for wen DFF out
+    out << "xbuf_wenq WENq WENq_buf BUF NFIN_SIZE=4" << endl;
+
     out << "* 呼叫 Row Decoder (注意：引腳順序必須跟上面定義的完全一模一樣)" << endl;
-    out << "xdecoder A6q A5q A4q A3q A2q A1q ROW_DEC_EN" << endl;
+    out << "xdecoder A6q_buf A5q_buf A4q_buf A3q_buf A2q_buf A1q_buf ROW_DEC_EN" << endl;
     print_ports(out, "WL", 64, 16);
     out << "+ ROW_DEC_6to64" << endl;
     out << endl;
 
+    // buffers for wl
+    for(int i=0; i<64; i++) {
+        out << "xbuf_wl1" << i << " WL" << i << " WL" << i << "_buf1 BUF NFIN_SIZE=4" << endl;
+        out << "xbuf_wl2" << i << " WL" << i << "_buf1 WL" << i << "_buf2 BUF NFIN_SIZE=8" << endl;
+    }
+
     out << "XARRAY_TOP PRE SAEN VDD VSS VDD_W VSS_SUB " << endl;
-    print_ports(out, "WL", 64, 16);
+    print_ports_suffix(out, "WL", "_buf2", 64, 16);
     //out << "+ SENSE_OUT0  SENSE_OUTB0  WEN_BL0  WEN_BLB0" << endl;
     //out << "+ SENSE_OUT1  SENSE_OUTB1  WEN_BL1  WEN_BLB1" << endl;
     //...
     //out << "+ SENSE_OUT31 SENSE_OUTB31 WEN_BL31 WEN_BLB31" << endl;
-    for(int i=0; i<32; i++) {
-        out << "+ SENSE_OUT" << i << " SENSE_OUTB" << i << " WEN_BL" << i << " WEN_BLB" << i << endl;
-    }
 #if POST_SIMULATION
+    // refer to: WriteDriver_layout.sp
+    for(int i=0; i<32; i++) {
+        out << "+ SENSE_OUT" << i << " SENSE_OUTB" << i << " WEN_BLB_BUF_OUT" << i << " WEN_BL_BUF_OUT" << i << endl;
+    }
     out << "+ SRAM_Array_64x32_with_SA" << endl;
 #else
+    for(int i=0; i<32; i++) {
+        out << "+ SENSE_OUT" << i << " SENSE_OUTB" << i << " WEN_BL_BUF_OUT" << i << " WEN_BLB_BUF_OUT" << i << endl;
+    }
     out << "+ SRAM_Array_64x32" << endl;
 #endif
     out << endl;
@@ -179,7 +211,7 @@ int main(int argc, char *argv[])
     // + WEN_BLB27 WEN_BLB11 WEN_BLB15 WEN_BLB31 IN D0 D4 D1 D5 D8 D12 D9 D13 D2 D6 D3
     // + D7 D10 D14 D11 D15 VSS_SUB VDD_W2 VDD_W3 VDD_W1 VDD_W0 VDD_W4
     out << "Xcol_driver_array_w" << endl;
-    out << "+ VSS VDD WENq WEN_BL16 WEN_BL0 WEN_BL4 WEN_BL20" << endl;
+    out << "+ VSS VDD WENq_buf WEN_BL16 WEN_BL0 WEN_BL4 WEN_BL20" << endl;
     out << "+ WEN_BLB16 WEN_BLB0 WEN_BLB4 WEN_BLB20 WEN_BL17 WEN_BL1 WEN_BL5 WEN_BL21" << endl;
     out << "+ WEN_BLB17 WEN_BLB1 WEN_BLB5 WEN_BLB21 WEN_BL24 WEN_BL8 WEN_BL12 WEN_BL28" << endl;
     out << "+ WEN_BLB24 WEN_BLB8 WEN_BLB12 WEN_BLB28 WEN_BL25 WEN_BL9 WEN_BL13 WEN_BL29" << endl;
@@ -187,14 +219,14 @@ int main(int argc, char *argv[])
     out << "+ WEN_BLB18 WEN_BLB2 WEN_BLB6 WEN_BLB22 WEN_BL19 WEN_BL3 WEN_BL7 WEN_BL23" << endl;
     out << "+ WEN_BLB19 WEN_BLB3 WEN_BLB7 WEN_BLB23 WEN_BL26 WEN_BL10 WEN_BL14 WEN_BL30" << endl;
     out << "+ WEN_BLB26 WEN_BLB10 WEN_BLB14 WEN_BLB30 WEN_BL27 WEN_BL11 WEN_BL15 WEN_BL31" << endl;
-    out << "+ WEN_BLB27 WEN_BLB11 WEN_BLB15 WEN_BLB31 A0q D0q D4q D1q D5q D8q D12q D9q D13q D2q D6q D3q" << endl;
-    out << "+ D7q D10q D14q D11q D15q VSS_SUB VDD_W VDD_W VDD_W VDD_W VDD_W" << endl;
+    out << "+ WEN_BLB27 WEN_BLB11 WEN_BLB15 WEN_BLB31 A0q_buf D0q_buf D4q_buf D1q_buf D5q_buf D8q_buf D12q_buf D9q_buf D13q_buf D2q_buf D6q_buf D3q_buf" << endl;
+    out << "+ D7q_buf D10q_buf D14q_buf D11q_buf D15q_buf VSS_SUB VDD_W VDD_W VDD_W VDD_W VDD_W" << endl;
 #else
-    out << "Xcol_driver_array_w A0q WENq" << endl;
+    out << "Xcol_driver_array_w A0q_buf WENq_buf" << endl;
     for(int i=0; i<2; i++) {
         out << "+ ";
         for(int j=0; j<8; j++) {
-            out << "D" << i*8+j << "q ";
+            out << "D" << i*8+j << "q_buf ";
         }
         out << endl;
     }
@@ -205,6 +237,11 @@ int main(int argc, char *argv[])
 #endif
     out << "+ COL_DRIVER_ARRAY" << endl;
     out << endl;
+
+for(int i=0; i<32; i++) {
+    out << "xbuf_wen_bl" << i << " WEN_BL" << i << " WEN_BL_BUF_OUT" << i << " BUF NFIN_SIZE=4" << endl;
+    out << "xbuf_wen_blb" << i << " WEN_BLB" << i << " WEN_BLB_BUF_OUT" << i << " BUF NFIN_SIZE=4" << endl;
+}
 
 #if POST_SIMULATION
     // refer to: COL_SEL.pex.netlist
@@ -222,7 +259,7 @@ int main(int argc, char *argv[])
     // + SENSE_OUTB25 SENSE_OUT25 SENSE_OUTB10 SENSE_OUT10 SENSE_OUTB26 SENSE_OUT26
     // + SENSE_OUTB11 SENSE_OUT11 SENSE_OUTB27 SENSE_OUT27 VSS_SUB VDD_W0 VDD_W1
     out << "Xcol_selector_r" << endl;
-    out << "+ VSS VDD WENq A0q QB0 Q0 QB4 Q4 QB1 Q1 QB5 Q5 QB2 Q2 QB6 Q6 QB3 Q3" << endl;
+    out << "+ VSS VDD WENq_buf A0q_buf QB0 Q0 QB4 Q4 QB1 Q1 QB5 Q5 QB2 Q2 QB6 Q6 QB3 Q3" << endl;
     out << " + QB7 Q7 QB12 Q12 QB8 Q8 QB13 Q13 QB9 Q9 QB14 Q14 QB10 Q10 QB15 Q15 QB11 Q11" << endl;
     out << " + SENSE_OUTB0 SENSE_OUT0 SENSE_OUTB16 SENSE_OUT16 SENSE_OUTB1 SENSE_OUT1" << endl;
     out << " + SENSE_OUTB17 SENSE_OUT17 SENSE_OUTB2 SENSE_OUT2 SENSE_OUTB18 SENSE_OUT18" << endl;
@@ -236,7 +273,7 @@ int main(int argc, char *argv[])
     out << " + SENSE_OUTB25 SENSE_OUT25 SENSE_OUTB10 SENSE_OUT10 SENSE_OUTB26 SENSE_OUT26" << endl;
     out << " + SENSE_OUTB11 SENSE_OUT11 SENSE_OUTB27 SENSE_OUT27 VSS_SUB VDD_W VDD_W" << endl;
 #else
-    out << "Xcol_selector_r A0q WENq" << endl;
+    out << "Xcol_selector_r A0q_buf WENq_buf" << endl;
     print_ports(out, "Q", 16, 8);
     print_ports(out, "QB", 16, 8);
     print_ports(out, "SENSE_OUT", 32, 8);
@@ -244,6 +281,12 @@ int main(int argc, char *argv[])
     out << "+ VDD VSS VDD_W VDD_W VSS_SUB" << endl;
 #endif
     out << "+ COL_SEL" << endl;
+
+    // output dff
+    out << "xbuf_clk_q CLK_in4 CLK_in4_q BUF NFIN_SIZE=4" << endl;
+    for(int i=0; i<16; i++) {
+        out << "xdff_q" << i << " CLK_in4_q" << " Q" << i << " Q" << i << "out DFF" << endl;
+    }
     out << endl;
 
     out << "*****************************" << endl;
@@ -267,10 +310,12 @@ int main(int argc, char *argv[])
     out << "*CBL  BL  GND BITCAP" << endl;
 #endif
     out << endl;
-  
+
     // vvvvv please complete the parts there vvvvv
     // ── Timing constants ───────────────────────────────────────────────────
-#if SHORT_SIMULATION_VER
+#if ADJUST_TIMING_VER
+    const int N_OPS = 2;
+#elif SHORT_SIMULATION_VER
     const int N_OPS = 16;    // short ver: test addr 0~15 only
 #else
     const int N_OPS = 128;   // full ver:  test all addr 0~127
@@ -341,10 +386,10 @@ int main(int argc, char *argv[])
         double Ts; // start time in a single cycle
         double activate_len;
         if(k%2) { // read cycles
-            Ts = Tr + PRE_PHASE; 
+            Ts = Tr + PRE_PHASE;
             activate_len = WL_PHASE_READ;
         } else { // write cycles
-            Ts = Tr; 
+            Ts = Tr;
             activate_len = WL_PHASE_WRITE;
         }
 
@@ -376,6 +421,28 @@ int main(int argc, char *argv[])
     out << ")" << endl;
     out << endl;
 
+#if ADJUST_TIMING_VER
+    out << "VA0 A0 GND " << VDD_VAL << "V" << endl;
+    for(int i=1; i<=6; i++) {
+        out << "VA" << i << " " << "A" << i << " GND 0V" << endl;
+    }
+
+    // ── D0~D15 (data) ──────────────────────────────────────────────────────
+    // write 0000
+    // read (D=FFFF to test if D changes Q)
+    // write FFFF
+    // read (D=0000 to test if D changes Q)
+    int pattern[4] = {0, 1, 1, 0};
+    for (int d = 0; d < 16; d++) {
+        out << "Vd" << d << " D" << d << " GND PWL(0ns " << pattern[0]*VDD_VAL << "V";
+        for (int c = 1; c <= 3; c++) {
+            double Tt = T_BOOT + (c - 1) * CLK_PERIOD + RISE_FALL_TIME;
+            out << " " << Tt << "ns " << pattern[c-1] * VDD_VAL << "V" // last pattern value to fullfill the hold time of Din dff
+                << " " << (Tt + RISE_FALL_TIME) << "ns " << pattern[c] * VDD_VAL << "V";
+        }
+        out << ")" << endl;
+    }
+#else
     // ── A0~A6 (address) ────────────────────────────────────────────────────
     // addr(c) = c/2 : the SAME address is held across its write and read cycles.
     // A_n = bit n of addr.  (For addr 0..63, A6 stays 0.)
@@ -421,11 +488,15 @@ int main(int argc, char *argv[])
         }
         out << ")" << endl;
     }
+#endif
+
     // ^^^^^ please complete the parts there ^^^^^
 
     out << "*****************************" << endl;
     out << "**    Initial Conditions   **" << endl;
     out << "*****************************" << endl;
+#if POST_SIMULATION
+#else
     out << "* Do not modify the initial conditions for BL and BLB, which are both 0V." << endl;
     out << "* We assume there is no initial voltage on the bitlines before precharge." << endl;
     for(int i=0; i<32; i++) {
@@ -443,6 +514,7 @@ int main(int argc, char *argv[])
         }
     }
     out << endl;
+#endif
 
     out << "*****************************" << endl;
     out << "**    Simulator setting    **" << endl;
@@ -465,11 +537,10 @@ int main(int argc, char *argv[])
 
     print_probe_tran_suffix(out, "A", "in", 7);
     print_probe_tran_suffix(out, "D", "in", 16);
-    print_probe_tran(out, "Q", 16);
-    print_probe_tran(out, "QB", 16);
-    print_probe_tran_suffix(out, "A", "q", 7);
-    print_probe_tran_suffix(out, "D", "q", 16);
-    out << ".probe tran v(CLK_in4) v(PRE) v(SAEN) v(WEN_in) v(WENq)" << endl;
+    print_probe_tran_suffix(out, "Q", "out", 16);
+    print_probe_tran_suffix(out, "A", "q_buf", 7);
+    print_probe_tran_suffix(out, "D", "q_buf", 16);
+    out << ".probe tran v(CLK_in4) v(PRE) v(SAEN) v(WEN_in) v(WENq_buf)" << endl;
     out << ".probe tran v(ROW_DEC_EN)" << endl; // temporal behavioral ROW_DEC_EN to simulate the global controller output
 #if PROB_EACH_CELL_Q_QB
     for(int i=0; i<64; i++) {
@@ -491,16 +562,34 @@ int main(int argc, char *argv[])
     out << ".probe tran v(XARRAY_TOP.xCOL0" << ".sense" << ")" << endl;
     out << ".probe tran v(XARRAY_TOP.xCOL0" << ".senseb" << ")" << endl;
     for(int i=0; i<64; i++) {
-        out << ".probe tran v(XARRAY_TOP.xCOL0" << ".WL" << i << ")" << endl;
+        out << ".probe tran v(XARRAY_TOP.xCOL0" << ".WL" << i << "_buf2" << ")" << endl;
         out << ".probe tran v(XARRAY_TOP.xCOL0" << ".q" << i << ")" << endl;
         out << ".probe tran v(XARRAY_TOP.xCOL0" << ".qb" << i << ")" << endl;
     }
 #endif
 
+#if ADJUST_TIMING_VER
+    out << ".probe tran v(PRE" << ")" << endl;
+    out << ".probe tran v(SAEN" << ")" << endl;
+    out << ".probe tran v(ROW_DEC_EN" << ")" << endl;
+    out << ".probe tran v(WL0_buf2" << ")" << endl;
+    out << ".probe tran v(WEN_BL31" << ")" << endl;
+    out << ".probe tran v(WEN_BLB31" << ")" << endl;
+    out << ".probe tran v(WEN_BL_BUF_OUT31" << ")" << endl;
+    out << ".probe tran v(WEN_BLB_BUF_OUT31" << ")" << endl;
+    out << ".probe tran v(XARRAY_TOP.xSRAM_Array_64x32.BL31" << ")" << endl;
+    out << ".probe tran v(XARRAY_TOP.xSRAM_Array_64x32.BLB31" << ")" << endl;
+    out << ".probe tran v(SENSE_OUT31" << ")" << endl;
+    out << ".probe tran v(SENSE_OUTB31" << ")" << endl;
+#endif
+    out << endl;
+
     out << ".tran 0.05ns " << T_SIM << "ns" << endl;
     out << "* N_OPS=" << N_OPS << ", N_CYC=" << N_CYC
         << ", T_SIM=" << T_SIM << "ns" << endl;
 
+#if ADJUST_TIMING_VER
+#else
     //.measure TRAN Avg_read_pwr avg POWER from=4n to=5n
 
     //.measure tran row_0_write_verify FIND v(Q0) WHEN v(CLK)=0.35 RISE=3
@@ -518,5 +607,7 @@ int main(int argc, char *argv[])
             << "FIND v(QB" << i%16 << ") "
             << "WHEN v(CLK)=0.35 RISE=" << 3+i*2 << endl;
     }
+#endif
+
     return 0;
 }
