@@ -46,15 +46,15 @@ int main(int argc, char *argv[])
     out << "xbuf_pre_out PRE_small PRE BUF NFIN_SIZE=16" << endl;
     out << endl;
 
-    out << "xbuf_clk230p_1 CLK buf_clk230p_1 BUF" << endl;
-    for(int i=2; i<=41; i++) {
-        out << "xbuf_clk230p_" << i << " buf_clk230p_" << i-1 << " buf_clk230p_" << i << " BUF" << endl;
+    out << "xbuf_clk160p_1 CLK buf_clk160p_1 BUF" << endl;
+    for(int i=2; i<=28; i++) {
+        out << "xbuf_clk160p_" << i << " buf_clk160p_" << i-1 << " buf_clk160p_" << i << " BUF" << endl;
     }
     out << "xbuf_clk500p_1 CLK buf_clk500p_1 BUF" << endl;
     for(int i=2; i<=89; i++) {
         out << "xbuf_clk500p_" << i << " buf_clk500p_" << i-1 << " buf_clk500p_" << i << " BUF" << endl;
     }
-    out << "xmux21 buf_clk500p_89 buf_clk230p_41 WEN xmux21_row_dec_en MUX21" << endl;
+    out << "xmux21 buf_clk500p_89 buf_clk160p_28 WEN xmux21_row_dec_en MUX21" << endl;
     out << "xor_row_dec_en CLK xmux21_row_dec_en or_row_dec_en OR2" << endl;
     out << "xnand_row_dec_en or_row_dec_en PRE ROW_DEC_EN_small NAND2 NFIN_SIZE=4" << endl;
     out << "xbuf_row_dec_en ROW_DEC_EN_small ROW_DEC_EN BUF NFIN_SIZE=16" << endl;
