@@ -1,0 +1,91 @@
+### Custom WaveView session file (version T-2022.06 build May 21, ) ###
+### saved at 05:20:53 on Tue Jun 30 2026 ###
+wdf 0 "/RAID2/COURSE/2026_Spring/es26mcs/es26mcs061/FinalProject/obj/read_write_SRAM_array_64x32_tb.tr0" load=used 
+scalar list
+waveview_begin 9  stack  offset=0 name_b=184 mntr_b=239 name_width=169 mcur=6.10725535065285e-09 vc=cur-pnl "name=waveview 1" 
+  panel_begin linear pidx=0 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(clk_in)" attr=0:0:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=1 nvpos=0 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(a0q_buf)" attr=1:7:1:0 autoset=true disp=show 
+    line src=wdf lidx=1 fidx=0 "delim=." sigtype=1 "name=v(a1q_buf)" attr=2:0:1:0 autoset=true disp=show 
+    line src=wdf lidx=2 fidx=0 "delim=." sigtype=1 "name=v(a2q_buf)" attr=3:1:1:0 autoset=true disp=show 
+    line src=wdf lidx=3 fidx=0 "delim=." sigtype=1 "name=v(a3q_buf)" attr=4:2:1:0 autoset=true disp=show 
+    line src=wdf lidx=4 fidx=0 "delim=." sigtype=1 "name=v(a4q_buf)" attr=5:3:1:0 autoset=true disp=show 
+    line src=wdf lidx=5 fidx=0 "delim=." sigtype=1 "name=v(a5q_buf)" attr=6:4:1:0 autoset=true disp=show 
+    line src=wdf lidx=6 fidx=0 "delim=." sigtype=1 "name=v(a6q_buf)" attr=7:5:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=2 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(d15q_buf)" attr=0:6:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=3 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(wenq_buf)" attr=7:5:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=4 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(pre)" attr=2:2:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=5 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(wl0)" attr=4:4:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=6 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(saen)" attr=1:1:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=7 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=xarray_top.xcol31.v(bl)" attr=3:0:1:0 autoset=true disp=show 
+    line src=wdf lidx=1 fidx=0 "delim=." sigtype=1 "name=xarray_top.xcol31.v(blb)" attr=4:1:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=8 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=xarray_top.xcol31.v(q0)" attr=1:5:1:0 autoset=true disp=show 
+    line src=wdf lidx=1 fidx=0 "delim=." sigtype=1 "name=xarray_top.xcol31.v(qb0)" attr=2:6:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=9 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(wen_bl_buf_out31)" attr=2:6:1:0 autoset=true disp=show 
+    line src=wdf lidx=1 fidx=0 "delim=." sigtype=1 "name=v(wen_blb_buf_out31)" attr=3:7:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=10 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=5.95046439628483e-09 xmax=7.23839009287926e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(sense_out31)" attr=7:2:1:0 autoset=true disp=show 
+    line src=wdf lidx=1 fidx=0 "delim=." sigtype=1 "name=v(sense_outb31)" attr=0:3:1:0 autoset=true disp=show 
+  panel_end
+waveview_end
+waveview_begin 10  stack  offset=0 name_b=175 mntr_b=221 name_width=160 mcur=6.02792721997219e-09 vc=cur-pnl "name=waveview 1" 
+  panel_begin linear pidx=0 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=6.00734843845683e-09 xmax=7.16472749540723e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(clk_in)" attr=0:0:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=1 nvpos=0 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=6.00734843845683e-09 xmax=7.16472749540723e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(a0q_buf)" attr=1:7:1:0 autoset=true disp=show 
+    line src=wdf lidx=1 fidx=0 "delim=." sigtype=1 "name=v(a1q_buf)" attr=2:0:1:0 autoset=true disp=show 
+    line src=wdf lidx=2 fidx=0 "delim=." sigtype=1 "name=v(a2q_buf)" attr=3:1:1:0 autoset=true disp=show 
+    line src=wdf lidx=3 fidx=0 "delim=." sigtype=1 "name=v(a3q_buf)" attr=4:2:1:0 autoset=true disp=show 
+    line src=wdf lidx=4 fidx=0 "delim=." sigtype=1 "name=v(a4q_buf)" attr=5:3:1:0 autoset=true disp=show 
+    line src=wdf lidx=5 fidx=0 "delim=." sigtype=1 "name=v(a5q_buf)" attr=6:4:1:0 autoset=true disp=show 
+    line src=wdf lidx=6 fidx=0 "delim=." sigtype=1 "name=v(a6q_buf)" attr=7:5:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=2 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=6.00734843845683e-09 xmax=7.16472749540723e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(d15q_buf)" attr=2:5:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=3 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=6.00734843845683e-09 xmax=7.16472749540723e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(wenq_buf)" attr=7:5:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=4 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=6.00734843845683e-09 xmax=7.16472749540723e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(pre)" attr=2:2:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=5 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=6.00734843845683e-09 xmax=7.16472749540723e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(wl0)" attr=4:2:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=6 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=6.00734843845683e-09 xmax=7.16472749540723e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(saen)" attr=1:7:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=7 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=6.00734843845683e-09 xmax=7.16472749540723e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=xarray_top.xcol31.v(bl)" attr=3:0:1:0 autoset=true disp=show 
+    line src=wdf lidx=1 fidx=0 "delim=." sigtype=1 "name=xarray_top.xcol31.v(blb)" attr=4:1:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=8 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=6.00734843845683e-09 xmax=7.16472749540723e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=xarray_top.xcol31.v(q0)" attr=1:5:1:0 autoset=true disp=show 
+    line src=wdf lidx=1 fidx=0 "delim=." sigtype=1 "name=xarray_top.xcol31.v(qb0)" attr=2:6:1:0 autoset=true disp=show 
+  panel_end
+  panel_begin linear pidx=9 spath=name+file xlabel="TIME(sec)" ylabel="V" xmin=6.00734843845683e-09 xmax=7.16472749540723e-09 
+    line src=wdf lidx=0 fidx=0 "delim=." sigtype=1 "name=v(sense_out31)" attr=7:2:1:0 autoset=true disp=show 
+    line src=wdf lidx=1 fidx=0 "delim=." sigtype=1 "name=v(sense_outb31)" attr=0:3:1:0 autoset=true disp=show 
+  panel_end
+waveview_end
+browserClosed
